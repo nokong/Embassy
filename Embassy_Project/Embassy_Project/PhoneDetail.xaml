@@ -1,0 +1,1190 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:Embassy_Project" 
+	mc:Ignorable="d"
+	x:Class="Embassy_Project.PhoneDetail"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="3840" Height="1080">
+	<UserControl.Resources>
+		<Storyboard x:Key="Detail_in">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="img_Table">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img_Table">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="CameraiTime">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img_Table">
+				<EasingDoubleKeyFrame KeyTime="0" Value="69"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="69"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CameraiTime">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="CameraiTime">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-204"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-207"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-18"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Decition_Text">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.25"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="Decition_Text">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static HorizontalAlignment.Left}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="priceText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.25"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Decition_Text_Copy1">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.25"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="WhiteNAmeText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.25"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Decition_Text">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-98"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-98"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="priceText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-98"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-98"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Decition_Text_Copy1">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-98"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-98"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="WhiteNAmeText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-98"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-98"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-40"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img_Table">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img_RectLogo">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="3"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="3"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img_RectLogo">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img_RectLogo">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_OS">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-30"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_OSHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-30"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="OSText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-30"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_OS">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_OSHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OSText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="priceText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="2"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image_CPU">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="3"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="3"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="text_CPUHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="3"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="3"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="CPUText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="3"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="3"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_CPU">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_CPUHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CPUText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_CPU">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_CPUHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="CPUText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_Store">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_StroageHeadtext">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StroageText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_Store">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_StroageHeadtext">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="StroageText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="DimensionText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="-30"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_dimension">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="-30"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DimensionText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_dimension">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BateryText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_battery">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="BateryText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_battery">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BatteryLifeText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0.995"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_phone">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0.995"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="BatteryLifeText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_phone">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="VideoText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_video">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="VideoText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_video">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="-27"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PromotionPic">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PromotionPic">
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PromotionPic">
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_special1">
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="image_special1">
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="1.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="image_special1">
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="1.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_speical2">
+				<EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.9" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="image_speical2">
+				<EasingDoubleKeyFrame KeyTime="0:0:2.9" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="image_speical2">
+				<EasingDoubleKeyFrame KeyTime="0:0:2.9" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="phoneModel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="phoneModel">
+				<EasingThicknessKeyFrame KeyTime="0" Value="833.497,183.577,0,58.423"/>
+			</ThicknessAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="phoneModel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-9"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="phoneModel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="4"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="ResetState">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img_Table">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img_RectLogo">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Decition_Text">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="priceText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Decition_Text_Copy1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_OS">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_CPU">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_Store">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_OSHeadText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OSText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_CPUHeadText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CPUText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_StroageHeadtext">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StroageText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="WhiteNAmeText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DimensionText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BateryText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BatteryLifeText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="VideoText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_video">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_phone">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_battery">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_dimension">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PromotionPic">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CameraiTime">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_special1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_speical2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Detail_Out">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img_Table">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Decition_Text">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.75"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="priceText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.75"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Decition_Text_Copy1">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.75"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_OS">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_CPU">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_Store">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_OSHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OSText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_CPUHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CPUText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_StroageHeadtext">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StroageText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="WhiteNAmeText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.75"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DimensionText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BateryText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BatteryLifeText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="VideoText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_video">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_phone">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_battery">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_dimension">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PromotionPic">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CameraiTime">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.75"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_special1">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image_speical2">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img_Table">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="69"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img_RectLogo">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Decition_Text">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-93"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="priceText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-90"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Decition_Text_Copy1">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-90"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_OS">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_OSHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="OSText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_CPU">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_CPUHeadText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="CPUText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_Store">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_StroageHeadtext">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="StroageText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-30"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="WhiteNAmeText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-90"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="CameraiTime">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-240"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="DimensionText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_dimension">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="BateryText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_battery">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="BatteryLifeText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_phone">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="VideoText">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image_video">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="phoneModel">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.75"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="phoneModel">
+				<EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="833.497,187.81,0,54.19"/>
+				<EasingThicknessKeyFrame KeyTime="0:0:1.2" Value="833.497,183.577,0,58.423"/>
+			</ThicknessAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="phoneModel">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-152"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="offer_animation" RepeatBehavior="Forever">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PromotionPic">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PromotionPic">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PromotionPic">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="unjai animation">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="11.22"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="11.22"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="11.22"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="11.22"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-1720"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-1700"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-1700"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="-1700"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="155"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-95"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-95"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="148"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="unjai2_animation">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-1696"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-1696"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-1216"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-1204"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-1204"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="-1204"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="-1524"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-340"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-340"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-340"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-264"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-264"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="-348"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="-348"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Intro_Start">
+			<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="IntroPhonePic">
+				<EasingThicknessKeyFrame KeyTime="0" Value="-600,185.8,0,0"/>
+				<EasingThicknessKeyFrame KeyTime="0:0:0.7" Value="833.497,185.8,0,0"/>
+				<EasingThicknessKeyFrame KeyTime="0:0:3.3" Value="833.497,185.8,0,0"/>
+			</ThicknessAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="82"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="82"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.9" Value="82"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="82"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="82"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.9" Value="82"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="IntroNameText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="IntroNameText">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="-210"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+				<EasingColorKeyFrame KeyTime="0:0:1.4" Value="White"/>
+				<EasingColorKeyFrame KeyTime="0:0:3.3" Value="White"/>
+				<EasingColorKeyFrame KeyTime="0:0:3.9" Value="White"/>
+			</ColorAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image2">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.9" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="IntroPhonePic">
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Intro_Reverse">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0" Value="82"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="82"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0" Value="82"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="82"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="IntroNameText">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="IntroPhonePic">
+				<EasingThicknessKeyFrame KeyTime="0" Value="833.437,185.8,0,0"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="animation_right">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img_Table">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource animation_right}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+
+	
+	<Grid x:Name="MainScene" RenderTransformOrigin="0.5,0.5">
+		<Grid.LayoutTransform>
+			<TransformGroup>
+				<ScaleTransform ScaleY="1" ScaleX="1"/>
+				<SkewTransform AngleY="0" AngleX="0"/>
+				<RotateTransform Angle="0"/>
+				<TranslateTransform/>
+			</TransformGroup>
+		</Grid.LayoutTransform>
+		<Grid x:Name="Detail_Scene" Margin="0,0,0,-4">
+			<Image x:Name="BG" Source="pack://siteoforigin:,,,/Resources/Detailpage_BG.png" HorizontalAlignment="Left" VerticalAlignment="Top" Height="1084" d:LayoutOverrides="GridBox" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="img_Table" Margin="603.214,812.333,0,0" Source="Resources/tabledesk.png" Stretch="Fill" d:LayoutOverrides="GridBox" HorizontalAlignment="Left" Width="3039.786" VerticalAlignment="Top" Height="267.667" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="image" HorizontalAlignment="Right" Margin="0,0,-956.727,-431.647" Source="unjai2.png" Stretch="Fill" Width="391.227" Height="374.978" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="image1" Margin="0,0,-733.621,36.857" Source="unjai1.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="433.675" Height="381.336" VerticalAlignment="Bottom">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="12.062"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="img_RectLogo" Margin="114.5,99.5,0,0" Source="Resources/rectangular_nametext.png" Stretch="Fill" Height="149" VerticalAlignment="Top" HorizontalAlignment="Left" Width="518.653" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<TextBlock x:Name="Decition_Text" Height="112" Margin="128.583,269.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="DB HelvethaicaAIS X 55 Regular" FontSize="58.667" Foreground="White" LineStackingStrategy="BlockLineHeight" LineHeight="53.333" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Opacity="0"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Language="th-th" Text="สัมผัสประสบการณ์ใหม่"/><LineBreak/><Run Language="th-th" Text="จากกาแลคซี่โน๊ตสาม"/></TextBlock>
+			<TextBlock x:Name="priceText" HorizontalAlignment="Left" Margin="123.583,362.5,0,0" TextWrapping="Wrap" Width="282.5" FontFamily="DB HelvethaicaAIS X 55 Regular" FontSize="112" Foreground="White" Text="23,500.-" VerticalAlignment="Top" Height="107.577" d:LayoutOverrides="VerticalAlignment" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<TextBlock x:Name="Decition_Text_Copy1" Margin="446.082,431.008,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="29.333" Foreground="White" VerticalAlignment="Top" Height="40.077" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Opacity="0"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="("/><Run Language="th-th" Text="ราคารวม "/><Run Text="VAT)"/></TextBlock>
+			<Path x:Name="path" Data="M98,559.5 L613,559.5" Fill="#FFF4F4F5" Margin="123.583,506.077,0,0" Stretch="Fill" Stroke="White" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="5" Width="520" Opacity="0"/>
+			<Image x:Name="image_OS" HorizontalAlignment="Left" Height="85" Margin="129,0,0,438.332" Source="Resources/android.png" Stretch="Fill" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="image_CPU" HorizontalAlignment="Left" Height="83" Margin="120.5,700,0,0" Source="Resources/cpu.png" Stretch="Fill" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="image_Store" HorizontalAlignment="Left" Height="83" Margin="114.5,0,0,156.334" Source="Resources/stroage.png" Stretch="Fill" VerticalAlignment="Bottom" Width="89" RenderTransformOrigin="0.599,-0.024" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<TextBlock x:Name="text_OSHeadText" Height="42" Margin="249,0,0,487.331" TextWrapping="Wrap" Text="Operating System" VerticalAlignment="Bottom" Foreground="White" FontFamily="DB HelvethaicaAIS X Bd" FontSize="40" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<TextBlock x:Name="OSText" Height="64.667" Margin="249,0,0,430.664" TextWrapping="Wrap" Text="Andriod 4.1(Jelly Bean)" VerticalAlignment="Bottom" Foreground="White" FontSize="54.667" FontFamily="DB HelvethaicaAIS X 55 Regular" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<TextBlock x:Name="text_CPUHeadText" HorizontalAlignment="Left" Height="36.334" Margin="249,695,0,0" TextWrapping="Wrap" Text="CPU" VerticalAlignment="Top" Width="69.5" Foreground="White" FontFamily="DB HelvethaicaAIS X Bd" FontSize="40" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<TextBlock x:Name="CPUText" Height="60" Margin="249,730,0,0" TextWrapping="Wrap" Text="2.3GHz Quad-Core" VerticalAlignment="Top" Foreground="White" FontFamily="DB HelvethaicaAIS X Med" FontSize="56" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<TextBlock x:Name="text_StroageHeadtext" HorizontalAlignment="Left" Height="42" Margin="249,0,0,209.667" TextWrapping="Wrap" Text="Stroage" VerticalAlignment="Bottom" Width="101.5" Foreground="White" FontFamily="DB HelvethaicaAIS X Bd" FontSize="40" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<TextBlock x:Name="StroageText" Height="58" Margin="249,0,0,159.166" TextWrapping="Wrap" Text="16/32 GB, microSD Slot" VerticalAlignment="Bottom" Foreground="White" FontFamily="DB HelvethaicaAIS X 55 Regular" FontSize="53.333" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<Image x:Name="WhiteNAmeText" Height="195.4" Source="Resources/Name_Price.png" Stretch="Fill" VerticalAlignment="Top" Margin="124.331,121.169,0,0" HorizontalAlignment="Left" Width="484.486" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<local:PhoneModel x:Name="phoneModel" HorizontalAlignment="Left" Margin="833.497,185.8,0,0" d:LayoutOverrides="Width" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Opacity="0" >
+				<local:PhoneModel.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</local:PhoneModel.RenderTransform>
+			</local:PhoneModel>
+			<TextBlock x:Name="DimensionText" Height="64.667" Margin="1396.667,185.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="50.667" FontFamily="DB HelvethaicaAIS X 55 Regular" d:LayoutOverrides="GridBox" HorizontalAlignment="Left" Width="364.33" RenderTransformOrigin="0.5,0.5" TextAlignment="Right" Opacity="0"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="151.2 x 79.2 x 8.3 "/><Run Language="th-th" Text="มม."/></TextBlock>
+			<TextBlock x:Name="BateryText" Height="64.667" Margin="1484.497,269.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="50.667" FontFamily="DB HelvethaicaAIS X 55 Regular" Text="Li-ion 3,200 mAh" HorizontalAlignment="Left" Width="276.5" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" TextAlignment="Right" Opacity="0">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+			</TextBlock>
+			<TextBlock x:Name="BatteryLifeText" Height="64.667" Margin="1392.665,354.577,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="46.667" FontFamily="DB HelvethaicaAIS X 55 Regular" HorizontalAlignment="Left" Width="368.332" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" TextAlignment="Right" Opacity="0"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Language="th-th" Text="คุยต่อเนื่องนาน 21 "/><Run Text="h (3G)"/></TextBlock>
+			<TextBlock x:Name="VideoText" Height="64.667" Margin="1511.497,431.008,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="50.667" FontFamily="DB HelvethaicaAIS X 55 Regular" HorizontalAlignment="Left" Width="249.5" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" TextAlignment="Right" Opacity="0"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="FULL HB 1080p"/></TextBlock>
+			<Image x:Name="image_video" HorizontalAlignment="Left" Height="27" Margin="1777,450.244,0,0" Source="Resources/video.png" Stretch="Fill" VerticalAlignment="Top" Width="47" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="image_phone" Height="56" Margin="1788,354.577,0,0" Source="Resources/talktime.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Width="36" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="image_battery" Height="33" Margin="1777,282.846,0,0" Source="Resources/batt.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="image_dimension" HorizontalAlignment="Left" Height="57" Margin="1785,185.077,0,0" Source="Resources/dimension.png" Stretch="Fill" VerticalAlignment="Top" Width="45" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="PromotionPic" Margin="2000,105.077,0,0" Source="Resources/offer.png" Stretch="Fill" Height="365" VerticalAlignment="Top" d:LayoutOverrides="GridBox" HorizontalAlignment="Left" Width="587" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<local:CameraItem x:Name="CameraiTime" Margin="1337.999,531.01,0,0" HorizontalAlignment="Left" d:LayoutOverrides="GridBox" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Opacity="0" >
+				<local:CameraItem.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</local:CameraItem.RenderTransform>
+			</local:CameraItem>
+			<Image x:Name="image_special1" HorizontalAlignment="Left" Height="169" Source="Resources/specailoffer1.png" Stretch="Fill" VerticalAlignment="Top" Width="747" Margin="2730,79.077,0,0" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image x:Name="image_speical2" HorizontalAlignment="Left" Margin="2730,275.5,0,0" Source="Resources/specailoffer2.png" Stretch="Fill" Width="720" Height="169" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Button Content="Button" HorizontalAlignment="Right" Height="71.077" Margin="0,8,8,0" VerticalAlignment="Top" Width="466" Click="Button_Click" Visibility="Collapsed"/>
+		</Grid>
+		<Grid x:Name="Intro_scene" HorizontalAlignment="Left" Height="1084" Margin="0" VerticalAlignment="Top" Width="3840">
+			<Ellipse x:Name="ellipse" HorizontalAlignment="Left" Height="72" Margin="1016.67,0,0,441.325" VerticalAlignment="Bottom" Width="72" RenderTransformOrigin="0.5,0.5" Fill="White" OpacityMask="{x:Null}" Opacity="0">
+				<Ellipse.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="-0.417"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Ellipse.RenderTransform>
+			</Ellipse>
+			<Image x:Name="image2" Margin="-152,-750,-397.12,-909.2" Source="Resources/BG_1.jpg" Stretch="Fill" Opacity="0" d:IsLocked="True"/>
+			<Image x:Name="IntroPhonePic" HorizontalAlignment="Left" Margin="-600,185.8,0,0" Width="444" Height="838" VerticalAlignment="Top" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
+			<Image x:Name="IntroNameText" Source="Resources/Phone/nametext_white/whitetext_note3.png" Stretch="Fill" Margin="1325.331,302.246,1013.223,176.2" RenderTransformOrigin="0.5,0.5" Opacity="0">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+		</Grid>
+	</Grid>
+</UserControl>

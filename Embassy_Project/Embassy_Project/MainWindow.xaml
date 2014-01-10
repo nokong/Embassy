@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:Embassy_Project" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Embassy_Project.MainWindow"
+        Title="MainWindow" Height="1080" Width="3840" WindowStyle="None" AllowsTransparency="True"
+        WindowStartupLocation="Manual" Left="0" Top="0" Loaded="Window_Loaded">
+    <Grid x:Name="Scene1">
+    	<Image Margin="0" Source="Resources/bg.png" Stretch="Fill"/>
+    	<Grid x:Name="text_Th" HorizontalAlignment="Left" Height="169.074" Margin="455,48,0,0" VerticalAlignment="Top" Width="940">
+    		<TextBlock Margin="0,2.666,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Foreground="#FF8B807A"><Run Language="th-th" Text="เลือกสมาร์ทโฟนในแบบคุณ"/></TextBlock>
+    		<TextBlock Margin="0,0,0,2.666" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120"><TextBlock.Foreground>
+    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    					<GradientStop Color="#FFC5C3D0" Offset="0"/>
+    					<GradientStop Color="#FFFFE3F0" Offset="1"/>
+    				</LinearGradientBrush>
+    			</TextBlock.Foreground><Run Language="th-th" Text="เลือกสมาร์ทโฟนในแบบคุณ"/></TextBlock>
+    	</Grid>
+    	<Grid x:Name="text_Eng" HorizontalAlignment="Right" Height="168.906" Margin="0,48,353,0" VerticalAlignment="Top" Width="1330">
+    		<TextBlock Margin="0,2.498,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You" Foreground="#FF8B807A"/>
+    		<TextBlock Margin="0,0,0,2.498" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You"><TextBlock.Foreground>
+    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    					<GradientStop Color="#FFC5C3D0" Offset="0"/>
+    					<GradientStop Color="#FFFFE3F0" Offset="1"/>
+    				</LinearGradientBrush>
+    			</TextBlock.Foreground></TextBlock>
+    	</Grid>
+    	<local:AniScrollViewer x:Name="phoneScroller" Margin="0,140.408,0,0" Width="3840" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+    		<UniformGrid x:Name="phoneStack" HorizontalAlignment="Left" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Top" Width="3840" Rows="1" Columns="33" />
+    	</local:AniScrollViewer>
+        <Button Content="GO_scene2" HorizontalAlignment="Left" Height="104" Margin="1460,48,0,0" VerticalAlignment="Top" Width="404" FontSize="29.333" Click="Button_Click" Visibility="Collapsed"/>
+        <Button Content="reset" Height="108" Margin="1616,44,1848,0" VerticalAlignment="Top" FontSize="64" Click="Button_Click_1" />
+    </Grid>
+</Window>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<PackagePhone version = "0.1">
+	<iSmartPackage name ="iSmart" >
+	   <iSmart PRICE = "299">
+            <TALKTIME VALID = "true" AMOUNT = "100" />
+            <SMS VALID = "false" AMOUNT = "0" />
+            <MMS VALID = "false" AMOUNT = "0"/>
+            <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "0.5" />       
+            <WIFI VALID = "true" />
+            <EBOOK VALID = "false" AMOUNT = "0" />
+            <MOVIESTORE VALID = "false" AMOUNT ="0" />
+            <FREETALK VALID = "false" />
+       </iSmart>
+       <iSmart PRICE = "399" >
+            <TALKTIME VALID = "true" AMOUNT = "200" />
+            <SMS VALID = "false" AMOUNT = "0" />
+            <MMS VALID = "false" AMOUNT = "0"/>
+            <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "0.75" />       
+            <WIFI VALID = "true" />
+            <EBOOK VALID = "false" AMOUNT = "0" />
+            <MOVIESTORE VALID = "false" AMOUNT ="0" />
+            <FREETALK VALID = "true" />
+       </iSmart>
+       <iSmart PRICE = "599">
+            <TALKTIME VALID = "true" AMOUNT = "300" />
+            <SMS VALID = "false" AMOUNT = "0" />
+            <MMS VALID = "false" AMOUNT = "0"/>
+            <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "1.5" />       
+            <WIFI VALID = "true" />
+            <EBOOK VALID = "true" AMOUNT = "5" />
+            <MOVIESTORE VALID = "false" AMOUNT ="0" />
+            <FREETALK VALID = "true" />
+       </iSmart>
+
+       <iSmart PRICE = "799">
+            <TALKTIME VALID = "true" AMOUNT= "400" />
+            <SMS VALID = "false" AMOUNT = "0" />
+            <MMS VALID = "false" AMOUNT = "0"/>
+            <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "2" />       
+            <WIFI VALID = "true" />
+            <EBOOK VALID = "true" AMOUNT = "5" />
+            <MOVIESTORE VALID = "true" AMOUNT ="30" />
+            <FREETALK VALID = "true" />
+       </iSmart>
+        <iSmart PRICE = "999">
+            <TALKTIME VALID = "true" AMOUNT= "500" />
+            <SMS VALID = "false" AMOUNT = "0" />
+            <MMS VALID = "false" AMOUNT = "0"/>
+            <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "3" />       
+            <WIFI VALID = "true" />
+            <EBOOK VALID = "true" AMOUNT = "10" />
+            <MOVIESTORE VALID = "true" AMOUNT ="30" />
+            <FREETALK VALID = "true" />
+       </iSmart>
+	</iSmartPackage>
+    <iPhonePackage name = "iPhone">
+
+      <iPhone PRICE = "170">
+         <TALKTIME VALID = "true" AMOUNT= "100" />
+         <SMS VALID = "true" AMOUNT = "100" />
+         <MMS VALID = "true" AMOUNT = "20"/>
+         <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "0.5" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "false" AMOUNT = "0" />
+         <MOVIESTORE VALID = "false" AMOUNT ="0" />
+         <FREETALK VALID = "false" />
+      </iPhone>    
+
+       <iPhone PRICE = "370">
+         <TALKTIME VALID = "true" AMOUNT= "200" />
+         <SMS VALID = "true" AMOUNT = "250" />
+         <MMS VALID = "true" AMOUNT = "30"/>
+         <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "1.5" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "false" AMOUNT = "0" />
+         <MOVIESTORE VALID = "false" AMOUNT ="0" />
+         <FREETALK VALID = "false" />
+               
+       </iPhone>    
+
+
+       <iPhone PRICE = "470" >
+         <TALKTIME VALID = "true" AMOUNT= "300" />
+         <SMS VALID = "true" AMOUNT = "250" />
+         <MMS VALID = "true" AMOUNT = "30"/>
+         <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "2" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "false" AMOUNT = "0" />
+         <MOVIESTORE VALID = "false" AMOUNT ="0" />
+         <FREETALK VALID = "false" />  
+
+       </iPhone>    
+      
+       <iPhone PRICE = "670" >
+         <TALKTIME VALID = "true" AMOUNT= "500" />
+         <SMS VALID = "true" AMOUNT = "300" />
+         <MMS VALID = "true" AMOUNT = "50"/>
+         <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "3" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "false" AMOUNT = "0" />
+         <MOVIESTORE VALID = "false" AMOUNT ="0" />
+         <FREETALK VALID = "false" />  
+          
+       </iPhone>    
+       
+    </iPhonePackage>
+    <TabletPackage name = "Tablet">
+        <Tablet PRICE = "220" >
+         <TALKTIME VALID = "false" AMOUNT= "0" />
+         <SMS VALID = "false" AMOUNT = "0" />
+         <MMS VALID = "false" AMOUNT = "0"/>
+         <INTERNET UNLIMITTYPE = "None" MAXUSAGE = "0.15" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "false" AMOUNT = "0" />
+         <MOVIESTORE VALID = "false" AMOUNT ="0" />
+         <FREETALK VALID = "false" />  
+        </Tablet>
+
+        <Tablet PRICE = "550">
+         <TALKTIME VALID = "false" AMOUNT= "0" />
+         <SMS VALID = "false" AMOUNT = "0" />
+         <MMS VALID = "false" AMOUNT = "0"/>
+         <INTERNET UNLIMITTYPE = "None" MAXUSAGE = "2" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "false" AMOUNT = "0" />
+         <MOVIESTORE VALID = "false" AMOUNT ="0" />
+         <FREETALK VALID = "false" />  
+        </Tablet>
+
+        <Tablet PRICE = "899" >
+         <TALKTIME VALID = "false" AMOUNT= "0" />
+         <SMS VALID = "false" AMOUNT = "0" />
+         <MMS VALID = "false" AMOUNT = "0"/>
+         <INTERNET UNLIMITTYPE = "None" MAXUSAGE = "5" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "false" AMOUNT = "0" />
+         <MOVIESTORE VALID = "false" AMOUNT ="0" />
+         <FREETALK VALID = "false" />  
+        </Tablet>
+    </TabletPackage>
+
+    <iPadPackage name = "iPad">
+        <iPad PRICE = "420" >
+         <TALKTIME VALID = "false" AMOUNT= "0" />
+         <SMS VALID = "false" AMOUNT = "0" />
+         <MMS VALID = "false" AMOUNT = "0"/>
+         <INTERNET UNLIMITTYPE = "Semilimit" MAXUSAGE = "1" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "true" AMOUNT = "200" />
+         <MOVIESTORE VALID = "true" AMOUNT ="63" />
+         <FREETALK VALID = "false" />  
+        </iPad>
+
+        <iPad PRICE = "550" >
+         <TALKTIME VALID = "false" AMOUNT= "0" />
+         <SMS VALID = "false" AMOUNT = "0" />
+         <MMS VALID = "false" AMOUNT = "0"/>
+         <INTERNET UNLIMITTYPE = "Semilimit" MAXUSAGE = "2" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "true" AMOUNT = "200" />
+         <MOVIESTORE VALID = "true" AMOUNT ="63" />
+         <FREETALK VALID = "false" />  
+        </iPad>
+
+        <iPad PRICE = "799" >
+         <TALKTIME VALID = "false" AMOUNT= "0" />
+         <SMS VALID = "false" AMOUNT = "0" />
+         <MMS VALID = "false" AMOUNT = "0"/>
+         <INTERNET UNLIMITTYPE = "Unlimit" MAXUSAGE = "3" />       
+         <WIFI VALID = "true" />
+         <EBOOK VALID = "true" AMOUNT = "200" />
+         <MOVIESTORE VALID = "true" AMOUNT ="63" />
+         <FREETALK VALID = "false" />  
+        </iPad>
+    </iPadPackage>
+</PackagePhone>

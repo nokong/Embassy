@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Embassy_Project.MobileItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="639" Height="795" Background="{x:Null}">
+	<UserControl.Resources>
+		<Storyboard x:Key="phoneClick"/>
+	</UserControl.Resources>
+	
+    <Grid Margin="0,2,0,-2">
+    	<Grid.RowDefinitions>
+    		<RowDefinition/>
+    	</Grid.RowDefinitions>
+    	<TextBlock x:Name="priceTextBlock" TextWrapping="Wrap" Text="TextBlock" FontFamily="DB HelvethaicaAIS X 55 Regular" FontSize="64" Foreground="White" TextAlignment="Center" Height="68.73" VerticalAlignment="Bottom"/>
+    	<Image x:Name="frontPhone" Margin="66.5,187.028,54.111,169.5" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
+    	<Image x:Name="headerName" Height="157.231" VerticalAlignment="Top" Source="Resources/Name/Note3_Name.png" Margin="-187.479,-22,-191.108,0"/>
+    	<Image Height="85.678" Margin="83.918,0,70.582,65.73" Source="Resources/shadow.png" Stretch="Fill" VerticalAlignment="Bottom" Opacity="0.51"/>
+    	<Image x:Name="specail_offer" HorizontalAlignment="Right" Margin="0,155.528,142.734,0" Source="Resources/special.png" Stretch="Fill" Width="138.766" Height="158" VerticalAlignment="Top" Visibility="Collapsed"/>
+    	<Image x:Name="_new" Margin="0,139.231,142.734,0" Source="Resources/new.png" Stretch="Fill" Height="138.766" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138.766" Visibility="Collapsed"/>
+    </Grid>
+</UserControl>
