@@ -69,6 +69,7 @@ namespace Embassy_Project
                 MobileItemSpecification specification = new MobileItemSpecification(childNode);
                 MobileItem MB = new MobileItem(childNode);
                 MB.IDPHONE = i;
+                //MB.Margin = new Thickness(MB.Width * i,0,0,0);
                 //Console.WriteLine("Name : " + MB.MobileSpecification.NAME + " ID : "+MB.IDPHONE);
                 listOfSpecification.Add(specification);
                 Global.listOfMobileItem.Add(i,MB);
@@ -177,7 +178,7 @@ namespace Embassy_Project
             {
                 IPHostEntry ipHostInfo = Dns.Resolve(Dns.GetHostName());
                 IPAddress send_to_address = ipHostInfo.AddressList[0];
-                Console.WriteLine(send_to_address);
+                //Console.WriteLine(send_to_address);
                 
                 Socket sending_socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
@@ -242,7 +243,7 @@ namespace Embassy_Project
                     break;
                 case "SelectPhone":
 
-                    if (Global.Scene2 == null) { Global.Scene2 = new PhoneDetail(); Scene1.Children.Add(Global.Scene2);  }
+                    //if (Global.Scene2 == null) { Global.Scene2 = new PhoneDetail(); Scene1.Children.Add(Global.Scene2);  }
 
                     /*if (Global.lastMobileSelected.IDPHONE == Int32.Parse(functionList[1]) && Global.Scene2.ScreenAppear)
                     {
@@ -298,11 +299,11 @@ namespace Embassy_Project
 
                     #region All Content Side to Left
                     /*double AdditionMarginLeft = Global.lastMobileSelected.Width * 5;
-                    Console.WriteLine("Last Touch  "+Global.lastMobileSelected.MobileSpecification.NAME + " Margin : "+Global.lastMobileSelected.Margin );
+                    //Console.WriteLine("Last Touch  "+Global.lastMobileSelected.MobileSpecification.NAME + " Margin : "+Global.lastMobileSelected.Margin );
 
                     //Canvas.SetLeft(Global.listOfMobileFillter.ElementAt(0).Value, -1000);
                     Global.FadeinoutBtn(1, 0, phoneStack, 0.5, 0.25);
-                    Global.TransitionAnimation(phoneStack.Margin, new Thickness(-AdditionMarginLeft, 0, 0, 0),phoneStack, MobileTransitionChangeScene,0,0.5);
+                    Global.TransitionAnimation(phoneStack.Margin, new Thickness(-AdditionMarginLeft, 0, 0, 0),phoneStack, MobileTransitionChangeScene,0,2);
                     
                       EventHandler handler = null;
                     handler = delegate
@@ -325,21 +326,42 @@ namespace Embassy_Project
                     #endregion
 
                     #region Slide Left and Right
+
+                   int moveDistance = 1;
+                   Thickness moveOut;
+
                    for (int i = 0; i < Global.listOfMobileFillter.Count; i++)
                    {
+                       MobileItem mobile = Global.listOfMobileFillter.ElementAt(i).Value;
+                      
                        if (i < Global.lastMobileSelectIndex)
                        {
-                           Global.TransitionAnimation(Global.listOfMobileFillter.ElementAt(i).Value.Margin, new Thickness(-2556, 0, 0, 0), Global.listOfMobileFillter.ElementAt(i).Value);
+                           moveOut = new Thickness(-(mobile.Width * moveDistance), 0, 0, 0);
+                           Global.TransitionAnimation(mobile.Margin, moveOut, mobile);
+                           moveDistance++;
                        }
                        else if (i == Global.lastMobileSelectIndex) { }
-                       else 
+                       else
                        {
-                           Global.TransitionAnimation(Global.listOfMobileFillter.ElementAt(i).Value.Margin, new Thickness(639, 0, 0, 0), Global.listOfMobileFillter.ElementAt(i).Value);
+                           if (i == 1 && Global.lastMobileSelectIndex == 0) 
+                           {
+                               moveDistance = 5;
+                           }
+                           else if (i == 2 && Global.lastMobileSelectIndex == 1) 
+                           {
+                               moveDistance = 4;
+                           }
+                          // Console.WriteLine("Before minus moveDistance : "+moveDistance);
+                          
+                          // Console.WriteLine("After minus moveDistance :"+moveDistance);
+                           moveOut = new Thickness(mobile.Margin.Left+(mobile.Width * moveDistance), 0, 0, 0);
+                           Global.TransitionAnimation(mobile.Margin,moveOut, mobile);
+                           moveDistance--;
                        }
                    }
                     MobileTransitionChangeScene.Begin();
                     #endregion
-
+                    
                     break;
                 case "reccomnd":
                     switch (functionList[1])
@@ -432,9 +454,12 @@ namespace Embassy_Project
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            int count = 0;
             foreach (MobileItem mb in Global.listOfMobileFillter.Values)
             {
-                mb.Margin = new Thickness(0, 0, 0, 0);
+            
+                mb.Margin = new Thickness(mb.Width * count, 0, 0, 0);
+                count++;
             }
         }
 

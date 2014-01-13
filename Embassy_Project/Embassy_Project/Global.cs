@@ -63,10 +63,14 @@ namespace Embassy_Project
         {
             mainWindow.phoneStack.Children.Clear();
 
+            int count = 0;
             foreach (MobileItem mobile in _resultList.Values) 
             {
-                Console.WriteLine(mobile.MobileSpecification.NAME);
+                //Console.WriteLine(mobile.MobileSpecification.NAME);
+                mobile.Margin = new Thickness(mobile.Width * count, 0, 0, 0);
                 mainWindow.phoneStack.Children.Add(mobile);
+
+                count++;
             }
 
            /* for (int i = 0; i < _resultList.Count; i++)
@@ -139,7 +143,7 @@ namespace Embassy_Project
                 sb.Completed -= handler;
                 sb.Stop();
                 MoveItem.Margin = moveTarget;
-                Console.WriteLine(MoveItem.MobileSpecification.NAME + " Margin : " + MoveItem.Margin);
+                //Console.WriteLine(MoveItem.MobileSpecification.NAME + " Margin : " + MoveItem.Margin);
            
             };
             sb.Children.Add(movegrid);
