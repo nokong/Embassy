@@ -31,7 +31,15 @@ namespace Embassy_Project
             InitializeComponent();
 
             Global.mainWindow = this;
+            HeaderTextUp = (Storyboard)TryFindResource("HeadText_Up");
+            eclipsaura = (Storyboard)TryFindResource("EclipsScale");
             this.initPhoneDataFromXMLFile("Resources\\Phone\\specification.xml");
+            Introl = new IntrolPage();
+            Global.Scene2 = new PhoneDetail();
+
+            Scene1.Children.Add(Introl);
+            Scene1.Children.Add(Global.Scene2);
+        
 
             ServerRunner = new BackgroundWorker();
             ServerRunner.DoWork += new DoWorkEventHandler(serverRunner_DoWork);
@@ -243,7 +251,7 @@ namespace Embassy_Project
                     break;
                 case "SelectPhone":
 
-                    //if (Global.Scene2 == null) { Global.Scene2 = new PhoneDetail(); Scene1.Children.Add(Global.Scene2);  }
+                   
 
                     /*if (Global.lastMobileSelected.IDPHONE == Int32.Parse(functionList[1]) && Global.Scene2.ScreenAppear)
                     {
@@ -325,7 +333,7 @@ namespace Embassy_Project
                     if (Global.Scene2.ScreenAppear) { Global.Scene2.ChangeContentData(Global.lastMobileSelected); }*/
                     #endregion
 
-                    #region Slide Left and Right
+                    #region Slide Out SelectedMobile
 
                    int moveDistance = 1;
                    Thickness moveOut;
@@ -333,34 +341,81 @@ namespace Embassy_Project
                    for (int i = 0; i < Global.listOfMobileFillter.Count; i++)
                    {
                        MobileItem mobile = Global.listOfMobileFillter.ElementAt(i).Value;
-                      
+                       Storyboard sb = new Storyboard();
                        if (i < Global.lastMobileSelectIndex)
                        {
                            moveOut = new Thickness(-(mobile.Width * moveDistance), 0, 0, 0);
-                           Global.TransitionAnimation(mobile.Margin, moveOut, mobile);
+                           Global.TransitionAnimation(mobile.Margin, moveOut, mobile,sb);
                            moveDistance++;
                        }
-                       else if (i == Global.lastMobileSelectIndex) { }
+                       else if (i == Global.lastMobileSelectIndex) 
+                       {
+                           mobile.aura.Visibility = Visibility.Visible;
+                           //mobile.aurastart.Begin();
+                           HeaderTextUp.Begin();
+
+                           Global.scaleAnimation(mobile, 1, 1.87);
+                           Global.TransitionAnimation(mobile.Margin, new Thickness(738, -5, 0, 0), mobile,sb); //738
+
+                           EventHandler handler = null;
+                           handler = delegate
+                           {
+                               sb.Completed -= handler;
+                               sb.Stop();
+
+                               mobile.Height = mobile.ActualHeight;
+                               mobile.Width = mobile.ActualWidth;
+
+                               Global.Scene2.ChangeContentData(Global.lastMobileSelected);
+                              
+
+                               EventHandler handler2 = null;
+                               handler2 = delegate
+                               {
+                                   Introl.introl_start.Completed -= handler2;
+                                   Introl.introl_start.Stop();
+
+                                   Introl.image2.Opacity = 1;
+                                   Introl.IntroNameText.Opacity = 1;
+                                   Introl.phoneModel.Opacity = 1;
+                                   //Global.FadeinoutBtn(1, 0, Introl, 1, 0);
+
+                                   Global.Scene2.ScreenAppear = true;
+
+                                   
+                                   Global.FadeinoutBtn(1, 0, Introl, 1, 0);
+
+                                 
+                                
+                                
+                                   
+                               };
+                               Introl.introl_start.Completed += handler2;
+                               Introl.introl_start.Begin();
+
+                              
+
+                           };
+                           sb.Completed += handler;
+
+
+                       }    
                        else
                        {
-                           if (i == 1 && Global.lastMobileSelectIndex == 0) 
-                           {
-                               moveDistance = 5;
-                           }
-                           else if (i == 2 && Global.lastMobileSelectIndex == 1) 
-                           {
-                               moveDistance = 4;
-                           }
+                           if (i == 1 && Global.lastMobileSelectIndex == 0)  moveDistance = 5;
+                           if (i == 2 && Global.lastMobileSelectIndex == 1)  moveDistance = 4;
                           // Console.WriteLine("Before minus moveDistance : "+moveDistance);
                           
                           // Console.WriteLine("After minus moveDistance :"+moveDistance);
                            moveOut = new Thickness(mobile.Margin.Left+(mobile.Width * moveDistance), 0, 0, 0);
-                           Global.TransitionAnimation(mobile.Margin,moveOut, mobile);
+                           Global.TransitionAnimation(mobile.Margin,moveOut, mobile,sb);
                            moveDistance--;
                        }
+                       sb.Begin();
                    }
                     MobileTransitionChangeScene.Begin();
                     #endregion
+
                     
                     break;
                 case "reccomnd":
@@ -452,6 +507,11 @@ namespace Embassy_Project
 
         #endregion
 
+
+        Storyboard HeaderTextUp;
+        Storyboard eclipsaura;
+        IntrolPage Introl;
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             int count = 0;
@@ -459,6 +519,7 @@ namespace Embassy_Project
             {
             
                 mb.Margin = new Thickness(mb.Width * count, 0, 0, 0);
+                mb.aura.Visibility = Visibility.Hidden;
                 count++;
             }
         }

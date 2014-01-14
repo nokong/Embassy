@@ -7,14 +7,46 @@
              d:DesignHeight="300" d:DesignWidth="300" Width="639" Height="795" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top">
 	<UserControl.Resources>
 		<Storyboard x:Key="phoneClick"/>
+		<Storyboard x:Key="aurastart" AutoReverse="False" RepeatBehavior="Forever">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="aura">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="aura">
+				<EasingDoubleKeyFrame KeyTime="0" Value="2.5"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="2.5"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.5"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="aura">
+				<EasingDoubleKeyFrame KeyTime="0" Value="2.5"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="2.5"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.5"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="aura">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="359.644"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 	</UserControl.Resources>
+	
 	
     <Grid Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
     	<Grid.RowDefinitions>
     		<RowDefinition/>
     	</Grid.RowDefinitions>
     	<TextBlock x:Name="priceTextBlock" TextWrapping="Wrap" Text="TextBlock" FontFamily="DB HelvethaicaAIS X 55 Regular" FontSize="64" Foreground="White" TextAlignment="Center" Height="68.73" VerticalAlignment="Bottom"/>
-    	<Image x:Name="frontPhone" Margin="66.5,187.028,54.111,169.5" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
+    	<Image x:Name="aura" Margin="240.998,321.988,230.934,308.012" Source="Resources/aura.png" Stretch="Fill" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image x:Name="frontPhone" Margin="65.167,186.361,55.444,170.167" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
     	<Image x:Name="headerName" Height="157.231" VerticalAlignment="Top" Source="Resources/Name/Note3_Name.png" Margin="-187.479,-22,-191.108,0"/>
     	<Image Height="85.678" Margin="83.918,0,70.582,65.73" Source="Resources/shadow.png" Stretch="Fill" VerticalAlignment="Bottom" Opacity="0.51"/>
     	<Image x:Name="specail_offer" HorizontalAlignment="Right" Margin="0,155.528,142.734,0" Source="Resources/special.png" Stretch="Fill" Width="138.766" Height="158" VerticalAlignment="Top" Visibility="Collapsed"/>

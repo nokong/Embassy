@@ -1173,7 +1173,7 @@
 					</TransformGroup>
 				</Ellipse.RenderTransform>
 			</Ellipse>
-			<Image x:Name="image2" Margin="-152,-750,-397.12,-909.2" Source="Resources/BG_1.jpg" Stretch="Fill" Opacity="0" d:IsLocked="True"/>
+			<Image x:Name="image2" Margin="-152,-750,-397.12,-909.2" Source="Resources/BG_1.jpg" Stretch="Fill" Opacity="0"/>
 			<Image x:Name="IntroPhonePic" HorizontalAlignment="Left" Margin="-600,185.8,0,0" Width="444" Height="838" VerticalAlignment="Top" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
 			<Image x:Name="IntroNameText" Source="Resources/Phone/nametext_white/whitetext_note3.png" Stretch="Fill" Margin="1325.331,302.246,1013.223,176.2" RenderTransformOrigin="0.5,0.5" Opacity="0">
 				<Image.RenderTransform>

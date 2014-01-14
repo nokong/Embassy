@@ -85,36 +85,12 @@ namespace Embassy_Project
                 if (screenAppear)
                 {
                     if(!this.animationBackground.IsBusy)this.animationBackground.RunWorkerAsync();
-                    
-                    Global.FadeinoutBtn(0, 1, this, 0.3, 0);
+
+                    //this.Opacity = 1;
+                    Global.FadeinoutBtn(0, 1, this, 1, 0);
                     this.settingContentAnimationIN(Detailin);
 
-                    #region event Handle
-                    EventHandler handler = null;
-                    handler = delegate
-                    {
-                        intro_start.Completed -= handler;
-                        intro_start.Stop();
-
-                        EventHandler handler2 = null;
-                        handler2 = delegate
-                        {
-                            //intro_start.Completed -= handler;
-                            intro_end.Completed -= handler2;
-                            intro_end.Stop();
-
-                            Detailin.Begin();
-
-                        };
-                        intro_end.Completed += handler2;
-                        Detailin.Begin();
-                        //intro_end.Begin();
-                    
-                    };
-                    #endregion
-                    intro_start.Completed += handler;
-                    intro_start.Begin();
-                
+                    Detailin.Begin();
                 }
                 else
                 {
@@ -302,9 +278,9 @@ namespace Embassy_Project
                 CameraiTime.panPicture.Stop();
 
                 Console.WriteLine("Detail Out Animation State " + Detail_Out.GetCurrentProgress());
-                intro_start.Begin();
-                /*settingContentAnimationIN(Detailin);
-                Detailin.Begin();*/
+                //intro_start.Begin();
+                settingContentAnimationIN(Detailin);
+                Detailin.Begin();
                 //PerPareForAnimation();
             };
             _storyboardOUT.Completed += handler;
@@ -312,7 +288,7 @@ namespace Embassy_Project
         private void settingContentAnimationIN(Storyboard _storyboardIn) 
         {
             int count = 0;
-            double startTime = 0.5;
+            double startTime = 0.3;
             double additionStart = 0.10;
 
             TimeSpan ClicktimeDuration = newClickedTime - oldClickedTime;
@@ -336,8 +312,8 @@ namespace Embassy_Project
                 packageItem.Opacity = 0;
                 PackageList.Add(packageItem);
                 Detail_Scene.Children.Add(packageItem);
-                Global.FadeinoutBtn(0, 1, packageItem, startTime, 4.3);
-                AddTransitionAnimation(packageItem.Margin, new Thickness(430 + (535 * count), 380, 0, 0), startTime, 0.3, packageItem, _storyboardIn);
+                Global.FadeinoutBtn(0, 1, packageItem, startTime, 0.2);
+                AddTransitionAnimation(packageItem.Margin, new Thickness(430 + (535 * count), 380, 0, 0), startTime, 0.2, packageItem, _storyboardIn);
 
                 startTime += additionStart;
                 count++;

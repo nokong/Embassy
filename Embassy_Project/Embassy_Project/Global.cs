@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Embassy_Project
 {
@@ -121,6 +122,21 @@ namespace Embassy_Project
             transitionStoryboard.Completed += handler;
         }
 
+
+        public static void scaleAnimation(UIElement mobile, double from, double to, double duration = 0.75,double begintime = 0) 
+        {
+
+            ScaleTransform sc = new ScaleTransform();
+            mobile.RenderTransformOrigin = new Point(0.5, 0.5);
+            mobile.RenderTransform = sc;
+
+            DoubleAnimation scaleanime = new DoubleAnimation(from, to, TimeSpan.FromSeconds(duration));
+            sc.BeginAnimation(ScaleTransform.ScaleXProperty,scaleanime);
+            sc.BeginAnimation(ScaleTransform.ScaleYProperty, scaleanime);
+
+          
+        }
+
         public static void TransitionAnimation(Thickness movefrom, Thickness moveTarget, MobileItem MoveItem,Storyboard transitionStoryboard = null, double begintime = 0, double duration = 1)
         {
 
@@ -135,20 +151,20 @@ namespace Embassy_Project
             Storyboard.SetTarget(movegrid, MoveItem);
             Storyboard.SetTargetProperty(movegrid, new PropertyPath(Grid.MarginProperty));
 
-            Storyboard sb = new Storyboard();
+            //Storyboard sb = new Storyboard();
 
             EventHandler handler = null;
             handler = delegate
             {
-                sb.Completed -= handler;
-                sb.Stop();
+                transitionStoryboard.Completed -= handler;
+                transitionStoryboard.Stop();
                 MoveItem.Margin = moveTarget;
                 //Console.WriteLine(MoveItem.MobileSpecification.NAME + " Margin : " + MoveItem.Margin);
            
             };
-            sb.Children.Add(movegrid);
-            sb.Completed += handler;
-            sb.Begin();
+            transitionStoryboard.Children.Add(movegrid);
+            transitionStoryboard.Completed += handler;
+            //sb.Begin();
         }
 
         public static void FadeinoutBtn(double from, double to, UIElement target, double speed, double begintime)

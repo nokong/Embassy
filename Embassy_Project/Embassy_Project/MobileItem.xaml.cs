@@ -25,6 +25,7 @@ namespace Embassy_Project
         public MobileItemSpecification MobileSpecification;
         public List<PackageItem> ListOfPackage;
         public Storyboard ClickedAnimation;
+        public Storyboard aurastart;
         int comparemonth;
 
         public MobileItem() { }
@@ -35,6 +36,7 @@ namespace Embassy_Project
             MobileSpecification = new MobileItemSpecification();
             ListOfPackage = new List<PackageItem>();
             ClickedAnimation = (Storyboard)TryFindResource("phoneClick");
+            aurastart = (Storyboard)TryFindResource("aurastart");
 
             MobileSpecification = new MobileItemSpecification(phoneNode);
 

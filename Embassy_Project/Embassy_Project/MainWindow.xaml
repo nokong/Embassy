@@ -5,20 +5,58 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Embassy_Project.MainWindow"
         Title="MainWindow" Height="1080" Width="3840" WindowStyle="None" AllowsTransparency="True"
         WindowStartupLocation="Manual" Left="0" Top="0" Loaded="Window_Loaded">
+	<Window.Resources>
+		<Storyboard x:Key="HeadText_Up">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_Th">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-330"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_Eng">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-330"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_Th">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="text_Eng">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</Window.Resources>
+	
+
     <Grid x:Name="Scene1">
     	<Image Margin="0" Source="Resources/bg.png" Stretch="Fill"/>
-    	<Grid x:Name="text_Th" HorizontalAlignment="Left" Height="169.074" Margin="455,48,0,0" VerticalAlignment="Top" Width="940">
+    	<Grid x:Name="text_Th" HorizontalAlignment="Left" Height="169.074" Margin="455,48,0,0" VerticalAlignment="Top" Width="940" RenderTransformOrigin="0.5,0.5">
+    		<Grid.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Grid.RenderTransform>
     		<TextBlock Margin="0,2.666,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Foreground="#FF8B807A"><Run Language="th-th" Text="เลือกสมาร์ทโฟนในแบบคุณ"/></TextBlock>
-    		<TextBlock Margin="0,0,0,2.666" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120"><TextBlock.Foreground>
+    		<TextBlock x:Name="textBlock" Margin="0,0,0,2.666" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120"><TextBlock.Foreground>
     				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
     					<GradientStop Color="#FFC5C3D0" Offset="0"/>
     					<GradientStop Color="#FFFFE3F0" Offset="1"/>
     				</LinearGradientBrush>
     			</TextBlock.Foreground><Run Language="th-th" Text="เลือกสมาร์ทโฟนในแบบคุณ"/></TextBlock>
     	</Grid>
-    	<Grid x:Name="text_Eng" HorizontalAlignment="Right" Height="168.906" Margin="0,48,353,0" VerticalAlignment="Top" Width="1330">
+    	<Grid x:Name="text_Eng" HorizontalAlignment="Right" Height="168.906" Margin="0,48,353,0" VerticalAlignment="Top" Width="1330" RenderTransformOrigin="0.5,0.5">
+    		<Grid.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Grid.RenderTransform>
     		<TextBlock Margin="0,2.498,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You" Foreground="#FF8B807A"/>
-    		<TextBlock Margin="0,0,0,2.498" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You"><TextBlock.Foreground>
+    		<TextBlock x:Name="textBlock1" Margin="0,0,0,2.498" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You"><TextBlock.Foreground>
     				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
     					<GradientStop Color="#FFC5C3D0" Offset="0"/>
     					<GradientStop Color="#FFFFE3F0" Offset="1"/>
