@@ -31,15 +31,28 @@ namespace Embassy_Project
             InitializeComponent();
 
             Global.mainWindow = this;
+            Global.detailScene = new PhoneDetail();
+            Global.introlScene = new IntrolPage();
+
+            Canvas.SetZIndex(Scene1, (int)-1);
+            Canvas.SetZIndex(Global.detailScene, (int)-1);
+            Canvas.SetZIndex(Global.introlScene, (int)0);
+
+            mainWindowGrid.Children.Add(Global.introlScene);
+            mainWindowGrid.Children.Add(Global.detailScene);
+
+            /*Console.WriteLine("DetailScene ZIndex : "+Canvas.GetZIndex(Global.detailScene));
+            Console.WriteLine("IntrolScene ZIndex : " + Canvas.GetZIndex(Global.introlScene));
+            Console.WriteLine("MainWindow  ZIndex : " + Canvas.GetZIndex(Scene1));*/
+
+            //Scene1.Children.Add(Global.detailScene);
+            //Scene1.Children.Add(Global.introlScene);
+
             HeaderTextUp = (Storyboard)TryFindResource("HeadText_Up");
             eclipsaura = (Storyboard)TryFindResource("EclipsScale");
             this.initPhoneDataFromXMLFile("Resources\\Phone\\specification.xml");
-            Introl = new IntrolPage();
-            Global.Scene2 = new PhoneDetail();
 
-            Scene1.Children.Add(Introl);
-            Scene1.Children.Add(Global.Scene2);
-        
+            
 
             ServerRunner = new BackgroundWorker();
             ServerRunner.DoWork += new DoWorkEventHandler(serverRunner_DoWork);
@@ -91,7 +104,9 @@ namespace Embassy_Project
         {
 
             if (dataSendDuration > 0)
-            {   //Console.WriteLine("+++      >  " + duration + " Current :" + phoneScroller.CurrentHorizontalOffset + " To " + scrollTo + " diff " + diffSClient);
+            {
+                //Console.WriteLine("Scroller : "+phoneScroller.CurrentHorizontalOffset+"Scroller Mod =  " + (phoneScroller.CurrentHorizontalOffset % 639));
+
                 if (phoneScroller.CurrentHorizontalOffset < scrollTo)
                 {
                     double newPoint = phoneScroller.CurrentHorizontalOffset + diffSClient;
@@ -113,6 +128,9 @@ namespace Embassy_Project
 
                     //Console.WriteLine("------------------- > UIThread more  current : " + scrollTo + " to " + phoneScroller.CurrentHorizontalOffset + " diff " + diffSClient);
                 }
+
+               
+                //Console.WriteLine("+++      >  Current :" + phoneScroller.CurrentHorizontalOffset + " To " + scrollTo + " diff " + diffSClient);
             }
         }
         void UpdateScoroler_DoWork(object sender, DoWorkEventArgs e)
@@ -211,7 +229,6 @@ namespace Embassy_Project
                         {
                             //Console.WriteLine(listener.);
                             
-
                             IPEndPoint RemoteEndPoint = new IPEndPoint(client_IP, 7777);
                             Socket server = new Socket(AddressFamily.InterNetwork,
                                                        SocketType.Dgram, ProtocolType.Udp);
@@ -251,15 +268,19 @@ namespace Embassy_Project
                     break;
                 case "SelectPhone":
 
-                   
+                
 
-                    /*if (Global.lastMobileSelected.IDPHONE == Int32.Parse(functionList[1]) && Global.Scene2.ScreenAppear)
+                   /* if (Global.detailScene !=null)
                     {
-                        mobileReturn = true;
-                        Constance.Scene2.ScreenAppear = false;
+                        if (Global.lastMobileSelected.IDPHONE == Int32.Parse(functionList[1]) && Global.detailScene.ScreenAppear)
+                        {
+                            mobileReturn = true;
+                            Global.detailScene.ScreenAppear = false;
+                        }
+                        else { mobileReturn = false; }
                        
-                    }
-                    else { mobileReturn = false; }*/
+                    }*/
+                   
 
                     Global.lastMobileSelectedID = Int32.Parse(functionList[1]);
 
@@ -272,23 +293,33 @@ namespace Embassy_Project
                        }
 			       }
 
-               
-            
+
+                  /* if (Introl == null) 
+                   {
+                       Introl = new IntrolPage();
+                       Scene1.Children.Add(Introl);
+                   }
+                   if (Global.detailScene == null)
+                   {
+                       Global.detailScene = new PhoneDetail(); 
+                       Scene1.Children.Add(Global.detailScene);
+                   }   */     
+      
                     #region CustomAnimation For Selected Phone
                     /*foreach (MobileItem mobileItem in Global.listOfMobileFillter)
                     {
                         if (mobileItem.IDPHONE == Global.lastMobileSelected && !mobileReturn)
                         {
-                            Constance.Scene2.ChangeContentData(mobileItem);
-                            if (!Constance.Scene2.ScreenAppear)
+                            Constance.detailScene.ChangeContentData(mobileItem);
+                            if (!Constance.detailScene.ScreenAppear)
                             {
                                 //Global.FadeinoutBtn(1, 0, mobileItem, 0.3, 0);
                                 Global.TransitionAnimation(mobileItem.Margin, Constance.MoveMobileUp, mobileItem, MobileTransitionChangeScene);
 
-                                if (!Constance.Scene2.ScreenAppear && !mobileReturn)
+                                if (!Constance.detailScene.ScreenAppear && !mobileReturn)
                                 {
 
-                                    Constance.Scene2.ScreenAppear = true;
+                                    Constance.detailScene.ScreenAppear = true;
                                     //Global.FadeinoutBtn(0, 1, mainWindow.ShowDetail, 0.3, 0);
                                     //inDetail = true;
                                 }
@@ -319,10 +350,10 @@ namespace Embassy_Project
                     MobileTransitionChangeScene.Completed -= handler;
                     MobileTransitionChangeScene.Stop();
 
-                    if (Global.Scene2 != null && !Global.Scene2.ScreenAppear) 
+                    if (Global.detailScene != null && !Global.detailScene.ScreenAppear) 
                         {
-                            Global.Scene2.ChangeContentData(Global.lastMobileSelected);
-                            Global.Scene2.ScreenAppear = true;
+                            Global.detailScene.ChangeContentData(Global.lastMobileSelected);
+                            Global.detailScene.ScreenAppear = true;
                         }
 
                     };
@@ -330,7 +361,7 @@ namespace Embassy_Project
                     MobileTransitionChangeScene.Completed += handler;
                     MobileTransitionChangeScene.Begin();
 
-                    if (Global.Scene2.ScreenAppear) { Global.Scene2.ChangeContentData(Global.lastMobileSelected); }*/
+                    if (Global.detailScene.ScreenAppear) { Global.detailScene.ChangeContentData(Global.lastMobileSelected); }*/
                     #endregion
 
                     #region Slide Out SelectedMobile
@@ -338,14 +369,21 @@ namespace Embassy_Project
                    int moveDistance = 1;
                    Thickness moveOut;
 
+                   if (mobileReturn) return;
+
                    for (int i = 0; i < Global.listOfMobileFillter.Count; i++)
                    {
                        MobileItem mobile = Global.listOfMobileFillter.ElementAt(i).Value;
                        Storyboard sb = new Storyboard();
                        if (i < Global.lastMobileSelectIndex)
                        {
-                           moveOut = new Thickness(-(mobile.Width * moveDistance), 0, 0, 0);
-                           Global.TransitionAnimation(mobile.Margin, moveOut, mobile,sb);
+                           moveOut = new Thickness(-(mobile.Width * moveDistance), 0, 0, 0);  // Thickness for Animation Out of MobileSelected
+
+                             /*Global.FadeinoutBtn(1, 0, mobile, 1, 0);
+                             moveOut = new Thickness((mobile.Width * moveDistance), 0, 0, 0);*/
+                             
+                           
+                           Global.TransitionAnimation(mobile.Margin, moveOut, mobile,sb,0,2);
                            moveDistance++;
                        }
                        else if (i == Global.lastMobileSelectIndex) 
@@ -355,7 +393,10 @@ namespace Embassy_Project
                            HeaderTextUp.Begin();
 
                            Global.scaleAnimation(mobile, 1, 1.87);
-                           Global.TransitionAnimation(mobile.Margin, new Thickness(738, -5, 0, 0), mobile,sb); //738
+                           //Global.TransitionAnimation(mobile.Margin, new Thickness((mobile.Width * (moveDistance - scrollerIndex)+99),0,0,0), mobile, sb, 0, 2);
+                           Global.TransitionAnimation(mobile.Margin, new Thickness((scrollerIndex * mobile.Width)+738, -5, 0, 0), mobile,sb,0,2); //738
+
+                           //Console.WriteLine("Current Scroller : "+phoneScroller.CurrentHorizontalOffset);
 
                            EventHandler handler = null;
                            handler = delegate
@@ -366,33 +407,31 @@ namespace Embassy_Project
                                mobile.Height = mobile.ActualHeight;
                                mobile.Width = mobile.ActualWidth;
 
-                               Global.Scene2.ChangeContentData(Global.lastMobileSelected);
-                              
 
-                               EventHandler handler2 = null;
-                               handler2 = delegate
+                               Global.detailScene.ChangeContentData(Global.lastMobileSelected);
+                               Global.introlScene.ChangeIntrolPage();
+
+                               if (!Global.detailScene.ScreenAppear)
                                {
-                                   Introl.introl_start.Completed -= handler2;
-                                   Introl.introl_start.Stop();
+                                   EventHandler handler2 = null;
+                                   handler2 = delegate
+                                   {
+                                       Global.introlScene.introl_start.Completed -= handler2;
+                                       Global.introlScene.introl_start.Stop();
 
-                                   Introl.image2.Opacity = 1;
-                                   Introl.IntroNameText.Opacity = 1;
-                                   Introl.phoneModel.Opacity = 1;
-                                   //Global.FadeinoutBtn(1, 0, Introl, 1, 0);
+                                       Global.introlScene.image2.Opacity = 1;
+                                       Global.introlScene.IntroNameText.Opacity = 1;
+                                       Global.introlScene.phoneModel.Opacity = 1;
+                                       //Global.FadeinoutBtn(1, 0, Introl, 1, 0);
 
-                                   Global.Scene2.ScreenAppear = true;
+                                       Global.detailScene.ScreenAppear = true;
 
-                                   
-                                   Global.FadeinoutBtn(1, 0, Introl, 1, 0);
 
-                                 
-                                
-                                
-                                   
-                               };
-                               Introl.introl_start.Completed += handler2;
-                               Introl.introl_start.Begin();
-
+                                       Global.FadeinoutBtn(1, 0, Global.introlScene, 1, 0);
+                                   };
+                                   Global.introlScene.introl_start.Completed += handler2;
+                                   Global.introlScene.introl_start.Begin();
+                               }
                               
 
                            };
@@ -407,8 +446,10 @@ namespace Embassy_Project
                           // Console.WriteLine("Before minus moveDistance : "+moveDistance);
                           
                           // Console.WriteLine("After minus moveDistance :"+moveDistance);
-                           moveOut = new Thickness(mobile.Margin.Left+(mobile.Width * moveDistance), 0, 0, 0);
-                           Global.TransitionAnimation(mobile.Margin,moveOut, mobile,sb);
+                           moveOut = new Thickness(mobile.Margin.Left+(mobile.Width * moveDistance), 0, 0, 0); //Thickness for animation Out Of Mobile
+                           //moveOut = new Thickness(mobile.Margin.Left - (mobile.Width * moveDistance),0,0,0);
+                           //Global.FadeinoutBtn(1, 0, mobile, 1, 0);
+                           Global.TransitionAnimation(mobile.Margin,moveOut, mobile,sb,0,2);
                            moveDistance--;
                        }
                        sb.Begin();
@@ -438,9 +479,9 @@ namespace Embassy_Project
             }
             if (!Function.Equals("SelectPhone")&&!Function.Equals("Time"))
             {
-               /* if (Global.Scene2 != null && Global.Scene2.ScreenAppear)
+               /* if (Global.detailScene != null && Global.detailScene.ScreenAppear)
                 {
-                    Global.Scene2.ScreenAppear = false;
+                    Global.detailScene.ScreenAppear = false;
                     mobileReturn = true;
                     //Global.inDetail = false;
                 }*/
@@ -463,6 +504,29 @@ namespace Embassy_Project
             ShowDetail.ChangeContentData(Global.listOfMobileItem[0]);
             Global.MobileTransitionAnimation(Global.listOfMobileItem[0].Margin, Constance.MoveMobileUp, Global.listOfMobileItem[0], 0, 0.4);*/
         	// TODO: Add event handler implementation here.
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MobileManager.fliterMobileFromClient();
+        }
+
+        private void phoneScroller_ScrollChanged(object sender, System.Windows.Controls.ScrollChangedEventArgs e)
+        {
+            if (phoneScroller.CurrentHorizontalOffset < 639) scrollerIndex = 0;
+
+            else if (phoneScroller.CurrentHorizontalOffset % 639 == 0)
+            {
+                //Console.WriteLine("Scroller Change To(MOD) : " + phoneScroller.CurrentHorizontalOffset/639);
+                scrollerIndex = (int)phoneScroller.CurrentHorizontalOffset / 639;
+            }
+            else if (phoneScroller.CurrentHorizontalOffset == ((Global.listOfMobileFillter.Count - 6) * 639) - 6)
+            {
+                scrollerIndex = 27;
+            }
+            //Console.WriteLine("Scroller Change To(MOD) : " + phoneScroller.CurrentHorizontalOffset);
+            //Console.WriteLine("Scroller Width : " + phoneScroller.ScrollableWidth);
+            // TODO: Add event handler implementation here.
         }
 
         #region property
@@ -502,6 +566,7 @@ namespace Embassy_Project
         #region List of Mobile Content Data
         public  List<MobileItemSpecification> listOfSpecification = new List<MobileItemSpecification>();
         public bool mobileReturn = false;
+        public int scrollerIndex = 0;
 
         public Storyboard MobileTransitionChangeScene = new Storyboard();
 
@@ -510,19 +575,11 @@ namespace Embassy_Project
 
         Storyboard HeaderTextUp;
         Storyboard eclipsaura;
-        IntrolPage Introl;
+        public IntrolPage Introl;
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            int count = 0;
-            foreach (MobileItem mb in Global.listOfMobileFillter.Values)
-            {
-            
-                mb.Margin = new Thickness(mb.Width * count, 0, 0, 0);
-                mb.aura.Visibility = Visibility.Hidden;
-                count++;
-            }
-        }
+       
+
+      
 
 
 

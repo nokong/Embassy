@@ -29,6 +29,7 @@ namespace Embassy_Project
         public Storyboard Detail_Out;
         public Storyboard unjai_animation1, unjai_animation2;
         public Storyboard intro_start, intro_end;
+        public Storyboard DetailChange;
         private DateTime newClickedTime = DateTime.Now;
         private DateTime oldClickedTime = DateTime.Now;
         private Uri BGPath;
@@ -51,6 +52,7 @@ namespace Embassy_Project
             loop_animation = (Storyboard)TryFindResource("offer_animation");
             intro_start = (Storyboard)TryFindResource("Intro_Start");
             intro_end = (Storyboard)TryFindResource("Intro_Reverse");
+            DetailChange = (Storyboard)TryFindResource("Detail_change");
 
             animationBackground = new BackgroundWorker();
             animationBackground.DoWork += new DoWorkEventHandler(animationBackground_DoWork);
@@ -67,7 +69,7 @@ namespace Embassy_Project
         {
             Random rd = new Random();
             int randomvalue = rd.Next(0, 5);
-            //Console.WriteLine("Random Value = "+randomvalue);
+            ////Console.WriteLine("Random Value = "+randomvalue);
             switch (randomvalue)
             {
                 case 0: BGPath = new Uri("Resources\\Detailpage_BG.png", UriKind.Relative); break;
@@ -103,11 +105,11 @@ namespace Embassy_Project
                         //Global.FadeinoutBtn(0, 1, currentMobile, 0.3, 0);
                         Global.FadeinoutBtn(1, 0, this, 0.3, 0);
                         MobileManager.returnAllMobile(currentMobile);
-
+                        //MobileManager.fliterMobileFromClient();
                     };
                     Detail_Out.Completed += handler;
                     Detail_Out.Begin();
-                    Console.WriteLine("Detail Out Animation State " + Detail_Out.GetCurrentState());
+                    ////Console.WriteLine("Detail Out Animation State " + Detail_Out.GetCurrentState());
                     
                 }
             }
@@ -120,7 +122,7 @@ namespace Embassy_Project
            
             while (true)
             {
-                //Console.WriteLine("------------------------------------------------ start Thread");
+                ////Console.WriteLine("------------------------------------------------ start Thread");
                 Thread.Sleep(12000);
                 Random rd = new Random();
                 int randomvalue = rd.Next(0, 5);
@@ -133,7 +135,7 @@ namespace Embassy_Project
         void serverRunner_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             int randomvalue = (int)e.UserState;
-            Console.WriteLine("------------------------------ randomvalue {0}"+randomvalue);
+            ////Console.WriteLine("------------------------------ randomvalue {0}"+randomvalue);
             Storyboard animationRun = new Storyboard();
               switch (randomvalue)
                 {
@@ -209,17 +211,28 @@ namespace Embassy_Project
 
             if(screenAppear)
             {
-                //Console.WriteLine("Detail Out Animation Before State " + Detail_Out.GetCurrentProgress());
-                this.settingContentAnimationOUT(Detail_Out);
+                ////Console.WriteLine("Detail Out Animation Before State " + Detail_Out.GetCurrentProgress());
+                //this.settingContentAnimationOUT(Detail_Out);
+
+                EventHandler handler = null;
+                handler = delegate
+                {
+                    DetailChange.Completed -= handler;
+
+                    DetailChange.Stop();
+                    //Thread.Sleep(5000);
+                };
+                DetailChange.Completed += handler;
+                DetailChange.Begin();
+
+                //Detail_Out.Begin();
                 
-                Detail_Out.Begin();
-                
-                Console.WriteLine("Detail Out Animation After State " + Detail_Out.GetCurrentProgress());
+                ////Console.WriteLine("Detail Out Animation After State " + Detail_Out.GetCurrentProgress());
 
             }
           
            
-            //Console.WriteLine("Detail Count" + Detail_Scene.Children.Count);
+            ////Console.WriteLine("Detail Count" + Detail_Scene.Children.Count);
             oldClickedTime = newClickedTime;
                
             }
@@ -249,7 +262,7 @@ namespace Embassy_Project
             double startTime = 0.3;
             double additionStart = 0.10;
 
-            //Console.WriteLine("Before Add Animation Page Out Count : " + _storyboardOUT.Children.Count);
+            ////Console.WriteLine("Before Add Animation Page Out Count : " + _storyboardOUT.Children.Count);
             foreach (UIElement Child in Detail_Scene.Children)
             {
                 if (Child is PackageItem)
@@ -261,7 +274,7 @@ namespace Embassy_Project
                     count++;
                 }
             }
-           // Console.WriteLine("After Add Animation Page Out Count : " + _storyboardOUT.Children.Count);
+           // //Console.WriteLine("After Add Animation Page Out Count : " + _storyboardOUT.Children.Count);
 
             /*AddMoveAnimation(phoneModel.screen1.Margin, new Thickness(22, 781, 0, 0), 0, 0.1, phoneModel.screen1, _storyboardOUT);
             AddMoveAnimation(phoneModel.screen2.Margin, new Thickness(22, -781, 0, 0), 0, 0.1, phoneModel.screen2, _storyboardOUT);
@@ -277,7 +290,7 @@ namespace Embassy_Project
                 loop_animation.Stop();
                 CameraiTime.panPicture.Stop();
 
-                Console.WriteLine("Detail Out Animation State " + Detail_Out.GetCurrentProgress());
+                //Console.WriteLine("Detail Out Animation State " + Detail_Out.GetCurrentProgress());
                 //intro_start.Begin();
                 settingContentAnimationIN(Detailin);
                 Detailin.Begin();
@@ -299,11 +312,11 @@ namespace Embassy_Project
             //phoneModel.screen1.Margin = new Thickness(22, 771, 0, 0);
             //phoneModel.screen2.Margin = new Thickness(22, -691, 0, 0);
             //phoneModel.screen3.Margin = new Thickness(442, 771, 0, 0);
-            //Console.WriteLine("Mobile name : ");
+            ////Console.WriteLine("Mobile name : ");
             
             this.setContent();
             
-            //Console.WriteLine("Before Add Animation Page In Count : " + _storyboardIn.Children.Count);
+            ////Console.WriteLine("Before Add Animation Page In Count : " + _storyboardIn.Children.Count);
             
             foreach (PackageItem packageItem in currentMobile.ListOfPackage)
             {
@@ -320,7 +333,7 @@ namespace Embassy_Project
 
             }
             
-            //Console.WriteLine("After Add Animation Page In Count : " + _storyboardIn.Children.Count);
+            ////Console.WriteLine("After Add Animation Page In Count : " + _storyboardIn.Children.Count);
 
             /*AddMoveAnimation(phoneModel.screen1.Margin, new Thickness(22, 78, 0, 0), 2.3, 0.7, phoneModel.screen1, _storyboardIn);
             AddMoveAnimation(phoneModel.screen2.Margin, new Thickness(22, 78, 0, 0), 5, 0.7, phoneModel.screen2, _storyboardIn);
@@ -344,7 +357,7 @@ namespace Embassy_Project
         }
         private void setContentOpacity(double _value) 
         {
-            Console.WriteLine("SetOpacity");
+            ////Console.WriteLine("SetOpacity");
             img_Table.Opacity = _value;
             img_RectLogo.Opacity = _value;
             Decition_Text.Opacity = _value;
@@ -384,10 +397,10 @@ namespace Embassy_Project
                     //PI.Margin = new Thickness(430 + (535 * count), 380, 0, 0);
                     PI.Opacity = _value;
                     count++;
-                    //Console.WriteLine("Opacity"+PI.Opacity);
+                    ////Console.WriteLine("Opacity"+PI.Opacity);
                 }
             }
-            //Console.WriteLine("package Item :"+count);
+            ////Console.WriteLine("package Item :"+count);
         }
 
         private void setContentMargin(storybordState _state) 

@@ -25,6 +25,17 @@ namespace Embassy_Project
 		{
 			this.InitializeComponent();
             introl_start = (Storyboard)TryFindResource("Introl_Start");
+
+            ChangeIntrolPage();
+           
 		}
+        public void ChangeIntrolPage()
+        {
+            if (Global.lastMobileSelected != null)
+            {
+                phoneModel.Source = Global.LoadImage(new Uri(Global.lastMobileSelected.MobileSpecification.imagePath, UriKind.Relative));
+                IntroNameText.Source = Global.LoadImage(new Uri(Global.lastMobileSelected.MobileSpecification.WHITEPATH, UriKind.Relative));
+            }
+        }
 	}
 }

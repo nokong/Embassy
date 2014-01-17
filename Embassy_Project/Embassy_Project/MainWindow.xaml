@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:local="clr-namespace:Embassy_Project" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Embassy_Project.MainWindow"
-        Title="MainWindow" Height="1080" Width="3840" WindowStyle="None" AllowsTransparency="True"
-        WindowStartupLocation="Manual" Left="0" Top="0" Loaded="Window_Loaded">
+        Title="MainWindow" Height="1080" Width="3840"
+        WindowStartupLocation="Manual" Left="0" Top="0" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True">
 	<Window.Resources>
 		<Storyboard x:Key="HeadText_Up">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_Th">
@@ -27,46 +27,48 @@
 	</Window.Resources>
 	
 
-    <Grid x:Name="Scene1">
-    	<Image Margin="0" Source="Resources/bg.png" Stretch="Fill"/>
-    	<Grid x:Name="text_Th" HorizontalAlignment="Left" Height="169.074" Margin="455,48,0,0" VerticalAlignment="Top" Width="940" RenderTransformOrigin="0.5,0.5">
-    		<Grid.RenderTransform>
-    			<TransformGroup>
-    				<ScaleTransform/>
-    				<SkewTransform/>
-    				<RotateTransform/>
-    				<TranslateTransform/>
-    			</TransformGroup>
-    		</Grid.RenderTransform>
-    		<TextBlock Margin="0,2.666,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Foreground="#FF8B807A"><Run Language="th-th" Text="เลือกสมาร์ทโฟนในแบบคุณ"/></TextBlock>
-    		<TextBlock x:Name="textBlock" Margin="0,0,0,2.666" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120"><TextBlock.Foreground>
-    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-    					<GradientStop Color="#FFC5C3D0" Offset="0"/>
-    					<GradientStop Color="#FFFFE3F0" Offset="1"/>
-    				</LinearGradientBrush>
-    			</TextBlock.Foreground><Run Language="th-th" Text="เลือกสมาร์ทโฟนในแบบคุณ"/></TextBlock>
-    	</Grid>
-    	<Grid x:Name="text_Eng" HorizontalAlignment="Right" Height="168.906" Margin="0,48,353,0" VerticalAlignment="Top" Width="1330" RenderTransformOrigin="0.5,0.5">
-    		<Grid.RenderTransform>
-    			<TransformGroup>
-    				<ScaleTransform/>
-    				<SkewTransform/>
-    				<RotateTransform/>
-    				<TranslateTransform/>
-    			</TransformGroup>
-    		</Grid.RenderTransform>
-    		<TextBlock Margin="0,2.498,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You" Foreground="#FF8B807A"/>
-    		<TextBlock x:Name="textBlock1" Margin="0,0,0,2.498" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You"><TextBlock.Foreground>
-    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-    					<GradientStop Color="#FFC5C3D0" Offset="0"/>
-    					<GradientStop Color="#FFFFE3F0" Offset="1"/>
-    				</LinearGradientBrush>
-    			</TextBlock.Foreground></TextBlock>
-    	</Grid>
-    	<local:AniScrollViewer x:Name="phoneScroller" Margin="0,140.408,0,0" Width="3840" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-    		<Canvas x:Name="phoneStack" HorizontalAlignment="Left" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Top" Width="3840"/>
-    	</local:AniScrollViewer>
-        <Button Content="GO_scene2" HorizontalAlignment="Left" Height="104" Margin="1460,48,0,0" VerticalAlignment="Top" Width="404" FontSize="29.333" Click="Button_Click" Visibility="Collapsed"/>
-        <Button Content="reset" Height="108" Margin="1616,44,1848,0" VerticalAlignment="Top" FontSize="64" Click="Button_Click_1" />
+    <Grid x:Name="mainWindowGrid">
+    	<Canvas x:Name="Scene1">
+    		<Image Margin="0" Source="Resources/bg.png" Stretch="Fill" Height="1080" Width="3840"/>
+    		<Grid x:Name="text_Th" Height="169.074" Width="940" RenderTransformOrigin="0.5,0.5" Canvas.Left="455" Canvas.Top="48">
+    			<Grid.RenderTransform>
+    				<TransformGroup>
+    					<ScaleTransform/>
+    					<SkewTransform/>
+    					<RotateTransform/>
+    					<TranslateTransform/>
+    				</TransformGroup>
+    			</Grid.RenderTransform>
+    			<TextBlock Margin="0,2.666,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Foreground="#FF8B807A"><Run Language="th-th" Text="เลือกสมาร์ทโฟนในแบบคุณ"/></TextBlock>
+    			<TextBlock x:Name="textBlock" Margin="0,0,0,2.666" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120"><TextBlock.Foreground>
+    					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    						<GradientStop Color="#FFC5C3D0" Offset="0"/>
+    						<GradientStop Color="#FFFFE3F0" Offset="1"/>
+    					</LinearGradientBrush>
+    				</TextBlock.Foreground><Run Language="th-th" Text="เลือกสมาร์ทโฟนในแบบคุณ"/></TextBlock>
+    		</Grid>
+    		<Grid x:Name="text_Eng" Height="168.906" Width="1330" RenderTransformOrigin="0.5,0.5" Canvas.Left="2157" Canvas.Top="48">
+    			<Grid.RenderTransform>
+    				<TransformGroup>
+    					<ScaleTransform/>
+    					<SkewTransform/>
+    					<RotateTransform/>
+    					<TranslateTransform/>
+    				</TransformGroup>
+    			</Grid.RenderTransform>
+    			<TextBlock Margin="0,2.498,0,0" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You" Foreground="#FF8B807A"/>
+    			<TextBlock x:Name="textBlock1" Margin="0,0,0,2.498" TextWrapping="Wrap" FontFamily="DB HelvethaicaAIS X Med" FontSize="120" Text="Please chose Smart Phone For You"><TextBlock.Foreground>
+    					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    						<GradientStop Color="#FFC5C3D0" Offset="0"/>
+    						<GradientStop Color="#FFFFE3F0" Offset="1"/>
+    					</LinearGradientBrush>
+    				</TextBlock.Foreground></TextBlock>
+    		</Grid>
+    		<local:AniScrollViewer x:Name="phoneScroller" Width="3840" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" Canvas.Top="197.575" d:LayoutOverrides="Width, Height" ScrollChanged="phoneScroller_ScrollChanged" Canvas.Left="8">
+    			<Canvas x:Name="phoneStack" HorizontalAlignment="Left" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Top" Width="3840"/>
+    		</local:AniScrollViewer>
+    		<Button Content="GO_scene2" Height="104" Width="404" FontSize="29.333" Click="Button_Click" Visibility="Collapsed" Canvas.Left="1460" Canvas.Top="48"/>
+    		<Button Content="reset" Height="108" FontSize="64" Click="Button_Click_1" Canvas.Left="1616" Canvas.Top="44" Width="376" />
+    	</Canvas>
     </Grid>
 </Window>

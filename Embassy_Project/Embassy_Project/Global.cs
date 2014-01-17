@@ -19,8 +19,8 @@ namespace Embassy_Project
         public static MainWindow mainWindow;
 
         //public static Boolean inDetail = false;
-        public static PhoneDetail Scene2;
-
+        public static PhoneDetail detailScene;
+        public static IntrolPage  introlScene;
 
         public static int lastMobileSelectedID;
         public static int lastMobileSelectIndex;
@@ -68,6 +68,7 @@ namespace Embassy_Project
             foreach (MobileItem mobile in _resultList.Values) 
             {
                 //Console.WriteLine(mobile.MobileSpecification.NAME);
+                Global.scaleAnimation(mobile, 1, 1, 0.1);
                 mobile.Margin = new Thickness(mobile.Width * count, 0, 0, 0);
                 mainWindow.phoneStack.Children.Add(mobile);
 
@@ -147,7 +148,9 @@ namespace Embassy_Project
                 BeginTime = TimeSpan.FromSeconds(begintime),
                 Duration = TimeSpan.FromSeconds(duration)
             };
-
+            QuarticEase be = new QuarticEase();
+            movegrid.EasingFunction = be;
+            
             Storyboard.SetTarget(movegrid, MoveItem);
             Storyboard.SetTargetProperty(movegrid, new PropertyPath(Grid.MarginProperty));
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Media.Animation;
+using System.Windows;
+using System.Windows.Media;
 
 namespace Embassy_Project
 {
@@ -114,7 +116,7 @@ namespace Embassy_Project
                 //Console.WriteLine(_listOfFilter);
                 for (int j = 0; j < _mobileList.Count(); j++)
                 {
-                    MobileItem MB = (MobileItem)_mobileList[j];
+                    MobileItem MB = (MobileItem)_mobileList.ElementAt(j).Value;
                     switch (_sortType) 
                     {
                         case SortBy.OS:
@@ -145,25 +147,24 @@ namespace Embassy_Project
             return resultList;
         }
 
-
+       
         public static void returnAllMobile(MobileItem selectedPhone)
         {
-          /*  foreach (MobileItem MB in Global.listOfMobileItem) 
-            {
-                if (MB != selectedPhone)
-                {
-                    MB.Margin = Constance.MoveMobileDown;
-                    Global.FadeinoutBtn(0, 1, MB, 0.1, 0);
-                }
-                else 
-                {
-                    Storyboard sb = new Storyboard();
-                    Global.TransitionAnimation(MB.Margin, Constance.MoveMobileDown, MB,sb);
-                    Global.FadeinoutBtn(0, 1, MB, 0.3, 0);
-                    sb.Begin();
-                }
-            }*/
+            int count = 0;
 
+            foreach (MobileItem MB in Global.listOfMobileFillter.Values) 
+            {
+                MB.Margin = new Thickness(MB.Width * count, 0, 0, 0);
+                Global.FadeinoutBtn(0, 1, MB, 0.1, 0);
+                ScaleTransform ST = new ScaleTransform(1, 1, 0.5, 0.5);
+                MB.RenderTransform = ST;
+                //MB.Opacity = 1;
+                Console.WriteLine("Phone : "+MB.MobileSpecification.NAME +" Margin : "+MB.Margin);
+                count++;
+            }
+            //Global.Scene2 = null;
+            Global.mainWindow.Introl = null;
+            Global.mainWindow.mobileReturn = false;
         }
         
 
