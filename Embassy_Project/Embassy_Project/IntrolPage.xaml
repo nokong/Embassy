@@ -9,18 +9,6 @@
 	d:DesignWidth="640" d:DesignHeight="480" Width="3840" Height="1080">
 	<UserControl.Resources>
 		<Storyboard x:Key="Introl_Start">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
-				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse">
-				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="82"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse">
-				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="82"/>
-			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image2">
 				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
@@ -36,24 +24,31 @@
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="phoneModel">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0.96"/>
 			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="fader">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="phoneModel">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
 		</Storyboard>
 	</UserControl.Resources>
 	
 
 	<Grid x:Name="LayoutRoot">
 		<Grid x:Name="intro_grid" Margin="-158,-744,-391.12,-919.2">
-			<Ellipse x:Name="ellipse" HorizontalAlignment="Left" Margin="1174.67,1314.675,0,1356.525" Width="72" RenderTransformOrigin="0.5,0.5" Fill="White" OpacityMask="{x:Null}" Opacity="0">
-				<Ellipse.RenderTransform>
+			<Rectangle x:Name="fader" Fill="White" Margin="150,750,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="3846" Height="1080" Opacity="0"/>
+			<Image x:Name="image2" Source="Resources/BG_1.jpg" Stretch="Fill" Opacity="0"/>
+			<Image x:Name="phoneModel" Source="Resources/Phone/phonemodel/phonemodel_note3.png" HorizontalAlignment="Left" Margin="938,1130,0,1175.2" Width="237" Height="438" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+				<Image.RenderTransform>
 					<TransformGroup>
-						<ScaleTransform/>
+						<ScaleTransform ScaleX="1.87" ScaleY="1.87"/>
 						<SkewTransform/>
-						<RotateTransform Angle="-0.417"/>
+						<RotateTransform/>
 						<TranslateTransform/>
 					</TransformGroup>
-				</Ellipse.RenderTransform>
-			</Ellipse>
-			<Image x:Name="image2" Source="Resources/BG_1.jpg" Stretch="Fill" Opacity="0"/>
-			<Image x:Name="phoneModel" Source="Resources/Phone/phonemodel/phonemodel_note3.png" HorizontalAlignment="Left" Margin="998,930,0,975.2" Width="444" Opacity="0"/>
+				</Image.RenderTransform>
+			</Image>
 			<Image x:Name="IntroNameText" Source="Resources/Phone/nametext_white/whitetext_note3.png" Stretch="Fill" Margin="1483.331,1046.246,1404.343,1091.4" RenderTransformOrigin="0.5,0.5" Opacity="0">
 				<Image.RenderTransform>
 					<TransformGroup>
@@ -64,6 +59,7 @@
 					</TransformGroup>
 				</Image.RenderTransform>
 			</Image>
+			<Button Content="reset" Height="108" FontSize="64" Click="Button_Click" Width="376" HorizontalAlignment="Left" Margin="1680,820,0,0" VerticalAlignment="Top" />
 		</Grid>
 	</Grid>
 </UserControl>

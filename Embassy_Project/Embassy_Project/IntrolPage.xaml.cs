@@ -37,5 +37,10 @@ namespace Embassy_Project
                 IntroNameText.Source = Global.LoadImage(new Uri(Global.lastMobileSelected.MobileSpecification.WHITEPATH, UriKind.Relative));
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MobileManager.fliterMobileFromClient();
+        }
 	}
 }

@@ -7,49 +7,27 @@
              d:DesignHeight="300" d:DesignWidth="300" Width="639" Height="795" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top">
 	<UserControl.Resources>
 		<Storyboard x:Key="phoneClick"/>
-		<Storyboard x:Key="aurastart" AutoReverse="False" RepeatBehavior="Forever">
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="aura">
-				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
-				<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
-				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="aura">
-				<EasingDoubleKeyFrame KeyTime="0" Value="2.5"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="2.5"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.5"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="aura">
-				<EasingDoubleKeyFrame KeyTime="0" Value="2.5"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="2.5"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.5"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="aura">
-				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="359.644"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
+		<Storyboard x:Key="aurastart" AutoReverse="False" RepeatBehavior="Forever"/>
 	</UserControl.Resources>
-	
-	
-    <Grid Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
-    	<Grid.RowDefinitions>
-    		<RowDefinition/>
-    	</Grid.RowDefinitions>
-    	<TextBlock x:Name="priceTextBlock" TextWrapping="Wrap" Text="TextBlock" FontFamily="DB HelvethaicaAIS X 55 Regular" FontSize="64" Foreground="White" TextAlignment="Center" Height="68.73" VerticalAlignment="Bottom"/>
-    	<Image x:Name="aura" Margin="240.998,321.988,230.934,308.012" Source="Resources/aura.png" Stretch="Fill" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
-    		<Image.RenderTransform>
-    			<TransformGroup>
-    				<ScaleTransform/>
-    				<SkewTransform/>
-    				<RotateTransform/>
-    				<TranslateTransform/>
-    			</TransformGroup>
-    		</Image.RenderTransform>
-    	</Image>
-    	<Image x:Name="frontPhone" Margin="65.167,186.361,55.444,170.167" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
-    	<Image x:Name="headerName" Height="157.231" VerticalAlignment="Top" Source="Resources/Name/Note3_Name.png" Margin="-187.479,-22,-191.108,0"/>
-    	<Image Height="85.678" Margin="83.918,0,70.582,65.73" Source="Resources/shadow.png" Stretch="Fill" VerticalAlignment="Bottom" Opacity="0.51"/>
-    	<Image x:Name="specail_offer" HorizontalAlignment="Right" Margin="0,155.528,142.734,0" Source="Resources/special.png" Stretch="Fill" Width="138.766" Height="158" VerticalAlignment="Top" Visibility="Collapsed"/>
-    	<Image x:Name="_new" Margin="0,139.231,142.734,0" Source="Resources/new.png" Stretch="Fill" Height="138.766" VerticalAlignment="Top" HorizontalAlignment="Right" Width="138.766" Visibility="Collapsed"/>
-    </Grid>
+	<Canvas Margin="0,0,-1.5,0">
+		<Ellipse x:Name="blurRectb" StrokeThickness="10" Panel.ZIndex="-1" Height="484.361" Canvas.Left="89.584" Canvas.Top="119.23" Width="410.361" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Stroke="White"/>
+		<TextBlock x:Name="priceTextBlock" TextWrapping="Wrap" Text="TextBlock" FontFamily="DB HelvethaicaAIS X 55 Regular" FontSize="64" Foreground="White" TextAlignment="Center" Height="68.73" Canvas.Top="726.27" Width="639"/>
+		<Rectangle x:Name="blurRecta" Fill="#FFF4F4F5" RadiusX="20" RadiusY="20" StrokeThickness="1" MaxWidth="2000" MaxHeight="500" Opacity="0.995" Visibility="Hidden" Height="469.064" Canvas.Left="86.918" Canvas.Top="166.597" Width="469.064"/>
+		
+		<Image x:Name="frontPhone" Source="Resources/Phone/phonemodel/phonemodel_note3.png" Height="438" Canvas.Left="201" Canvas.Top="187.5" Width="518.389" d:LayoutOverrides="Height"/>
+		<Image x:Name="headerName" Height="157.231" VerticalAlignment="Stretch" Source="Resources/Name/Note3_Name.png" Margin="0" Canvas.Left="-187.479" Canvas.Top="-22" Width="1017.587"/>
+		<Image Height="85.678" Source="Resources/shadow.png" Stretch="Fill" Opacity="0.51" Canvas.Left="83.918" Canvas.Top="643.592" Width="484.5"/>
+		<Image x:Name="specail_offer" Source="Resources/special.png" Stretch="Fill" Width="138.766" Height="158" Visibility="Collapsed" Canvas.Left="357.5" Canvas.Top="155.528"/>
+		<Image x:Name="_new" Source="Resources/new.png" Stretch="Fill" Height="138.766" Width="138.766" Visibility="Collapsed" Canvas.Left="357.5" Canvas.Top="139.231"/>
+		<Canvas x:Name="Glow_Layer1" Height="438" Canvas.Left="200" Canvas.Top="187.5" Width="239.361" Panel.ZIndex="-1">
+			<Canvas.Resources>
+				<DropShadowEffect x:Key="glowEffect" BlurRadius="300" Opacity="1" ShadowDepth="0" Color="White" RenderingBias="Quality"/>
+			</Canvas.Resources>
+			<Canvas x:Name="Glow_Layer2" Effect="{StaticResource glowEffect}" Height="438" Width="239.361">
+				<Canvas x:Name="Glow_Layer3" Effect="{StaticResource glowEffect}" Height="438" Width="239.361">
+					<Rectangle x:Name="blurRect" Effect="{StaticResource glowEffect}" Fill="White" RadiusY="40" RadiusX="40" Height="438" Width="239.361"/>
+				</Canvas>
+			</Canvas>
+		</Canvas>
+	</Canvas>
 </UserControl>

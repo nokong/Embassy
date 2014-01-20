@@ -8,6 +8,7 @@ using System.Windows.Media.Animation;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 namespace Embassy_Project
 {
@@ -67,14 +68,14 @@ namespace Embassy_Project
             int count = 0;
             foreach (MobileItem mobile in _resultList.Values) 
             {
-                //Console.WriteLine(mobile.MobileSpecification.NAME);
+               // Console.WriteLine(mobile.MobileSpecification.NAME + "Befor Change Margin " +mobile.Margin);
                 Global.scaleAnimation(mobile, 1, 1, 0.1);
-                mobile.Margin = new Thickness(mobile.Width * count, 0, 0, 0);
+                mobile.Margin = new Thickness(mobile.Width * count, 200, 0, 0);
                 mainWindow.phoneStack.Children.Add(mobile);
-
+              //  Console.WriteLine(mobile.MobileSpecification.NAME + "After Change Margin " + mobile.Margin);
+              //  Console.WriteLine("-----------------------------------------------------------------------");
                 count++;
             }
-
            /* for (int i = 0; i < _resultList.Count; i++)
             {
                 MobileItem MBItem = (MobileItem)_resultList[i];
@@ -123,7 +124,6 @@ namespace Embassy_Project
             transitionStoryboard.Completed += handler;
         }
 
-
         public static void scaleAnimation(UIElement mobile, double from, double to, double duration = 0.75,double begintime = 0) 
         {
 
@@ -135,7 +135,6 @@ namespace Embassy_Project
             sc.BeginAnimation(ScaleTransform.ScaleXProperty,scaleanime);
             sc.BeginAnimation(ScaleTransform.ScaleYProperty, scaleanime);
 
-          
         }
 
         public static void TransitionAnimation(Thickness movefrom, Thickness moveTarget, MobileItem MoveItem,Storyboard transitionStoryboard = null, double begintime = 0, double duration = 1)
@@ -210,5 +209,41 @@ namespace Embassy_Project
             sb.Begin();
         }
 
+
+        public static void BlurEffectAnimation(double from, double to, UIElement target,Storyboard targetStoryBoard,double speed,double begintime = 0 ) 
+        {
+            DropShadowEffect dropshadowEffect = new DropShadowEffect();
+            dropshadowEffect.Color = Color.FromRgb(255, 255, 255);
+            dropshadowEffect.Opacity = 1;
+            dropshadowEffect.ShadowDepth = 0;
+
+            //BlurEffect blurEffect = new BlurEffect();
+            object blurObject = mainWindow.FindName("dropshadowEffect");
+            if (blurObject != null) 
+            {
+                mainWindow.UnregisterName("dropshadowEffect");
+            }
+
+
+            mainWindow.RegisterName("dropshadowEffect", dropshadowEffect);
+
+            target.Effect = dropshadowEffect;
+
+            
+            DoubleAnimation blurAnimation = new DoubleAnimation
+            {
+                From = from,
+                To = to,
+                BeginTime = TimeSpan.FromSeconds(begintime),
+                Duration = TimeSpan.FromSeconds(speed)
+            };
+
+            Storyboard.SetTargetName(blurAnimation, "dropshadowEffect");
+            //Storyboard.SetTarget(blurAnimation, target);
+            Storyboard.SetTargetProperty(blurAnimation, new PropertyPath(DropShadowEffect.BlurRadiusProperty));
+
+            targetStoryBoard.Children.Add(blurAnimation);
+               
+        }
     }
 }

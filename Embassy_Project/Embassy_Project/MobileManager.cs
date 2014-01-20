@@ -154,8 +154,9 @@ namespace Embassy_Project
 
             foreach (MobileItem MB in Global.listOfMobileFillter.Values) 
             {
-                MB.Margin = new Thickness(MB.Width * count, 0, 0, 0);
-                Global.FadeinoutBtn(0, 1, MB, 0.1, 0);
+                MB.Margin = new Thickness(MB.Width * count, 200, 0, 0);
+                //MB.Margin = new Thickness(10,10, 0, 0);
+                //Global.FadeinoutBtn(0, 1, MB, 0.1, 0);
                 ScaleTransform ST = new ScaleTransform(1, 1, 0.5, 0.5);
                 MB.RenderTransform = ST;
                 //MB.Opacity = 1;
@@ -163,8 +164,8 @@ namespace Embassy_Project
                 count++;
             }
             //Global.Scene2 = null;
-            Global.mainWindow.Introl = null;
-            Global.mainWindow.mobileReturn = false;
+            //Global.mainWindow.Introl = null;
+            //Global.mainWindow.mobileReturn = false;
         }
         
 

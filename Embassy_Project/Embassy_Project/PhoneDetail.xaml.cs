@@ -246,7 +246,7 @@ namespace Embassy_Project
             CPUText.Text = currentMobile.MobileSpecification.CPU + " GHz " + currentMobile.MobileSpecification.CPUCORE;
             StroageText.Text = currentMobile.MobileSpecification.STORAGE + " GB";
             DimensionText.Text = currentMobile.MobileSpecification.WIDTHMM + " x " + currentMobile.MobileSpecification.HEIGHTMM + " x " + currentMobile.MobileSpecification.THICK + " มม.";
-            //BateryText.Text
+            //BateryText.Text   
             BatteryLifeText.Text = "คุยต่อเนื่องนาน " + currentMobile.MobileSpecification.BATTERYLIFE + " h(3G)";
             VideoText.Text = "FULL HD " + currentMobile.MobileSpecification.VIDEO;
 

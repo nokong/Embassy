@@ -13,6 +13,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
+using System.IO;
+
 
 namespace Embassy_Project
 {
@@ -46,16 +49,48 @@ namespace Embassy_Project
 
         public void InitPhoneContent(MobileItemSpecification _specification)
         {
-  
+            double frontPhoneHeight,frontPhoneWidth;
             this.MobileSpecification = _specification;
 
+            
             comparemonth = DateTime.Now.Month - MobileSpecification.DATESALE.Month;
             //Console.WriteLine("Month Now : {0} Release Month : {1}", DateTime.Now.Month, mobileSpecification.DATESALE);
 
             this.frontPhone.Source = Global.LoadImage(new Uri(MobileSpecification.imagePath, UriKind.Relative));
+            
+
             //this.shadow_frontPhone.Source = Global.LoadImage(new Uri(mobileSpecification.imagePath, UriKind.Relative));
             this.headerName.Source = Global.LoadImage(new Uri(MobileSpecification.WHITEPATH, UriKind.Relative));
             this.priceTextBlock.Text = MobileSpecification.PRICETEXT + " บาท";
+
+            
+           /* OuterGlowBitmapEffect glowEffect = new OuterGlowBitmapEffect();
+            glowEffect.GlowColor = Color.FromRgb(1, 1, 1);
+            glowEffect.Opacity = 0.4;
+            glowEffect.GlowSize = 30;
+            glowEffect.Noise = 1;
+
+            this.blurRect.BitmapEffect = glowEffect;*/
+
+
+            using (FileStream fileStream = new FileStream(MobileSpecification.imagePath, FileMode.Open, FileAccess.Read))
+            {
+                BitmapFrame frame = BitmapFrame.Create(fileStream, BitmapCreateOptions.DelayCreation, BitmapCacheOption.None);
+                Size s = new Size(frame.PixelWidth, frame.PixelHeight);
+                frontPhoneHeight = s.Height;    
+                frontPhoneWidth = s.Width;
+                
+            }
+            this.blurRect.Width = frontPhoneWidth-5;// +150;
+            this.blurRect.Height = frontPhoneHeight-5;// +150;
+
+            this.frontPhone.Width = frontPhoneWidth;
+            this.frontPhone.Height = frontPhoneHeight;
+            //Console.WriteLine("Name :" + MobileSpecification.NAME + " Width : " + s.Width + "Height : " + s.Height);
+            
+
+            //Console.WriteLine("Name : "+MobileSpecification.NAME+" Width : "+this.frontPhone.ActualWidth+" Height : "+this.frontPhone.ActualHeight);
+            //Global.BlurEffectAnimation(0,40,this.blurRect,
 
             if (comparemonth == 0) { _new.Visibility = Visibility.Visible; }
             else _new.Visibility = Visibility.Collapsed;

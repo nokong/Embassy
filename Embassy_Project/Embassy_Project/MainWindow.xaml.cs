@@ -17,6 +17,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Xml;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
 
 
 namespace Embassy_Project
@@ -40,6 +41,8 @@ namespace Embassy_Project
 
             mainWindowGrid.Children.Add(Global.introlScene);
             mainWindowGrid.Children.Add(Global.detailScene);
+
+           
 
             /*Console.WriteLine("DetailScene ZIndex : "+Canvas.GetZIndex(Global.detailScene));
             Console.WriteLine("IntrolScene ZIndex : " + Canvas.GetZIndex(Global.introlScene));
@@ -381,21 +384,29 @@ namespace Embassy_Project
 
                              /*Global.FadeinoutBtn(1, 0, mobile, 1, 0);
                              moveOut = new Thickness((mobile.Width * moveDistance), 0, 0, 0);*/
-                             
-                           
+
+                           sb.FillBehavior = FillBehavior.Stop;
                            Global.TransitionAnimation(mobile.Margin, moveOut, mobile,sb,0,2);
                            moveDistance++;
                        }
                        else if (i == Global.lastMobileSelectIndex) 
                        {
-                           mobile.aura.Visibility = Visibility.Visible;
+                           //mobile.aura.Visibility = Visibility.Visible;
                            //mobile.aurastart.Begin();
                            HeaderTextUp.Begin();
 
-                           Global.scaleAnimation(mobile, 1, 1.87);
-                           //Global.TransitionAnimation(mobile.Margin, new Thickness((mobile.Width * (moveDistance - scrollerIndex)+99),0,0,0), mobile, sb, 0, 2);
-                           Global.TransitionAnimation(mobile.Margin, new Thickness((scrollerIndex * mobile.Width)+738, -5, 0, 0), mobile,sb,0,2); //738
+                           //Global.scaleAnimation(mobile, 1, 1.87,0.6);
+                           //mobile.blurRect.Visibility = Visibility.Visible;
+                           //Global.scaleAnimation(mobile.blurRect, 0.5, 1, 0.6,0.3);
+                           Global.BlurEffectAnimation(0,100,mobile.blurRect,sb,0.6);
+                          /* Global.BlurEffectAnimation(0, 300, mobile.Glow_Layer1, sb, 0.6);
+                           Global.BlurEffectAnimation(0, 300, mobile.Glow_Layer2, sb, 0.6);
+                           Global.BlurEffectAnimation(0, 300, mobile.Glow_Layer3, sb, 0.6);*/
 
+                           //Global.BlurEffectAnimation(80, 80, mobile.blurRect, sb, 0.3);
+                           //Global.TransitionAnimation(mobile.Margin, new Thickness((mobile.Width * (moveDistance - scrollerIndex)+99),0,0,0), mobile, sb, 0, 2);
+                           //Global.TransitionAnimation(mobile.Margin, new Thickness((scrollerIndex * mobile.Width)+738, -5, 0, 0), mobile,sb,0,2); //738
+                           
                            //Console.WriteLine("Current Scroller : "+phoneScroller.CurrentHorizontalOffset);
 
                            EventHandler handler = null;
@@ -407,6 +418,10 @@ namespace Embassy_Project
                                mobile.Height = mobile.ActualHeight;
                                mobile.Width = mobile.ActualWidth;
 
+                               Console.WriteLine("Story Board Complete");
+
+                               //Global.BlurEffectAnimation(40, 10, mobile.blurRect, sb, 0.1);
+                               MobileManager.returnAllMobile(null);
 
                                Global.detailScene.ChangeContentData(Global.lastMobileSelected);
                                Global.introlScene.ChangeIntrolPage();
@@ -419,22 +434,30 @@ namespace Embassy_Project
                                        Global.introlScene.introl_start.Completed -= handler2;
                                        Global.introlScene.introl_start.Stop();
 
-                                       Global.introlScene.image2.Opacity = 1;
-                                       Global.introlScene.IntroNameText.Opacity = 1;
-                                       Global.introlScene.phoneModel.Opacity = 1;
+
+                                       Global.scaleAnimation(mobile, 1.87, 1, 0.1);
+                                       //mobile.blurRect.Visibility = Visibility.Visible;
+                                       Global.scaleAnimation(mobile.blurRect, 1, 0.5, 0.1);
+                                       Global.BlurEffectAnimation(40, 10, mobile.blurRect, sb, 0.1);
+                                       MobileManager.returnAllMobile(null);
+                                       //Global.introlScene.image2.Opacity = 1;
+                                       //Global.introlScene.IntroNameText.Opacity = 1;
+                                       //Global.introlScene.phoneModel.Opacity = 1;
                                        //Global.FadeinoutBtn(1, 0, Introl, 1, 0);
 
-                                       Global.detailScene.ScreenAppear = true;
+                                       //Global.detailScene.ScreenAppear = true;
 
 
-                                       Global.FadeinoutBtn(1, 0, Global.introlScene, 1, 0);
+                                       //Global.FadeinoutBtn(1, 0, Global.introlScene, 1, 0);
                                    };
                                    Global.introlScene.introl_start.Completed += handler2;
-                                   Global.introlScene.introl_start.Begin();
+                                   //Global.introlScene.introl_start.Begin();
                                }
                               
 
                            };
+                           
+                          
                            sb.Completed += handler;
 
 
@@ -450,11 +473,14 @@ namespace Embassy_Project
                            //moveOut = new Thickness(mobile.Margin.Left - (mobile.Width * moveDistance),0,0,0);
                            //Global.FadeinoutBtn(1, 0, mobile, 1, 0);
                            Global.TransitionAnimation(mobile.Margin,moveOut, mobile,sb,0,2);
+                           sb.FillBehavior = FillBehavior.Stop;
                            moveDistance--;
                        }
-                       sb.Begin();
+
+                          
+                          sb.Begin(this);
                    }
-                    MobileTransitionChangeScene.Begin();
+                    //MobileTransitionChangeScene.Begin();
                     #endregion
 
                     

@@ -64,11 +64,10 @@
     					</LinearGradientBrush>
     				</TextBlock.Foreground></TextBlock>
     		</Grid>
-    		<local:AniScrollViewer x:Name="phoneScroller" Width="3840" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" Canvas.Top="197.575" d:LayoutOverrides="Width, Height" ScrollChanged="phoneScroller_ScrollChanged" Canvas.Left="8">
+    		<local:AniScrollViewer x:Name="phoneScroller" Width="3840" Height="1080" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollChanged="phoneScroller_ScrollChanged">
     			<Canvas x:Name="phoneStack" HorizontalAlignment="Left" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Top" Width="3840"/>
     		</local:AniScrollViewer>
     		<Button Content="GO_scene2" Height="104" Width="404" FontSize="29.333" Click="Button_Click" Visibility="Collapsed" Canvas.Left="1460" Canvas.Top="48"/>
-    		<Button Content="reset" Height="108" FontSize="64" Click="Button_Click_1" Canvas.Left="1616" Canvas.Top="44" Width="376" />
     	</Canvas>
     </Grid>
 </Window>
