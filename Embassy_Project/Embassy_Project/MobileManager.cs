@@ -160,7 +160,7 @@ namespace Embassy_Project
                 ScaleTransform ST = new ScaleTransform(1, 1, 0.5, 0.5);
                 MB.RenderTransform = ST;
                 //MB.Opacity = 1;
-                Console.WriteLine("Phone : "+MB.MobileSpecification.NAME +" Margin : "+MB.Margin);
+                //Console.WriteLine("Phone : "+MB.MobileSpecification.NAME +" Margin : "+MB.Margin);
                 count++;
             }
             //Global.Scene2 = null;

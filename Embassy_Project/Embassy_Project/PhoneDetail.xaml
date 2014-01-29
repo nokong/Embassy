@@ -1088,7 +1088,7 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-83.573"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
-        <Storyboard x:Key="note3_PenAnimation2" Name="note3_PenAnimation2" SpeedRatio="1.5">
+        <Storyboard x:Key="note3_PenAnimation2" Name="note3_PenAnimation2" SpeedRatio="1">
 			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
 				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
 			</ObjectAnimationUsingKeyFrames>
@@ -1136,7 +1136,7 @@
 				<EasingThicknessKeyFrame KeyTime="0" Value="0"/>
 			</ThicknessAnimationUsingKeyFrames>
 		</Storyboard>
-        <Storyboard x:Key="note3_PenAnimation3" Name="note3_PenAnimation3" SpeedRatio="1.5">
+        <Storyboard x:Key="note3_PenAnimation3" Name="note3_PenAnimation3" SpeedRatio="1">
 			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
 				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
 				<DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
@@ -1258,7 +1258,7 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="110"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
-        <Storyboard x:Key="note3_PenAnimation4" Name="note3_PenAnimation4" SpeedRatio="1.5">
+        <Storyboard x:Key="note3_PenAnimation4" Name="note3_PenAnimation4" SpeedRatio="1">
 			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
 				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
 			</ObjectAnimationUsingKeyFrames>
@@ -1291,7 +1291,7 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
-        <Storyboard x:Key="note3_PenAnimation5" Name="note3_PenAnimation5" SpeedRatio="1.5">
+        <Storyboard x:Key="note3_PenAnimation5" Name="note3_PenAnimation5" SpeedRatio="1">
 			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
 				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
 				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
@@ -1313,7 +1313,7 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-83.573"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
-        <Storyboard x:Key="note3_PenAnimation6" x:Name="note3_PenAnimation6" SpeedRatio="1.5">
+        <Storyboard x:Key="note3_PenAnimation6" x:Name="note3_PenAnimation6" SpeedRatio="1">
         	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
         		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
         	</ObjectAnimationUsingKeyFrames>
@@ -1354,7 +1354,7 @@
         		<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="184.59"/>
         	</DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="note3_PenAnimation7" Name="note3_PenAnimation7" SpeedRatio="1.5">
+        <Storyboard x:Key="note3_PenAnimation7" Name="note3_PenAnimation7" SpeedRatio="1">
 			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
 				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
 				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>

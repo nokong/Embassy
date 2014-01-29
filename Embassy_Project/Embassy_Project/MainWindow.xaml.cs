@@ -293,6 +293,7 @@ namespace Embassy_Project
                         {
                             mobileReturn = true;
                             Global.detailScene.ScreenAppear = false;
+                            Global.scaleAnimation(Global.lastMobileSelected.frontPhone, 1.87, 1, 0.25, 0.15);
                         }
                         else { mobileReturn = false; }
                        

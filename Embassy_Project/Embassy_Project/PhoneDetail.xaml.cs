@@ -93,6 +93,7 @@ namespace Embassy_Project
             animationNote8_4.Completed += new EventHandler(animationNote8_Completed);
             animationNote8_5.Completed += new EventHandler(animationNote8_Completed);
             animationNote8_6.Completed += new EventHandler(animationNote8_Completed);
+            animationNote8_7.Completed += new EventHandler(animationNote8_Completed);
 
             //Global.FadeinoutBtn(note8animate.Opacity, note8animate.Opacity, note8animate, animationNote8_3, 20, 40);
             
@@ -219,6 +220,11 @@ namespace Embassy_Project
                 heartRight1.Height = 184.59;
                 animationNote8_7.Begin(); 
             }
+            if (StoryBoardName == "note3_PenAnimation7")
+            {
+                animationNote8_7.Stop();
+
+            }
             //if (StoryBoardName == "note3_PenAnimation") { animationNote8_2.Stop(); animationNote8_3.Begin(); }
                 
          
@@ -246,14 +252,50 @@ namespace Embassy_Project
                 {
                     if(!this.animationBackground.IsBusy)this.animationBackground.RunWorkerAsync();
 
-                    if (Global.lastMobileSelected.MobileSpecification.NAME == "note3") note3_Pen.Visibility = Visibility.Visible;
+                    
                    
                     Global.FadeinoutBtn(0, 1, this, 1, 0);
                     this.settingContentAnimationIN(Detailin);
 
                     Detailin.Begin();
+                    if (Global.lastMobileSelected.MobileSpecification.NAME == "note3") { note3_Pen.Visibility = Visibility.Visible; animationNote8_1.Begin(); }
+                    else 
+                    {
+                        note3_Pen.Visibility = Visibility.Collapsed;
+
+                        circle1.Opacity = 0;
+                        circle2.Opacity = 0;
+                        circle2.Visibility = Visibility.Collapsed;
+                        circle1.Height = 5;
+                        circle2.Width = 5;
+
+                        OStrick.Opacity = 0;
+                        CPUTrick.Opacity = 0;
+                        StroageTrick.Opacity = 0;
+                        OStrick.Visibility = Visibility.Collapsed;
+                        CPUTrick.Visibility = Visibility.Collapsed;
+                        StroageTrick.Visibility = Visibility.Collapsed;
+
+                        OStrick.Width = 5;
+                        CPUTrick.Width = 5;
+                        StroageTrick.Width = 5;
+
+                        pic_circle.Opacity = 0;
+                        pic_circle.Height = 5;
+                        pic_circle_Copy.Width = 5;
+                        
+                        heartLeft.Visibility = Visibility.Collapsed;
+                        heartLeft.Opacity = 0;
+                        heartCenter1.Width = 5;
+                        heartRight1.Height = 5;
+
+                    }
+
+              
+                    
+                   
                     //animationNote8.Begin(this);
-                    animationNote8_1.Begin();
+                  
                 }
                 else
                 {
@@ -373,6 +415,7 @@ namespace Embassy_Project
             if(screenAppear)
             {
                 ////Console.WriteLine("Detail Out Animation Before State " + Detail_Out.GetCurrentProgress());
+
                 this.settingContentAnimationOUT(Detail_Out);
 
                 EventHandler handler = null;
@@ -455,6 +498,37 @@ namespace Embassy_Project
                 //intro_start.Begin();
                 settingContentAnimationIN(Detailin);
                 Detailin.Begin();
+                if (Global.lastMobileSelected.MobileSpecification.NAME == "note3") { note3_Pen.Visibility = Visibility.Visible; animationNote8_1.Begin(); }
+                else
+                {
+                    circle1.Opacity = 0;
+                    circle2.Opacity = 0;
+                    circle2.Visibility = Visibility.Collapsed;
+                    circle1.Height = 5;
+                    circle2.Width = 5;
+
+                    OStrick.Opacity = 0;
+                    CPUTrick.Opacity = 0;
+                    StroageTrick.Opacity = 0;
+                    OStrick.Visibility = Visibility.Collapsed;
+                    CPUTrick.Visibility = Visibility.Collapsed;
+                    StroageTrick.Visibility = Visibility.Collapsed;
+
+                    OStrick.Width = 5;
+                    CPUTrick.Width = 5;
+                    StroageTrick.Width = 5;
+
+                    pic_circle.Opacity = 0;
+                    pic_circle.Height = 5;
+                    pic_circle_Copy.Width = 0;
+
+                    heartLeft.Visibility = Visibility.Collapsed;
+                    heartLeft.Opacity = 0;
+                    heartCenter1.Width = 5;
+                    heartRight1.Height = 5;
+
+                    note3_Pen.Visibility = Visibility.Collapsed; 
+                }
                 //PerPareForAnimation();
             };
             _storyboardOUT.Completed += handler;
