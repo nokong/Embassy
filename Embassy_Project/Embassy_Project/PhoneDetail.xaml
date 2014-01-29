@@ -1066,7 +1066,314 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-90"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
+        <Storyboard x:Key="note3_PenAnimation1" Name="note3_PenAnimation1" SpeedRatio="1.5">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
+				<DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3.2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:4" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="-132"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-657"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="-171"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-505"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-134.938"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="-125.333"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-83.573"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+        <Storyboard x:Key="note3_PenAnimation2" Name="note3_PenAnimation2" SpeedRatio="1.5">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-83.573"/>
+			</DoubleAnimationUsingKeyFrames>
+			<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="note3_Pen">
+				<EasingPointKeyFrame KeyTime="0" Value="0.019,0.01"/>
+			</PointAnimationUsingKeyFrames>
+			<DoubleAnimationUsingPath Duration="0:0:0.8" Source="X" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="note3_Pen">
+				<DoubleAnimationUsingPath.PathGeometry>
+					<PathGeometry Figures="M283.96955,15.737604 C283.96955,15.737604 39.969897,-40.262053 -3.3634364,70.404614 C-46.69677,181.07128 350.63656,121.07128 377.30322,40.40461"/>
+				</DoubleAnimationUsingPath.PathGeometry>
+			</DoubleAnimationUsingPath>
+			<DoubleAnimationUsingPath Duration="0:0:0.8" Source="Y" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="note3_Pen">
+				<DoubleAnimationUsingPath.PathGeometry>
+					<PathGeometry Figures="M283.96955,15.737604 C283.96955,15.737604 39.969897,-40.262053 -3.3634364,70.404614 C-46.69677,181.07128 350.63656,121.07128 377.30322,40.40461"/>
+				</DoubleAnimationUsingPath.PathGeometry>
+			</DoubleAnimationUsingPath>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="circle1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.995"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="circle1">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="circle1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="7.511"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="71.5825"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="circle2">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="circle2">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="circle2">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="7"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="405"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="note3_Pen">
+				<EasingThicknessKeyFrame KeyTime="0" Value="0"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+        <Storyboard x:Key="note3_PenAnimation3" Name="note3_PenAnimation3" SpeedRatio="1.5">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:1.4" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:2.2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:4" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:4.4" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:5.8" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-469.832"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-506.832"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-223.83"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-311.162"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-110.662"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="-84.037"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-173.162"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="66.839"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-19.832"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="77.668"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="-207.332"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="-582.332"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="-322.332"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-538.165"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-438.165"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-416.832"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-312.154"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-460.654"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="-460.279"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-354.154"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="-434.154"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-327.482"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-87.482"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="-87.482"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="229.018"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="669.018"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="-106.807"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="-106.807"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="-33.287"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="-89.535"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="OStrick">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="15"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="15"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="15"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="OStrick">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:5.8" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="OStrick">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="3.6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="110"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="110"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="110"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OStrick">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="CPUTrick">
+				<DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:5.8" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CPUTrick">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="CPUTrick">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="6.267"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="110"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="110"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="OStrick">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="StroageTrick">
+				<DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:2.9" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:5.8" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StroageTrick">
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.9" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="StroageTrick">
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="5.267"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.9" Value="110"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.8" Value="110"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+        <Storyboard x:Key="note3_PenAnimation4" Name="note3_PenAnimation4" SpeedRatio="1.5">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="note3_Pen">
+				<EasingPointKeyFrame KeyTime="0" Value="0.022,0.018"/>
+			</PointAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-89.535"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingPath Duration="0:0:1" Source="X" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="note3_Pen">
+				<DoubleAnimationUsingPath.PathGeometry>
+					<PathGeometry Figures="M647.79835,90.731234 C647.79835,90.731234 439.77527,-39.154195 363.08242,204.56904 C286.38958,448.29228 684.89162,464.84072 751.058,203.06458"/>
+				</DoubleAnimationUsingPath.PathGeometry>
+			</DoubleAnimationUsingPath>
+			<DoubleAnimationUsingPath Duration="0:0:1" Source="Y" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="note3_Pen">
+				<DoubleAnimationUsingPath.PathGeometry>
+					<PathGeometry Figures="M647.79835,90.731234 C647.79835,90.731234 439.77527,-39.154195 363.08242,204.56904 C286.38958,448.29228 684.89162,464.84072 751.058,203.06458"/>
+				</DoubleAnimationUsingPath.PathGeometry>
+			</DoubleAnimationUsingPath>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="pic_circle">
+				<EasingDoubleKeyFrame KeyTime="0" Value="5.318"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="182.25"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="pic_circle_Copy">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.5"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="422.5"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pic_circle">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+        <Storyboard x:Key="note3_PenAnimation5" Name="note3_PenAnimation5" SpeedRatio="1.5">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="821.058"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="881.058"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1747.725"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-182.935"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-242.935"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-204.935"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-83.573"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+        <Storyboard x:Key="note3_PenAnimation6" x:Name="note3_PenAnimation6" SpeedRatio="1.5">
+        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
+        		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+        	</ObjectAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="note3_Pen">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="-83.573"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="note3_Pen">
+        		<EasingPointKeyFrame KeyTime="0" Value="0.016,0.012"/>
+        	</PointAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingPath Duration="0:0:1.8" Source="X" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="note3_Pen">
+        		<DoubleAnimationUsingPath.PathGeometry>
+        			<PathGeometry Figures="M1675.666,188.16701 L1652.6659,157.66707 L1604.6659,86.66719 C1604.6659,86.66719 1591.1659,58.917239 1597.9159,38.917274 C1604.6424,18.986961 1627.7542,10.724929 1644.7381,18.831714 C1644.7975,18.860046 1644.8535,18.896671 1644.916,18.917309 C1671.4375,27.67641 1683.5134,44.487381 1682.2963,54.368722 C1682.2629,54.640151 1682.2194,54.906351 1682.166,55.167012 C1680.166,64.917012 1715.4158,-4.832988 1757.4157,39.167012 C1799.4156,83.167012 1655.9159,155.66701 1655.9159,155.66701 L1602.916,185.16701"/>
+        		</DoubleAnimationUsingPath.PathGeometry>
+        	</DoubleAnimationUsingPath>
+        	<DoubleAnimationUsingPath Duration="0:0:1.8" Source="Y" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="note3_Pen">
+        		<DoubleAnimationUsingPath.PathGeometry>
+        			<PathGeometry Figures="M1675.666,188.16701 L1652.6659,157.66707 L1604.6659,86.66719 C1604.6659,86.66719 1591.1659,58.917239 1597.9159,38.917274 C1604.6424,18.986961 1627.7542,10.724929 1644.7381,18.831714 C1644.7975,18.860046 1644.8535,18.896671 1644.916,18.917309 C1671.4375,27.67641 1683.5134,44.487381 1682.2963,54.368722 C1682.2629,54.640151 1682.2194,54.906351 1682.166,55.167012 C1680.166,64.917012 1715.4158,-4.832988 1757.4157,39.167012 C1799.4156,83.167012 1655.9159,155.66701 1655.9159,155.66701 L1602.916,185.16701"/>
+        		</DoubleAnimationUsingPath.PathGeometry>
+        	</DoubleAnimationUsingPath>
+        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="heartLeft">
+        		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+        	</ObjectAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="heartLeft">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="heartCenter1">
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="9.457"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="185.834"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="heartCenter1">
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="heartRight1">
+        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="8.007"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="184.59"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="note3_PenAnimation7" Name="note3_PenAnimation7" SpeedRatio="1.5">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="note3_Pen">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1758.667"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-98.333"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-204.5"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="29.5"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="note3_Pen">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-83.573"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-113.903"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 	</UserControl.Resources>
+	
 	
 
 	
@@ -1090,6 +1397,7 @@
 					</TransformGroup>
 				</Image.RenderTransform>
 			</Image>
+			<Image Margin="0" Source="Resources/detailscreen.png" Stretch="Fill" d:IsHidden="True" Visibility="Collapsed"/>
 			<Image x:Name="img_Table" Margin="603.214,812.333,0,0" Source="Resources/tabledesk.png" Stretch="Fill" d:LayoutOverrides="GridBox" HorizontalAlignment="Left" Width="3039.786" VerticalAlignment="Top" Height="267.667" RenderTransformOrigin="0.5,0.5" Opacity="0">
 				<Image.RenderTransform>
 					<TransformGroup>
@@ -1266,7 +1574,7 @@
 					</TransformGroup>
 				</TextBlock.RenderTransform>
 			</TextBlock>
-			<local:PhoneModel x:Name="phoneModel" HorizontalAlignment="Left" Margin="833.497,185.8,0,0" d:LayoutOverrides="Width" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Opacity="0" >
+			<local:PhoneModel x:Name="phoneModel" HorizontalAlignment="Left" Margin="833.497,185.8,0,0" d:LayoutOverrides="Width" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" >
 				<local:PhoneModel.RenderTransform>
 					<TransformGroup>
 						<ScaleTransform/>
@@ -1391,6 +1699,127 @@
 				</Image.RenderTransform>
 			</Image>
 			<Button Content="Button" HorizontalAlignment="Right" Height="71.077" Margin="0,8,8,0" VerticalAlignment="Top" Width="466" Click="Button_Click" Visibility="Collapsed"/>
+			<Path x:Name="path2" Data="M0,8 C342,0 340,0 340,0" Fill="White" HorizontalAlignment="Right" Height="8" Margin="0,0,400,346" VerticalAlignment="Bottom" Width="340"/>
+		</Grid>
+		<Grid x:Name="note8animate" Margin="90,375,0,60.861">
+			<Canvas x:Name="circle1" HorizontalAlignment="Left" Margin="3.5,0,0,0" Width="405" ClipToBounds="True" Height="7.511" VerticalAlignment="Top">
+				<Image x:Name="image3" Height="142" Source="Resources/pendraw.png" Stretch="Fill" Width="405" RenderTransformOrigin="0.504,0.69">
+					<Image.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</Image.RenderTransform>
+				</Image>
+			</Canvas>
+			<Canvas x:Name="circle2" HorizontalAlignment="Left" Margin="3.5,70,0,0" Width="7" ClipToBounds="True" Height="71.582" VerticalAlignment="Top" Visibility="Collapsed">
+				<Image x:Name="image4" Height="142" Source="Resources/pendraw.png" Stretch="Fill" Width="405" RenderTransformOrigin="0.504,0.69" Canvas.Top="-70">
+					<Image.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</Image.RenderTransform>
+				</Image>
+			</Canvas>
+			<Image x:Name="note3_Pen" HorizontalAlignment="Left" Margin="991.132,118.012,0,40.128" Source="Resources/note03_pen.png" Stretch="Fill" Width="377" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="-134.938"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Canvas x:Name="OStrick" Margin="489.25,197.917,0,0" ClipToBounds="True" HorizontalAlignment="Left" Height="92.222" VerticalAlignment="Top" Width="116.267" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment" Visibility="Collapsed">
+				<Canvas.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Canvas.RenderTransform>
+				<Image Height="92.222" Source="Resources/correctdraw.png" Stretch="Fill" Width="111.267" Canvas.Left="1"/>
+			</Canvas>
+			<Canvas x:Name="CPUTrick" Margin="459.25,337.917,0,0" ClipToBounds="True" HorizontalAlignment="Left" Height="92.222" VerticalAlignment="Top" Width="6.267" RenderTransformOrigin="0.5,0.5" Opacity="0" Visibility="Collapsed">
+				<Canvas.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Canvas.RenderTransform>
+				<Image Height="92.222" Source="Resources/correctdraw.png" Stretch="Fill" Width="111.267" Canvas.Left="1"/>
+			</Canvas>
+			<Path Data="M291.13255,14.667994 C291.13255,14.667994 47.132897,-41.331663 3.7995636,69.335004 C-39.53377,180.00167 357.79956,120.00167 384.46622,39.335" Fill="{x:Null}" HorizontalAlignment="Left" Height="130.339" Margin="0,7.511,0,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="384.967"/>
+			<Canvas x:Name="StroageTrick" Margin="489.25,487.917,0,0" ClipToBounds="True" HorizontalAlignment="Left" Height="92.222" VerticalAlignment="Top" Width="5.267" RenderTransformOrigin="0.5,0.5" Opacity="0" Visibility="Collapsed">
+				<Canvas.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Canvas.RenderTransform>
+				<Image Height="92.222" Source="Resources/correctdraw.png" Stretch="Fill" Width="111.267" Canvas.Left="1"/>
+			</Canvas>
+			<Path x:Name="path1" Data="M294.47435,34.574251 C294.47435,34.574251 86.451271,-95.311178 9.7584246,148.41206 C-66.934422,392.1353 331.56762,408.68374 397.734,146.9076" Width="397.734" HorizontalAlignment="Left" Margin="1352.75,182.917,0,123.958"/>
+			<Canvas x:Name="pic_circle" Margin="1350.75,173.599,0,0" ClipToBounds="True" Height="5.318" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="422.5" d:LayoutOverrides="VerticalAlignment">
+				<Canvas.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Canvas.RenderTransform>
+				<Image Height="364.5" Source="Resources/pendraw.png" Stretch="Fill" Width="437.377" Canvas.Left="0" Canvas.Top="0"/>
+			</Canvas>
+			<Canvas x:Name="pic_circle_Copy" Margin="1351.25,355.599,0,0" ClipToBounds="True" Height="182.25" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="1.5">
+				<Canvas.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Canvas.RenderTransform>
+				<Image Height="367.5" Source="Resources/pendraw.png" Stretch="Fill" Width="437.377" Canvas.Left="0" Canvas.Top="-186"/>
+			</Canvas>
+			<Canvas x:Name="pic_love" Margin="0,136.511,985.82,0" Height="184" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="185.834" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment">
+				<Canvas.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Canvas.RenderTransform>
+				<Path x:Name="path3" Data="M2761.75,686.5 L2738.75,656 2690.75,585 C2690.75,585 2677.25,557.25 2684,537.25 2690.7265,517.31965 2713.8383,509.05761 2730.8222,517.16441 2730.8816,517.19274 2730.9376,517.22936 2731,517.25 2757.5215,526.00912 2769.5975,542.82012 2768.3804,552.70148 2768.3469,552.9729 2768.3035,553.23911 2768.25,553.49977 2766.25,563.24978 2801.4998,493.49966 2843.4997,537.49974 2885.4995,581.49982 2742,653.99994 2742,653.99994 L2689.0001,683.49999" Stretch="Fill" Stroke="{x:Null}" Width="170.09" Height="173.422" Canvas.Left="13.671" Canvas.Top="2.578" RenderTransformOrigin="0.5,0.5">
+					<Path.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</Path.RenderTransform>
+				</Path>
+				<Canvas x:Name="heartCenter1" Height="184.59" Canvas.Top="-0.184" Width="9.671" ClipToBounds="True">
+					<Image x:Name="heartCenter" Source="Resources/heartCenter.png" Stretch="Fill" Width="185.834" Height="184.59"/>
+				</Canvas>
+				<Image x:Name="heartLeft" Source="Resources/heartLeft.png" Stretch="Fill" Width="183.761" Height="184.59" Canvas.Top="-0.851" Visibility="Collapsed" Opacity="0"/>
+				<Canvas x:Name="heartRight1" Height="8.007" Canvas.Left="1.818" Canvas.Top="-0.851" Width="183.761" ClipToBounds="True">
+					<Image x:Name="heartRight" Source="Resources/heartRight.png" Stretch="Fill" Width="183.761" Height="184.59"/>
+				</Canvas>
+			</Canvas>
 		</Grid>
 		<Grid x:Name="Intro_scene" HorizontalAlignment="Left" Height="1084" Margin="0" VerticalAlignment="Top" Width="3840">
 			<Ellipse x:Name="ellipse" HorizontalAlignment="Left" Height="72" Margin="1016.67,0,0,441.325" VerticalAlignment="Bottom" Width="72" RenderTransformOrigin="0.5,0.5" Fill="White" OpacityMask="{x:Null}" Opacity="0" d:IsHidden="True">
@@ -1405,7 +1834,7 @@
 			</Ellipse>
 			<Image x:Name="image2" Margin="-156,-750,-393.12,-909.2" Source="Resources/BG_1.jpg" Stretch="Fill" Opacity="0" d:IsHidden="True"/>
 			<Image x:Name="IntroPhonePic" HorizontalAlignment="Left" Margin="-600,185.8,0,0" Width="444" Height="838" VerticalAlignment="Top" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
-			<Image x:Name="IntroNameText" Source="Resources/Phone/nametext_white/whitetext_note3.png" Stretch="Fill" Margin="1325.331,302.246,1013.223,176.2" RenderTransformOrigin="0.5,0.5" Opacity="0">
+			<Image x:Name="IntroNameText" Source="Resources/Phone/nametext_white/whitetext_note3.png" Stretch="Fill" Margin="1318.331,302.246,1020.223,176.2" RenderTransformOrigin="0.5,0.5" Opacity="0">
 				<Image.RenderTransform>
 					<TransformGroup>
 						<ScaleTransform/>

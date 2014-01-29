@@ -97,6 +97,35 @@ namespace Embassy_Project
             return bitmapImage;
         }
 
+        public static void TransitionAnimation(Thickness movefrom, Thickness moveTarget, Image MoveItem, double begintime = 0, double duration = 0.4)
+        {
+
+            ThicknessAnimation movegrid = new ThicknessAnimation()
+            {
+                From = movefrom,
+                To = moveTarget,
+                BeginTime = TimeSpan.FromSeconds(begintime),
+                Duration = TimeSpan.FromSeconds(duration)
+            };
+
+            Storyboard.SetTarget(movegrid, MoveItem);
+            Storyboard.SetTargetProperty(movegrid, new PropertyPath(Grid.MarginProperty));
+
+            Storyboard st = new Storyboard();
+            EventHandler handler = null;
+            handler = delegate
+            {
+                st.Completed -= handler;
+                st.Stop();
+                MoveItem.Margin = moveTarget;
+
+
+            };
+            st.Children.Add(movegrid);
+            st.Completed += handler;
+            st.Begin();
+        }
+
         public static void TransitionAnimation(Thickness movefrom, Thickness moveTarget, StackPanel MoveItem, Storyboard transitionStoryboard, double begintime = 0, double duration = 0.4)
         {
 
@@ -131,15 +160,23 @@ namespace Embassy_Project
             mobile.RenderTransformOrigin = new Point(0.5, 0.5);
             mobile.RenderTransform = sc;
 
-            DoubleAnimation scaleanime = new DoubleAnimation(from, to, TimeSpan.FromSeconds(duration));
+            DoubleAnimation scaleanime = new DoubleAnimation
+            {
+                From = from,
+                To = to,
+                BeginTime = TimeSpan.FromSeconds(begintime),
+                Duration = TimeSpan.FromSeconds(duration)
+
+            };
+           
             sc.BeginAnimation(ScaleTransform.ScaleXProperty,scaleanime);
             sc.BeginAnimation(ScaleTransform.ScaleYProperty, scaleanime);
 
         }
 
-        public static void TransitionAnimation(Thickness movefrom, Thickness moveTarget, MobileItem MoveItem,Storyboard transitionStoryboard = null, double begintime = 0, double duration = 1)
+        public static void TransitionAnimation(Thickness movefrom, Thickness moveTarget, MobileItem MoveItem, Storyboard transitionStoryboard = null, double begintime = 0, double duration = 1)
         {
-
+            bool storyboardnull = false;
             ThicknessAnimation movegrid = new ThicknessAnimation()
             {
                 From = movefrom,
@@ -153,8 +190,8 @@ namespace Embassy_Project
             Storyboard.SetTarget(movegrid, MoveItem);
             Storyboard.SetTargetProperty(movegrid, new PropertyPath(Grid.MarginProperty));
 
-            //Storyboard sb = new Storyboard();
-
+            if (transitionStoryboard == null) { transitionStoryboard = new Storyboard(); storyboardnull= true; }
+          
             EventHandler handler = null;
             handler = delegate
             {
@@ -166,7 +203,38 @@ namespace Embassy_Project
             };
             transitionStoryboard.Children.Add(movegrid);
             transitionStoryboard.Completed += handler;
+            if (storyboardnull) { transitionStoryboard.Begin(); }
             //sb.Begin();
+        }
+
+        public static void FadeinoutBtn(double from, double to, UIElement target,Storyboard fadeStoryboard, double speed, double begintime)
+        {
+            target.IsHitTestVisible = false;
+
+            DoubleAnimation fadeanimation = new DoubleAnimation
+            {
+                From = from,
+                To = to,
+                BeginTime = TimeSpan.FromSeconds(begintime),
+                Duration = TimeSpan.FromSeconds(speed)
+
+            };
+
+            Storyboard.SetTarget(fadeanimation, target);
+            Storyboard.SetTargetProperty(fadeanimation, new PropertyPath(UIElement.OpacityProperty));
+
+            EventHandler handler = null;
+            handler = delegate
+            {
+                fadeStoryboard.Completed -= handler;
+
+                Console.WriteLine("Complete storyboard");
+
+            };
+
+            fadeStoryboard.Completed += handler;
+            fadeStoryboard.Children.Add(fadeanimation);
+            Console.WriteLine("Add complete");
         }
 
         public static void FadeinoutBtn(double from, double to, UIElement target, double speed, double begintime)
@@ -193,14 +261,6 @@ namespace Embassy_Project
                 sb.Completed -= handler;
 
 
-                if (to == 1.0)
-                { target.IsHitTestVisible = true; }
-
-                else
-                {
-                    target.IsHitTestVisible = false;
-
-                }
 
             };
 
@@ -209,6 +269,22 @@ namespace Embassy_Project
             sb.Begin();
         }
 
+
+        public static void ChangeRadiusAnimation(double from, double to, UIElement target, double speed, double begintime = 0)
+        {
+        
+            DoubleAnimation radius = new DoubleAnimation
+            {
+                From = from,
+                To = to,
+                BeginTime = TimeSpan.FromSeconds(begintime),
+                Duration = TimeSpan.FromSeconds(speed)
+            };
+
+            target.BeginAnimation(EllipseGeometry.RadiusXProperty, radius);
+            target.BeginAnimation(EllipseGeometry.RadiusYProperty, radius);
+
+        }
 
         public static void BlurEffectAnimation(double from, double to, UIElement target,Storyboard targetStoryBoard,double speed,double begintime = 0 ) 
         {

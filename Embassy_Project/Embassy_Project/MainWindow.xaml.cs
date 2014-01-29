@@ -27,6 +27,7 @@ namespace Embassy_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Storyboard sb1 = new Storyboard();
         public MainWindow()
         {
             InitializeComponent();
@@ -55,8 +56,6 @@ namespace Embassy_Project
             eclipsaura = (Storyboard)TryFindResource("EclipsScale");
             this.initPhoneDataFromXMLFile("Resources\\Phone\\specification.xml");
 
-            
-
             ServerRunner = new BackgroundWorker();
             ServerRunner.DoWork += new DoWorkEventHandler(serverRunner_DoWork);
             ServerRunner.ProgressChanged += new ProgressChangedEventHandler(serverRunner_ProgressChanged);
@@ -67,7 +66,20 @@ namespace Embassy_Project
             UpdateScroller.ProgressChanged += new ProgressChangedEventHandler(UpdateScoroler_ProgressChanged);
             UpdateScroller.WorkerReportsProgress = true;
 
-    
+
+          
+            Global.BlurEffectAnimation(0,100,Global.listOfMobileFillter.ElementAt(1).Value.blurRect,sb1,0.4);
+
+            EventHandler handler2 = null;
+            handler2 = delegate
+            {
+                sb1.Completed -= handler2;
+                sb1.Stop();
+            };
+            sb1.Completed += handler2;
+            sb1.Begin(this);
+         
+
             /*CheckIdle = new BackgroundWorker();
             CheckIdle.DoWork += new DoWorkEventHandler(C);
             CheckIdle.ProgressChanged += new ProgressChangedEventHandler(UpdateScoroler_ProgressChanged);
@@ -92,6 +104,8 @@ namespace Embassy_Project
                 XmlElement childNode = (XmlElement)rootNode.ChildNodes[i];
                 MobileItemSpecification specification = new MobileItemSpecification(childNode);
                 MobileItem MB = new MobileItem(childNode);
+                
+
                 MB.IDPHONE = i;
                 //MB.Margin = new Thickness(MB.Width * i,0,0,0);
                 //Console.WriteLine("Name : " + MB.MobileSpecification.NAME + " ID : "+MB.IDPHONE);
@@ -273,7 +287,7 @@ namespace Embassy_Project
 
                 
 
-                   /* if (Global.detailScene !=null)
+                    if (Global.detailScene !=null && Global.lastMobileSelected !=null)
                     {
                         if (Global.lastMobileSelected.IDPHONE == Int32.Parse(functionList[1]) && Global.detailScene.ScreenAppear)
                         {
@@ -282,7 +296,7 @@ namespace Embassy_Project
                         }
                         else { mobileReturn = false; }
                        
-                    }*/
+                    }
                    
 
                     Global.lastMobileSelectedID = Int32.Parse(functionList[1]);
@@ -382,32 +396,24 @@ namespace Embassy_Project
                        {
                            moveOut = new Thickness(-(mobile.Width * moveDistance), 0, 0, 0);  // Thickness for Animation Out of MobileSelected
 
-                             /*Global.FadeinoutBtn(1, 0, mobile, 1, 0);
-                             moveOut = new Thickness((mobile.Width * moveDistance), 0, 0, 0);*/
-
                            sb.FillBehavior = FillBehavior.Stop;
                            Global.TransitionAnimation(mobile.Margin, moveOut, mobile,sb,0,2);
                            moveDistance++;
                        }
                        else if (i == Global.lastMobileSelectIndex) 
                        {
-                           //mobile.aura.Visibility = Visibility.Visible;
-                           //mobile.aurastart.Begin();
-                           HeaderTextUp.Begin();
+                          HeaderTextUp.Begin();
+                           mobile.blurRect.Visibility = Visibility.Visible;
+                          
+                           Global.BlurEffectAnimation(0,100,mobile.blurRect,sb,0.2);
+                           Global.FadeinoutBtn(0, 0, mobile.glow2,sb, 0.5,0);  //fake function for delay
+                            
+                           Global.scaleAnimation(mobile.glow2, 1, 1.3,0.2,0.15);
+                           Global.FadeinoutBtn(0, 1, mobile.glow2,0.2,0.15);
+                           //Global.FadeinoutBtn(0, 1, blurscreen, sb, 0.4, 0.4);
 
-                           //Global.scaleAnimation(mobile, 1, 1.87,0.6);
-                           //mobile.blurRect.Visibility = Visibility.Visible;
-                           //Global.scaleAnimation(mobile.blurRect, 0.5, 1, 0.6,0.3);
-                           Global.BlurEffectAnimation(0,100,mobile.blurRect,sb,0.6);
-                          /* Global.BlurEffectAnimation(0, 300, mobile.Glow_Layer1, sb, 0.6);
-                           Global.BlurEffectAnimation(0, 300, mobile.Glow_Layer2, sb, 0.6);
-                           Global.BlurEffectAnimation(0, 300, mobile.Glow_Layer3, sb, 0.6);*/
-
-                           //Global.BlurEffectAnimation(80, 80, mobile.blurRect, sb, 0.3);
-                           //Global.TransitionAnimation(mobile.Margin, new Thickness((mobile.Width * (moveDistance - scrollerIndex)+99),0,0,0), mobile, sb, 0, 2);
-                           //Global.TransitionAnimation(mobile.Margin, new Thickness((scrollerIndex * mobile.Width)+738, -5, 0, 0), mobile,sb,0,2); //738
-                           
-                           //Console.WriteLine("Current Scroller : "+phoneScroller.CurrentHorizontalOffset);
+                           Global.scaleAnimation(mobile.frontPhone, 1, 1.87, 0.25, 0.15);
+                          
 
                            EventHandler handler = null;
                            handler = delegate
@@ -418,13 +424,17 @@ namespace Embassy_Project
                                mobile.Height = mobile.ActualHeight;
                                mobile.Width = mobile.ActualWidth;
 
-                               Console.WriteLine("Story Board Complete");
+                               //mobile.blurRect.Visibility = Visibility.Collapsed;
+                               //Global.FadeinoutBtn(1, 0, mobile.blurRect, 0.5, 0);
+                              
 
-                               //Global.BlurEffectAnimation(40, 10, mobile.blurRect, sb, 0.1);
-                               MobileManager.returnAllMobile(null);
+                               Point relativePoint = mobile.TransformToAncestor(Scene1).Transform(new Point(0,0));
+                               Console.WriteLine("RelativePoint = "+relativePoint);
 
                                Global.detailScene.ChangeContentData(Global.lastMobileSelected);
-                               Global.introlScene.ChangeIntrolPage();
+                               Global.introlScene.ChangeIntrolPage(relativePoint);
+
+                               //Global.ChangeRadiusAnimation(30, 120, mobile.blurRect, sb, 0.6);
 
                                if (!Global.detailScene.ScreenAppear)
                                {
@@ -434,24 +444,23 @@ namespace Embassy_Project
                                        Global.introlScene.introl_start.Completed -= handler2;
                                        Global.introlScene.introl_start.Stop();
 
+                                       Global.introlScene.BG_Grid.Opacity = 1;
+                                       Global.introlScene.IntroNameText.Opacity = 1;
+                                       Global.introlScene.phoneModel.Opacity = 1;
+                                       Global.introlScene.phoneModel.Visibility = Visibility.Visible;
 
-                                       Global.scaleAnimation(mobile, 1.87, 1, 0.1);
-                                       //mobile.blurRect.Visibility = Visibility.Visible;
-                                       Global.scaleAnimation(mobile.blurRect, 1, 0.5, 0.1);
-                                       Global.BlurEffectAnimation(40, 10, mobile.blurRect, sb, 0.1);
-                                       MobileManager.returnAllMobile(null);
-                                       //Global.introlScene.image2.Opacity = 1;
-                                       //Global.introlScene.IntroNameText.Opacity = 1;
-                                       //Global.introlScene.phoneModel.Opacity = 1;
-                                       //Global.FadeinoutBtn(1, 0, Introl, 1, 0);
+                                       Global.TransitionAnimation(Global.introlScene.phoneModel.Margin, new Thickness(939, 110, 0, 0), Global.introlScene.phoneModel, 0.3, 0.3);
+                                       Global.TransitionAnimation(Global.introlScene.IntroNameText.Margin, new Thickness(200, 0, 0, 0), Global.introlScene.IntroNameText, 0.4,0.6);
+                                       
+                                       
 
-                                       //Global.detailScene.ScreenAppear = true;
+                                       Global.detailScene.ScreenAppear = true;
 
 
-                                       //Global.FadeinoutBtn(1, 0, Global.introlScene, 1, 0);
+                                       Global.FadeinoutBtn(1, 0, Global.introlScene,0.5,1.2);
                                    };
                                    Global.introlScene.introl_start.Completed += handler2;
-                                   //Global.introlScene.introl_start.Begin();
+                                   Global.introlScene.introl_start.Begin();
                                }
                               
 

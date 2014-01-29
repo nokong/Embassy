@@ -25,6 +25,21 @@ namespace Embassy_Project
         MobileItem currentMobile = null;
 
         Storyboard loop_animation;
+
+        #region Note8StoryBoard
+
+        List<Storyboard> listOfAnimationNote8 = new List<Storyboard>();
+        Storyboard animationNote8 = new Storyboard();
+        Storyboard animationNote8_1;
+        Storyboard animationNote8_2;
+        Storyboard animationNote8_3;
+        Storyboard animationNote8_4;
+        Storyboard animationNote8_5;
+        Storyboard animationNote8_6;
+        Storyboard animationNote8_7;
+
+        #endregion
+
         public Storyboard Detailin;
         public Storyboard Detail_Out;
         public Storyboard unjai_animation1, unjai_animation2;
@@ -63,8 +78,151 @@ namespace Embassy_Project
             defaultAnitmationIn = Detailin.Children.Count;
             defaultAnimationOut = Detail_Out.Children.Count;
 
+            #region Animation Note8
+            animationNote8_1 = (Storyboard)TryFindResource("note3_PenAnimation1");
+            animationNote8_2 = (Storyboard)TryFindResource("note3_PenAnimation2");
+            animationNote8_3 = (Storyboard)TryFindResource("note3_PenAnimation3");
+            animationNote8_4 = (Storyboard)TryFindResource("note3_PenAnimation4");
+            animationNote8_5 = (Storyboard)TryFindResource("note3_PenAnimation5");
+            animationNote8_6 = (Storyboard)TryFindResource("note3_PenAnimation6");
+            animationNote8_7 = (Storyboard)TryFindResource("note3_PenAnimation7");
+
+            animationNote8_1.Completed += new EventHandler(animationNote8_Completed);
+            animationNote8_2.Completed += new EventHandler(animationNote8_Completed);
+            animationNote8_3.Completed += new EventHandler(animationNote8_Completed);
+            animationNote8_4.Completed += new EventHandler(animationNote8_Completed);
+            animationNote8_5.Completed += new EventHandler(animationNote8_Completed);
+            animationNote8_6.Completed += new EventHandler(animationNote8_Completed);
+
+            //Global.FadeinoutBtn(note8animate.Opacity, note8animate.Opacity, note8animate, animationNote8_3, 20, 40);
+            
+
+           // listOfAnimationNote8.Add(animationNote8_1);
+            //listOfAnimationNote8.Add(animationNote8_2);
+            //listOfAnimationNote8.Add(animationNote8_3);
+            listOfAnimationNote8.Add(animationNote8_4);
+            /*listOfAnimationNote8.Add(animationNote8_5);
+            listOfAnimationNote8.Add(animationNote8_6);
+            listOfAnimationNote8.Add(animationNote8_7);*/
+
+            AnimationNote8Setting();
+
+            //animationNote8_1.FillBehavior = FillBehavior.Stop;
+           
+            #endregion
+
             this.Opacity = 0;
 		}
+
+        private void AnimationNote8Setting() 
+        {
+
+            Console.WriteLine(animationNote8.Children.Count);
+             int countStoryboard = 0;
+             int countChild = 0;
+
+
+            foreach (Storyboard note8Storyboard in listOfAnimationNote8)
+            {
+                foreach (object note8StoryboardChild in note8Storyboard.Children) 
+                {
+                    if (note8StoryboardChild is ObjectAnimationUsingKeyFrames)
+                    {
+                        Console.WriteLine("Add objectanimation to main animation Storyboard {0} count {1} ", countStoryboard,countChild);
+                        animationNote8.Children.Add((ObjectAnimationUsingKeyFrames)note8StoryboardChild);
+                        countChild++;
+                    }
+
+                    if (note8StoryboardChild is DoubleAnimationUsingKeyFrames)
+                    {
+                        Console.WriteLine("Add doubleanimation to main animation Storyboard {0} count {1} ", countStoryboard,countChild);
+                        animationNote8.Children.Add((DoubleAnimationUsingKeyFrames)note8StoryboardChild);
+                        countChild++;
+                    }
+                }
+                countStoryboard++;
+                //Console.WriteLine(child);
+                
+            }
+
+            
+          
+
+        }
+
+        void animationNote8_Completed(object sender, EventArgs e)
+        {
+            string StoryBoardName = ((ClockGroup)sender).Timeline.Name;
+
+            Console.WriteLine(StoryBoardName);
+            if (StoryBoardName == "note3_PenAnimation1") 
+            {
+                animationNote8_1.Stop(); 
+                animationNote8_2.Begin();
+             
+            }
+            if (StoryBoardName == "note3_PenAnimation2") 
+            {
+                animationNote8_2.Stop();
+                circle1.Opacity = 1;
+                circle2.Opacity = 1;
+                circle2.Visibility = Visibility.Visible;
+                circle1.Height = 71.5825;
+                circle2.Width = 405;
+
+                animationNote8_3.Begin(); 
+            
+            }
+            if (StoryBoardName == "note3_PenAnimation3") 
+            {
+                animationNote8_3.Stop();
+                OStrick.Opacity = 1;
+                CPUTrick.Opacity = 1;
+                StroageTrick.Opacity = 1;
+
+                OStrick.Visibility = Visibility.Visible;
+                CPUTrick.Visibility = Visibility.Visible;
+                StroageTrick.Visibility = Visibility.Visible;
+
+                OStrick.Width = 110;
+                CPUTrick.Width = 110;
+                StroageTrick.Width = 110;
+
+                animationNote8_4.Begin(); 
+            }
+            if (StoryBoardName == "note3_PenAnimation4") 
+            {
+                animationNote8_4.Stop();  
+
+                pic_circle.Opacity = 1;
+                pic_circle.Height = 182.25;
+
+                pic_circle_Copy.Width = 422.5;
+
+                animationNote8_5.Begin(); 
+            }
+            if (StoryBoardName == "note3_PenAnimation5") 
+            { 
+                animationNote8_5.Stop();
+               
+
+                animationNote8_6.Begin(); 
+
+
+            }
+            if (StoryBoardName == "note3_PenAnimation6")
+            { 
+                animationNote8_6.Stop();
+                heartLeft.Visibility = Visibility.Visible;
+                heartLeft.Opacity = 1;
+                heartCenter1.Width = 185.834;
+                heartRight1.Height = 184.59;
+                animationNote8_7.Begin(); 
+            }
+            //if (StoryBoardName == "note3_PenAnimation") { animationNote8_2.Stop(); animationNote8_3.Begin(); }
+                
+         
+        }
         private void RandomBG()
         {
             Random rd = new Random();
@@ -88,11 +246,14 @@ namespace Embassy_Project
                 {
                     if(!this.animationBackground.IsBusy)this.animationBackground.RunWorkerAsync();
 
-                    //this.Opacity = 1;
+                    if (Global.lastMobileSelected.MobileSpecification.NAME == "note3") note3_Pen.Visibility = Visibility.Visible;
+                   
                     Global.FadeinoutBtn(0, 1, this, 1, 0);
                     this.settingContentAnimationIN(Detailin);
 
                     Detailin.Begin();
+                    //animationNote8.Begin(this);
+                    animationNote8_1.Begin();
                 }
                 else
                 {
@@ -212,7 +373,7 @@ namespace Embassy_Project
             if(screenAppear)
             {
                 ////Console.WriteLine("Detail Out Animation Before State " + Detail_Out.GetCurrentProgress());
-                //this.settingContentAnimationOUT(Detail_Out);
+                this.settingContentAnimationOUT(Detail_Out);
 
                 EventHandler handler = null;
                 handler = delegate
@@ -222,10 +383,10 @@ namespace Embassy_Project
                     DetailChange.Stop();
                     //Thread.Sleep(5000);
                 };
-                DetailChange.Completed += handler;
-                DetailChange.Begin();
+                //DetailChange.Completed += handler;
+                //DetailChange.Begin();
 
-                //Detail_Out.Begin();
+                Detail_Out.Begin();
                 
                 ////Console.WriteLine("Detail Out Animation After State " + Detail_Out.GetCurrentProgress());
 

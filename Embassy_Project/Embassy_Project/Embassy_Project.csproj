@@ -61,7 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="IntrolPage.xaml">
+    <Page Include="IntroPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -79,8 +79,8 @@
     </Compile>
     <Compile Include="Constance.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="IntrolPage.xaml.cs">
-      <DependentUpon>IntrolPage.xaml</DependentUpon>
+    <Compile Include="IntroPage.xaml.cs">
+      <DependentUpon>IntroPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -142,6 +142,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="glow2.JPG" />
+    <Resource Include="Resources\1-130503192137.jpg" />
     <Content Include="Resources\airmovie.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -151,7 +153,6 @@
     <Content Include="Resources\android.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\aura.png" />
     <Content Include="Resources\background_2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -159,12 +160,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\bg.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\BG_1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\BG_2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\BigScreen_all_bg.png">
@@ -839,8 +834,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\camera_border.png" />
+    <Resource Include="Resources\correctdraw.png" />
+    <Resource Include="Resources\glow.png" />
+    <Resource Include="Resources\hand.png" />
+    <Resource Include="Resources\hand_pic.jpg" />
+    <Resource Include="Resources\heart.png" />
+    <Resource Include="Resources\heartCenter.png" />
+    <Resource Include="Resources\heartLeft.png" />
+    <Resource Include="Resources\heartRight.png" />
     <Resource Include="Resources\new.png" />
+    <Resource Include="Resources\note03_pen.png" />
+    <Resource Include="Resources\pendraw.png" />
     <Resource Include="Resources\special.png" />
+    <Resource Include="Resources\TouchID.png" />
     <Resource Include="Resources\unjai1.png" />
     <Resource Include="Resources\unjai2.png" />
     <Resource Include="unjai1.png" />

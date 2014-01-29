@@ -26,21 +26,26 @@ namespace Embassy_Project
 			this.InitializeComponent();
             introl_start = (Storyboard)TryFindResource("Introl_Start");
 
-            ChangeIntrolPage();
+            ChangeIntrolPage(new Point(0,0));
            
 		}
-        public void ChangeIntrolPage()
+        public void ChangeIntrolPage(Point mobileLocation)
         {
             if (Global.lastMobileSelected != null)
             {
                 phoneModel.Source = Global.LoadImage(new Uri(Global.lastMobileSelected.MobileSpecification.imagePath, UriKind.Relative));
-                IntroNameText.Source = Global.LoadImage(new Uri(Global.lastMobileSelected.MobileSpecification.WHITEPATH, UriKind.Relative));
+                IntroNameText.Source = Global.LoadImage(new Uri(Global.lastMobileSelected.MobileSpecification.nametextPath, UriKind.Relative));
+                phoneModel.Margin = new Thickness(mobileLocation.X + 210 ,mobileLocation.Y - 70,0,0);  //370 , -250
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MobileManager.fliterMobileFromClient();
+            Global.lastMobileSelected.blurRect.Visibility = System.Windows.Visibility.Collapsed;
+         
+            Global.scaleAnimation(Global.lastMobileSelected.glow2, 1.3, 1, 0.1, 0);
+            Global.FadeinoutBtn(1, 0, Global.lastMobileSelected.glow2, 0.1, 0);
         }
 	}
 }

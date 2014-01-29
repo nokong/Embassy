@@ -24,7 +24,13 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
+		<Storyboard x:Key="blureffect"/>
 	</Window.Resources>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource blureffect}"/>
+		</EventTrigger>
+	</Window.Triggers>
 	
 
     <Grid x:Name="mainWindowGrid">
@@ -64,6 +70,7 @@
     					</LinearGradientBrush>
     				</TextBlock.Foreground></TextBlock>
     		</Grid>
+    		<Rectangle x:Name="blurscreen" Fill="#FFF4F4F5" RadiusY="20" RadiusX="20" StrokeThickness="1" Height="1072" Width="3840" Opacity="0"/>
     		<local:AniScrollViewer x:Name="phoneScroller" Width="3840" Height="1080" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollChanged="phoneScroller_ScrollChanged">
     			<Canvas x:Name="phoneStack" HorizontalAlignment="Left" Height="833.258" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Top" Width="3840"/>
     		</local:AniScrollViewer>

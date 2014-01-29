@@ -43,7 +43,7 @@ namespace Embassy_Project
 
             MobileSpecification = new MobileItemSpecification(phoneNode);
 
-
+            
             this.InitPhoneContent(MobileSpecification);
         }
 
@@ -81,8 +81,10 @@ namespace Embassy_Project
                 frontPhoneWidth = s.Width;
                 
             }
-            this.blurRect.Width = frontPhoneWidth-5;// +150;
-            this.blurRect.Height = frontPhoneHeight-5;// +150;
+            this.blurRect.Width = frontPhoneWidth;// +150;
+            this.blurRect.Height = frontPhoneHeight;// +150;
+            this.blurRect.Visibility = Visibility.Collapsed;
+
 
             this.frontPhone.Width = frontPhoneWidth;
             this.frontPhone.Height = frontPhoneHeight;
