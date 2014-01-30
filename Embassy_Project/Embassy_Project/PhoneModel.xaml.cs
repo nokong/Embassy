@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace Embassy_Project
 {
@@ -18,9 +19,11 @@ namespace Embassy_Project
 	/// </summary>
 	public partial class PhoneModel : UserControl
 	{
+        public Storyboard PageSwip;
 		public PhoneModel()
 		{
 			this.InitializeComponent();
+            PageSwip = (Storyboard)TryFindResource("pageswip");
 		}
 	}
 }

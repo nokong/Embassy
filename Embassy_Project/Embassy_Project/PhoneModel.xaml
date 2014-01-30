@@ -9,8 +9,28 @@
 	d:DesignWidth="640" d:DesignHeight="480" Width="444" Height="838">
 	<UserControl.Resources>
 		<Storyboard x:Key="screenslide"/>
+        <Storyboard x:Key="pageswip" x:Name="pageswip">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="screen1">
+				<EasingDoubleKeyFrame KeyTime="0:0:4.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.2" Value="-690"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 	</UserControl.Resources>
+
 	<Grid x:Name="grid_Phone">
 		<Image x:Name="phoneModel" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
+		<Grid Margin="18.5,76.5,22,70" ClipToBounds="True">
+			<Image x:Name="screen2" Source="Resources/Capture.JPG" Stretch="Fill"/>
+			<Image x:Name="screen1" Source="Resources/Capture1.JPG" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+		</Grid>
 	</Grid>
 </UserControl>

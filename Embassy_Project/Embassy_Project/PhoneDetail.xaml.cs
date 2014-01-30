@@ -40,6 +40,8 @@ namespace Embassy_Project
 
         #endregion
 
+        
+
         public Storyboard Detailin;
         public Storyboard Detail_Out;
         public Storyboard unjai_animation1, unjai_animation2;
@@ -77,6 +79,7 @@ namespace Embassy_Project
 
             defaultAnitmationIn = Detailin.Children.Count;
             defaultAnimationOut = Detail_Out.Children.Count;
+
 
             #region Animation Note8
             animationNote8_1 = (Storyboard)TryFindResource("note3_PenAnimation1");
@@ -118,7 +121,7 @@ namespace Embassy_Project
         private void AnimationNote8Setting() 
         {
 
-            Console.WriteLine(animationNote8.Children.Count);
+            //Console.WriteLine(animationNote8.Children.Count);
              int countStoryboard = 0;
              int countChild = 0;
 
@@ -129,14 +132,14 @@ namespace Embassy_Project
                 {
                     if (note8StoryboardChild is ObjectAnimationUsingKeyFrames)
                     {
-                        Console.WriteLine("Add objectanimation to main animation Storyboard {0} count {1} ", countStoryboard,countChild);
+                        //Console.WriteLine("Add objectanimation to main animation Storyboard {0} count {1} ", countStoryboard,countChild);
                         animationNote8.Children.Add((ObjectAnimationUsingKeyFrames)note8StoryboardChild);
                         countChild++;
                     }
 
                     if (note8StoryboardChild is DoubleAnimationUsingKeyFrames)
                     {
-                        Console.WriteLine("Add doubleanimation to main animation Storyboard {0} count {1} ", countStoryboard,countChild);
+                        //Console.WriteLine("Add doubleanimation to main animation Storyboard {0} count {1} ", countStoryboard,countChild);
                         animationNote8.Children.Add((DoubleAnimationUsingKeyFrames)note8StoryboardChild);
                         countChild++;
                     }
@@ -155,7 +158,7 @@ namespace Embassy_Project
         {
             string StoryBoardName = ((ClockGroup)sender).Timeline.Name;
 
-            Console.WriteLine(StoryBoardName);
+            //Console.WriteLine(StoryBoardName);
             if (StoryBoardName == "note3_PenAnimation1") 
             {
                 animationNote8_1.Stop(); 
@@ -171,7 +174,10 @@ namespace Embassy_Project
                 circle1.Height = 71.5825;
                 circle2.Width = 405;
 
-                animationNote8_3.Begin(); 
+                animationNote8_3.Begin();
+               
+                this.phoneModel.PageSwip.Begin();
+                //Global.TransitionAnimation(this.phoneModel.screen1.Margin, new Thickness(0, -690, 0, 0), this.phoneModel.screen1,4.1,0.3);
             
             }
             if (StoryBoardName == "note3_PenAnimation3") 
@@ -223,7 +229,8 @@ namespace Embassy_Project
             if (StoryBoardName == "note3_PenAnimation7")
             {
                 animationNote8_7.Stop();
-
+                //RotateTransform ST = new RotateTransform(-90);
+                //note3_Pen.RenderTransform = ST;
             }
             //if (StoryBoardName == "note3_PenAnimation") { animationNote8_2.Stop(); animationNote8_3.Begin(); }
                 

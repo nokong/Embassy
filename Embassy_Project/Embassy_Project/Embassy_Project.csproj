@@ -153,6 +153,9 @@
     <Content Include="Resources\android.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\aunjai.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\background_2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -834,6 +837,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\camera_border.png" />
+    <Resource Include="Resources\Capture.JPG" />
+    <Resource Include="Resources\Capture1.JPG" />
     <Resource Include="Resources\correctdraw.png" />
     <Resource Include="Resources\glow.png" />
     <Resource Include="Resources\hand.png" />
@@ -849,8 +854,6 @@
     <Resource Include="Resources\TouchID.png" />
     <Resource Include="Resources\unjai1.png" />
     <Resource Include="Resources\unjai2.png" />
-    <Resource Include="unjai1.png" />
-    <Resource Include="unjai2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

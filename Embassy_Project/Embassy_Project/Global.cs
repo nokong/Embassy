@@ -51,7 +51,7 @@ namespace Embassy_Project
             listOfOSFilter.Clear();
             for (int i = 1; i < _osList.Length; i++)
             {
-                Console.WriteLine(_osList[i]);
+                //Console.WriteLine(_osList[i]);
                 listOfOSFilter.Add(_osList[i]);
             }
             listOfOSFilter.RemoveAt(listOfOSFilter.Count - 1);
@@ -211,6 +211,8 @@ namespace Embassy_Project
         {
             target.IsHitTestVisible = false;
 
+            //Console.WriteLine(fadeStoryboard.Name);
+
             DoubleAnimation fadeanimation = new DoubleAnimation
             {
                 From = from,
@@ -228,13 +230,13 @@ namespace Embassy_Project
             {
                 fadeStoryboard.Completed -= handler;
 
-                Console.WriteLine("Complete storyboard");
+                //Console.WriteLine("Complete storyboard");
 
             };
 
             fadeStoryboard.Completed += handler;
             fadeStoryboard.Children.Add(fadeanimation);
-            Console.WriteLine("Add complete");
+            //Console.WriteLine("Add complete");
         }
 
         public static void FadeinoutBtn(double from, double to, UIElement target, double speed, double begintime)

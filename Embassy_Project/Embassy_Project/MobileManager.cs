@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Media.Animation;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 namespace Embassy_Project
 {
@@ -157,8 +158,19 @@ namespace Embassy_Project
                 MB.Margin = new Thickness(MB.Width * count, 200, 0, 0);
                 //MB.Margin = new Thickness(10,10, 0, 0);
                 //Global.FadeinoutBtn(0, 1, MB, 0.1, 0);
-                ScaleTransform ST = new ScaleTransform(1, 1, 0.5, 0.5);
+                ScaleTransform ST = new ScaleTransform(1, 1, 0.5, 0.5); 
+                MB.frontPhone.RenderTransform = ST;
                 MB.RenderTransform = ST;
+
+                DropShadowEffect glowEffect = new DropShadowEffect();
+                glowEffect.BlurRadius = 0;
+                glowEffect.Opacity = 0.4;
+
+                MB.blurRect.Effect = glowEffect;
+
+                MB.glow2.Opacity = 0;
+                Global.scaleAnimation(MB.glow2, 1.3, 1.1, 0.1,0);
+             
                 //MB.Opacity = 1;
                 //Console.WriteLine("Phone : "+MB.MobileSpecification.NAME +" Margin : "+MB.Margin);
                 count++;
