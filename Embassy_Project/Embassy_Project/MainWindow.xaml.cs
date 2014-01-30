@@ -17,6 +17,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Xml;
 using System.Windows.Media.Animation;
+using System.Diagnostics;
 
 
 namespace Embassy_Project
@@ -29,6 +30,8 @@ namespace Embassy_Project
         public MainWindow()
         {
             InitializeComponent();
+
+            System.Diagnostics.Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
 
             Global.mainWindow = this;
             Global.detailScene = new PhoneDetail();
