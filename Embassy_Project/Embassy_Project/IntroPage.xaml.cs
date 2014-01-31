@@ -41,11 +41,13 @@ namespace Embassy_Project
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MobileManager.fliterMobileFromClient();
+            string[] testfunction = {"SelectPhone","12"};
+            Global.mainWindow.processFunction(testfunction);
+            /*MobileManager.fliterMobileFromClient();
             Global.lastMobileSelected.blurRect.Visibility = System.Windows.Visibility.Collapsed;
          
             Global.scaleAnimation(Global.lastMobileSelected.glow2, 1.3, 1, 0.1, 0);
-            Global.FadeinoutBtn(1, 0, Global.lastMobileSelected.glow2, 0.1, 0);
+            Global.FadeinoutBtn(1, 0, Global.lastMobileSelected.glow2, 0.1, 0);*/
         }
 	}
 }

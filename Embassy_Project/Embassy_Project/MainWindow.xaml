@@ -4,7 +4,7 @@
 		xmlns:local="clr-namespace:Embassy_Project" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Embassy_Project.MainWindow"
         Title="MainWindow" Height="1080" Width="3840"
-        WindowStartupLocation="Manual" Left="0" Top="0" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True">
+        WindowStartupLocation="Manual" Left="0" Top="0" Loaded="Window_Loaded" WindowStyle="None" ResizeMode="NoResize">
 	<Window.Resources>
 		<Storyboard x:Key="HeadText_Up">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="text_Th">

@@ -14,35 +14,35 @@ namespace Embassy_Project
         public static SortBy sortValue;
 
         public static int minPrice = 1000, maxPrice = 24000;
-
+        public static Dictionary<int,MobileItem> PerparForFilter = new Dictionary<int,MobileItem>();
 
         public static void sortAndShowMobile(SortBy _sortType)
         {
             sortValue = _sortType;
-            Global.listOfMobileFillter = sortMobile(Global.listOfMobileFillter, _sortType);
-            Global.ShowSearchResult(Global.listOfMobileFillter);
+            PerparForFilter = sortMobile(PerparForFilter, _sortType);
+            Global.ShowSearchResult(PerparForFilter,Global.listOfMobileFillter);
         }
         public static void fliterMobileFromClient()
         {
             if (Global.listOfBrandFilter.Count == 0 && Global.listOfOSFilter.Count == 0)
             {
-                Global.listOfMobileFillter = FliterMobile(Global.listOfMobileItem);
+                PerparForFilter = FliterMobile(Global.listOfMobileItem);
 
             }
             else if (Global.listOfBrandFilter.Count == 0 && Global.listOfOSFilter.Count > 0)
             {
-                Global.listOfMobileFillter = FliterMobile(Global.listOfMobileItem, Global.listOfOSFilter,SortBy.OS);
+                PerparForFilter = FliterMobile(Global.listOfMobileItem, Global.listOfOSFilter, SortBy.OS);
 
             }
             else if (Global.listOfBrandFilter.Count > 0 && Global.listOfOSFilter.Count == 0)
             {
-                Global.listOfMobileFillter = FliterMobile(Global.listOfMobileItem, Global.listOfBrandFilter,SortBy.Brand);
+                PerparForFilter = FliterMobile(Global.listOfMobileItem, Global.listOfBrandFilter, SortBy.Brand);
             }
             else
             {
                 Dictionary<int, MobileItem> sortByBrandlist = new Dictionary<int, MobileItem>();
                 sortByBrandlist = FliterMobile(Global.listOfMobileItem, Global.listOfBrandFilter,SortBy.Brand);
-                Global.listOfMobileFillter = FliterMobile(sortByBrandlist, Global.listOfOSFilter,SortBy.OS);
+                PerparForFilter = FliterMobile(sortByBrandlist, Global.listOfOSFilter, SortBy.OS);
             }
             sortAndShowMobile(sortValue);
         }

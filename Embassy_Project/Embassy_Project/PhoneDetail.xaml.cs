@@ -71,11 +71,11 @@ namespace Embassy_Project
             intro_end = (Storyboard)TryFindResource("Intro_Reverse");
             DetailChange = (Storyboard)TryFindResource("Detail_change");
 
-            animationBackground = new BackgroundWorker();
+            /*animationBackground = new BackgroundWorker();
             animationBackground.DoWork += new DoWorkEventHandler(animationBackground_DoWork);
             animationBackground.ProgressChanged += new ProgressChangedEventHandler(serverRunner_ProgressChanged);
             animationBackground.WorkerReportsProgress = true;
-            animationBackground.WorkerSupportsCancellation = true;
+            animationBackground.WorkerSupportsCancellation = true;*/
 
             defaultAnitmationIn = Detailin.Children.Count;
             defaultAnimationOut = Detail_Out.Children.Count;
@@ -98,18 +98,27 @@ namespace Embassy_Project
             animationNote8_6.Completed += new EventHandler(animationNote8_Completed);
             animationNote8_7.Completed += new EventHandler(animationNote8_Completed);
 
+            animationNote8_1.FillBehavior = FillBehavior.Stop;
+            animationNote8_2.FillBehavior = FillBehavior.Stop;
+            animationNote8_3.FillBehavior = FillBehavior.Stop;
+            animationNote8_4.FillBehavior = FillBehavior.Stop;
+            animationNote8_5.FillBehavior = FillBehavior.Stop;
+            animationNote8_6.FillBehavior = FillBehavior.Stop;
+            animationNote8_7.FillBehavior = FillBehavior.Stop;
+         
+
             //Global.FadeinoutBtn(note8animate.Opacity, note8animate.Opacity, note8animate, animationNote8_3, 20, 40);
             
 
-           // listOfAnimationNote8.Add(animationNote8_1);
-            //listOfAnimationNote8.Add(animationNote8_2);
-            //listOfAnimationNote8.Add(animationNote8_3);
+            listOfAnimationNote8.Add(animationNote8_1);
+            listOfAnimationNote8.Add(animationNote8_2);
+            listOfAnimationNote8.Add(animationNote8_3);
             listOfAnimationNote8.Add(animationNote8_4);
-            /*listOfAnimationNote8.Add(animationNote8_5);
+            listOfAnimationNote8.Add(animationNote8_5);
             listOfAnimationNote8.Add(animationNote8_6);
-            listOfAnimationNote8.Add(animationNote8_7);*/
+            listOfAnimationNote8.Add(animationNote8_7);
 
-            AnimationNote8Setting();
+            //AnimationNote8Setting();
 
             //animationNote8_1.FillBehavior = FillBehavior.Stop;
            
@@ -125,24 +134,19 @@ namespace Embassy_Project
              int countStoryboard = 0;
              int countChild = 0;
 
+          
+
 
             foreach (Storyboard note8Storyboard in listOfAnimationNote8)
             {
-                foreach (object note8StoryboardChild in note8Storyboard.Children) 
+                foreach (Timeline note8StoryboardChild in note8Storyboard.Children) 
                 {
-                    if (note8StoryboardChild is ObjectAnimationUsingKeyFrames)
-                    {
+                  
                         //Console.WriteLine("Add objectanimation to main animation Storyboard {0} count {1} ", countStoryboard,countChild);
-                        animationNote8.Children.Add((ObjectAnimationUsingKeyFrames)note8StoryboardChild);
+                        Timeline.SetDesiredFrameRate(note8StoryboardChild, 300);
+                       
                         countChild++;
-                    }
 
-                    if (note8StoryboardChild is DoubleAnimationUsingKeyFrames)
-                    {
-                        //Console.WriteLine("Add doubleanimation to main animation Storyboard {0} count {1} ", countStoryboard,countChild);
-                        animationNote8.Children.Add((DoubleAnimationUsingKeyFrames)note8StoryboardChild);
-                        countChild++;
-                    }
                 }
                 countStoryboard++;
                 //Console.WriteLine(child);
@@ -158,6 +162,7 @@ namespace Embassy_Project
         {
             string StoryBoardName = ((ClockGroup)sender).Timeline.Name;
 
+            
             //Console.WriteLine(StoryBoardName);
             if (StoryBoardName == "note3_PenAnimation1") 
             {
@@ -226,12 +231,12 @@ namespace Embassy_Project
                 heartRight1.Height = 184.59;
                 animationNote8_7.Begin(); 
             }
-            if (StoryBoardName == "note3_PenAnimation7")
+            /*if (StoryBoardName == "note3_PenAnimation7")
             {
                 animationNote8_7.Stop();
                 //RotateTransform ST = new RotateTransform(-90);
                 //note3_Pen.RenderTransform = ST;
-            }
+            }*/
             //if (StoryBoardName == "note3_PenAnimation") { animationNote8_2.Stop(); animationNote8_3.Begin(); }
                 
          
@@ -257,15 +262,13 @@ namespace Embassy_Project
 
                 if (screenAppear)
                 {
-                    if(!this.animationBackground.IsBusy)this.animationBackground.RunWorkerAsync();
+                    //if(!this.animationBackground.IsBusy)this.animationBackground.RunWorkerAsync();
 
-                    
-                   
                     Global.FadeinoutBtn(0, 1, this, 1, 0);
                     this.settingContentAnimationIN(Detailin);
+                    Canvas.SetZIndex(this, (int)99);
 
-                    Detailin.Begin();
-                    if (Global.lastMobileSelected.MobileSpecification.NAME == "note3") { note3_Pen.Visibility = Visibility.Visible; animationNote8_1.Begin(); }
+                    if (Global.lastMobileSelected.MobileSpecification.NAME == "note3") { note3_Pen.Visibility = Visibility.Visible; animationNote8_1.Begin(this); }
                     else 
                     {
                         note3_Pen.Visibility = Visibility.Collapsed;
@@ -297,9 +300,9 @@ namespace Embassy_Project
                         heartRight1.Height = 5;
 
                     }
-
-              
-                    
+                    Global.introlScene.Visibility = Visibility.Collapsed;
+                    Detailin.Begin();
+                  
                    
                     //animationNote8.Begin(this);
                   
@@ -721,7 +724,7 @@ namespace Embassy_Project
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            screenAppear = false;
+            animationNote8_5.Begin(this);
         	// TODO: Add event handler implementation here.
         }
 

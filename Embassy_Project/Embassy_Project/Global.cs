@@ -61,12 +61,62 @@ namespace Embassy_Project
         //------------------------------------------------------------------------------------------------------- End of Porperty
 
         
-        public static void ShowSearchResult(Dictionary<int,MobileItem> _resultList)
+        public static void ShowSearchResult(Dictionary<int,MobileItem> NewResultList, Dictionary<int,MobileItem> OldResultList)
         {
-            mainWindow.phoneStack.Children.Clear();
+            //mainWindow.phoneStack.Children.Clear();
 
-            int count = 0;
-            foreach (MobileItem mobile in _resultList.Values) 
+            Thickness OldMobileMargin, NewMobileMargin;
+            Boolean FindContent = false;
+
+            //Storyboard sb = new Storyboard();
+
+            /*foreach (MobileItem NewMobile in NewResultList.Values) 
+            {
+                foreach (MobileItem OldMobile in OldResultList.Values) 
+                {
+                    if (NewMobile.IDPHONE == OldMobile.IDPHONE)
+                    {
+                        NewMobileMargin = new Thickness(NewMobile.Width * j, 200, 0, 0);
+                        Global.TransitionAnimation(OldMobile.Margin, NewMobileMargin, OldMobile, null, 0);
+                    }
+                   
+                }
+            }*/
+
+            for (int i = 0; i < OldResultList.Count; i++)
+			{
+                 MobileItem OldMobile = OldResultList.ElementAt(i).Value;
+                 FindContent = false;
+			    for (int j = 0; j < NewResultList.Count; j++)
+			    {
+                   
+			        MobileItem NewMobile = NewResultList.ElementAt(j).Value;
+
+                    if (OldMobile.IDPHONE == NewMobile.IDPHONE)
+                    {
+                        NewMobileMargin = new Thickness(NewMobile.Width * j, 200, 0, 0);
+                        Global.TransitionAnimation(OldMobile.Margin, NewMobileMargin, OldMobile, null, 0);
+                        mainWindow.phoneStack.Children[i].Visibility = Visibility.Visible;
+                        FindContent = true;
+                        //NewMobile.Margin = new Thickness(NewMobile.Width * j, 200, 0, 0);
+                    }
+			    }
+                if (!FindContent) mainWindow.phoneStack.Children[i].Visibility = Visibility.Hidden;
+			}
+
+
+            /*foreach (MobileItem OldMobile in OldResultList.Values) 
+            {
+                foreach (MobileItem NewMobile in NewResultList.Values) 
+                {
+                    if (OldMobile.IDPHONE != NewMobile.IDPHONE) 
+                    {
+                        mainWindow.phoneStack.Children[]
+                    }
+                }
+            }*/
+
+            /*foreach (MobileItem mobile in _resultList.Values) 
             {
                // Console.WriteLine(mobile.MobileSpecification.NAME + "Befor Change Margin " +mobile.Margin);
                 Global.scaleAnimation(mobile, 1, 1, 0.1);
@@ -75,7 +125,7 @@ namespace Embassy_Project
               //  Console.WriteLine(mobile.MobileSpecification.NAME + "After Change Margin " + mobile.Margin);
               //  Console.WriteLine("-----------------------------------------------------------------------");
                 count++;
-            }
+            }*/
            /* for (int i = 0; i < _resultList.Count; i++)
             {
                 MobileItem MBItem = (MobileItem)_resultList[i];

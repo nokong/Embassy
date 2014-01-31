@@ -12,15 +12,13 @@
 		<DropShadowEffect x:Key="glowEffect2" BlurRadius="100" Opacity="1" ShadowDepth="0" Color="White" RenderingBias="Performance"/>
 	</UserControl.Resources>
 	<Canvas Margin="0,0,-1.5,0">
-		<Ellipse x:Name="blurRectb" StrokeThickness="10" Panel.ZIndex="-1" Height="484.361" Canvas.Left="89.584" Canvas.Top="119.23" Width="410.361" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Stroke="White"/>
 		<TextBlock x:Name="priceTextBlock" TextWrapping="Wrap" Text="TextBlock" FontFamily="DB HelvethaicaAIS X 55 Regular" FontSize="64" Foreground="White" TextAlignment="Center" Height="68.73" Canvas.Top="726.27" Width="639"/>
-		<Rectangle x:Name="blurRecta" Fill="#FFF4F4F5" RadiusX="20" RadiusY="20" StrokeThickness="1" MaxWidth="2000" MaxHeight="500" Opacity="0.995" Visibility="Hidden" Height="469.064" Canvas.Left="86.918" Canvas.Top="166.597" Width="469.064"/>
 		
 		<Image x:Name="frontPhone" Source="Resources/Phone/phonemodel/phonemodel_note3.png" Height="438" Canvas.Left="207" Canvas.Top="187.5" Width="239.361" d:LayoutOverrides="Height"/>
 		<Image x:Name="headerName" Height="157.231" VerticalAlignment="Stretch" Source="Resources/Name/Note3_Name.png" Margin="0" Canvas.Left="-187.479" Canvas.Top="-22" Width="1017.587"/>
 		<Image Height="85.678" Source="Resources/shadow.png" Stretch="Fill" Opacity="0.51" Canvas.Left="83.918" Canvas.Top="643.592" Width="484.5"/>
 		<Image x:Name="specail_offer" Source="Resources/special.png" Stretch="Fill" Width="138.766" Height="158" Visibility="Collapsed" Canvas.Left="357.5" Canvas.Top="155.528"/>
-		<Image x:Name="_new" Source="Resources/new.png" Stretch="Fill" Height="138.766" Width="138.766" Visibility="Collapsed" Canvas.Left="357.5" Canvas.Top="139.231"/>
+		<Image x:Name="_new" Source="Resources/new.png" Stretch="Fill" Height="138.766" Width="138.766" Canvas.Left="357.5" Canvas.Top="139.231" Visibility="Collapsed"/>
 		<Image x:Name="glow2" Height="960.723" Source="Resources/glow.png" Stretch="Fill" Width="620.615" Panel.ZIndex="-2" Canvas.Top="-71.161" Canvas.Left="19.885" Opacity="0"/>
 		<Canvas x:Name="Glow_Layer1" Height="438" Canvas.Left="207" Canvas.Top="187.5" Width="239.361" Panel.ZIndex="-1" HorizontalAlignment="Left" VerticalAlignment="Top">
 			<Canvas.Resources>

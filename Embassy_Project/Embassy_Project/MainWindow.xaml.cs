@@ -18,6 +18,7 @@ using System.Net.Sockets;
 using System.Xml;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
+using System.Diagnostics;
 
 
 namespace Embassy_Project
@@ -27,10 +28,12 @@ namespace Embassy_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Storyboard sb1 = new Storyboard();
+      
         public MainWindow()
         {
             InitializeComponent();
+
+            System.Diagnostics.Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
 
             Global.mainWindow = this;
             Global.detailScene = new PhoneDetail();
@@ -40,45 +43,27 @@ namespace Embassy_Project
             Canvas.SetZIndex(Global.detailScene, (int)-1);
             Canvas.SetZIndex(Global.introlScene, (int)0);
 
-            mainWindowGrid.Children.Add(Global.introlScene);
             mainWindowGrid.Children.Add(Global.detailScene);
-
-           
-
-            /*Console.WriteLine("DetailScene ZIndex : "+Canvas.GetZIndex(Global.detailScene));
-            Console.WriteLine("IntrolScene ZIndex : " + Canvas.GetZIndex(Global.introlScene));
-            Console.WriteLine("MainWindow  ZIndex : " + Canvas.GetZIndex(Scene1));*/
-
-            //Scene1.Children.Add(Global.detailScene);
-            //Scene1.Children.Add(Global.introlScene);
+            mainWindowGrid.Children.Add(Global.introlScene);
+            
 
             HeaderTextUp = (Storyboard)TryFindResource("HeadText_Up");
-            eclipsaura = (Storyboard)TryFindResource("EclipsScale");
             this.initPhoneDataFromXMLFile("Resources\\Phone\\specification.xml");
 
+
+            //phoneStack.Children.Clear();
+            //MobileManager.fliterMobileFromClient();
             ServerRunner = new BackgroundWorker();
             ServerRunner.DoWork += new DoWorkEventHandler(serverRunner_DoWork);
             ServerRunner.ProgressChanged += new ProgressChangedEventHandler(serverRunner_ProgressChanged);
             ServerRunner.WorkerReportsProgress = true;
-
+            
             UpdateScroller = new BackgroundWorker();
             UpdateScroller.DoWork += new DoWorkEventHandler(UpdateScoroler_DoWork);
             UpdateScroller.ProgressChanged += new ProgressChangedEventHandler(UpdateScoroler_ProgressChanged);
             UpdateScroller.WorkerReportsProgress = true;
+            
 
-
-          
-            Global.BlurEffectAnimation(0,100,Global.listOfMobileFillter.ElementAt(1).Value.blurRect,sb1,0.4);
-
-            EventHandler handler2 = null;
-            handler2 = delegate
-            {
-                sb1.Completed -= handler2;
-                sb1.Stop();
-            };
-            sb1.Completed += handler2;
-            sb1.Begin(this);
-         
 
             /*CheckIdle = new BackgroundWorker();
             CheckIdle.DoWork += new DoWorkEventHandler(C);
@@ -104,12 +89,12 @@ namespace Embassy_Project
                 XmlElement childNode = (XmlElement)rootNode.ChildNodes[i];
                 MobileItemSpecification specification = new MobileItemSpecification(childNode);
                 MobileItem MB = new MobileItem(childNode);
-                
-
+         
                 MB.IDPHONE = i;
-                //MB.Margin = new Thickness(MB.Width * i,0,0,0);
-                //Console.WriteLine("Name : " + MB.MobileSpecification.NAME + " ID : "+MB.IDPHONE);
-                listOfSpecification.Add(specification);
+
+                MB.Margin = new Thickness(MB.Width * i, 200, 0, 0);
+                phoneStack.Children.Add(MB);
+                //listOfSpecification.Add(specification);
                 Global.listOfMobileItem.Add(i,MB);
             }
             Global.listOfMobileFillter = Global.listOfMobileItem;
@@ -273,7 +258,7 @@ namespace Embassy_Project
              
         }
 
-        void processFunction(string[] functionList)
+        public void processFunction(string[] functionList)  // make public for test
         {
             String Function = functionList[0];
             switch (Function)
@@ -285,7 +270,6 @@ namespace Embassy_Project
                     break;
                 case "SelectPhone":
 
-                
 
                     if (Global.detailScene !=null && Global.lastMobileSelected !=null)
                     {
@@ -459,9 +443,13 @@ namespace Embassy_Project
 
 
                                        Global.FadeinoutBtn(1, 0, Global.introlScene,0.5,1.2);
+                                       MobileManager.returnAllMobile(null);
+                                       //Global.introlScene.Visibility = Visibility.Collapsed;
                                    };
                                    Global.introlScene.introl_start.Completed += handler2;
                                    Global.introlScene.introl_start.Begin();
+
+                                   
                                }
                               
 
@@ -600,7 +588,7 @@ namespace Embassy_Project
         #endregion
 
         #region List of Mobile Content Data
-        public  List<MobileItemSpecification> listOfSpecification = new List<MobileItemSpecification>();
+        //public  List<MobileItemSpecification> listOfSpecification = new List<MobileItemSpecification>();
         public bool mobileReturn = false;
         public int scrollerIndex = 0;
 
@@ -610,7 +598,6 @@ namespace Embassy_Project
 
 
         Storyboard HeaderTextUp;
-        Storyboard eclipsaura;
         public IntrolPage Introl;
 
        

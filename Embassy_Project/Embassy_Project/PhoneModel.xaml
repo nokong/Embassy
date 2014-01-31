@@ -21,7 +21,7 @@
 		<Image x:Name="phoneModel" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
 		<Grid Margin="18.5,76.5,22,70" ClipToBounds="True">
 			<Image x:Name="screen2" Source="Resources/Capture.JPG" Stretch="Fill"/>
-			<Image x:Name="screen1" Source="Resources/Capture1.JPG" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+			<Image x:Name="screen1" Source="Resources/Capture1.JPG" Stretch="Fill" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
 				<Image.RenderTransform>
 					<TransformGroup>
 						<ScaleTransform/>
