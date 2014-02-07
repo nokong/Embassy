@@ -245,7 +245,7 @@ namespace Embassy_Project
         {
             Random rd = new Random();
             int randomvalue = rd.Next(0, 5);
-            ////Console.WriteLine("Random Value = "+randomvalue);
+            Console.WriteLine("Random Value = "+randomvalue);
             switch (randomvalue)
             {
                 case 0: BGPath = new Uri("Resources\\Detailpage_BG.png", UriKind.Relative); break;
@@ -264,11 +264,17 @@ namespace Embassy_Project
                 {
                     //if(!this.animationBackground.IsBusy)this.animationBackground.RunWorkerAsync();
 
-                    Global.FadeinoutBtn(0, 1, this, 1, 0);
+                    Global.FadeinoutBtn(0, 1, this,1, 0);
                     this.settingContentAnimationIN(Detailin);
-                    Canvas.SetZIndex(this, (int)99);
+                   
 
-                    if (Global.lastMobileSelected.MobileSpecification.NAME == "note3") { note3_Pen.Visibility = Visibility.Visible; animationNote8_1.Begin(this); }
+                    if (Global.lastMobileSelected.MobileSpecification.NAME == "note3")
+                    {
+                        note3_Pen.Visibility = Visibility.Visible; 
+                        animationNote8_1.Begin(this);
+                        this.phoneModel.screen1.Visibility = Visibility.Visible;
+                        this.phoneModel.screen2.Visibility = Visibility.Visible;
+                    }
                     else 
                     {
                         note3_Pen.Visibility = Visibility.Collapsed;
@@ -299,8 +305,12 @@ namespace Embassy_Project
                         heartCenter1.Width = 5;
                         heartRight1.Height = 5;
 
+                        this.phoneModel.screen1.Visibility = Visibility.Hidden;
+                        this.phoneModel.screen2.Visibility = Visibility.Hidden;
+
+
                     }
-                    Global.introlScene.Visibility = Visibility.Collapsed;
+                    //Global.introlScene.Visibility = Visibility.Collapsed;
                     Detailin.Begin();
                   
                    
@@ -313,10 +323,20 @@ namespace Embassy_Project
                     EventHandler handler = null;
                     handler = delegate
                     {
-                        Detail_Out.Completed -= handler;
+                        Detail_Out.Completed -= handler;    
                         Detail_Out.Stop();
                         //Global.FadeinoutBtn(0, 1, currentMobile, 0.3, 0);
+                       
                         Global.FadeinoutBtn(1, 0, this, 0.3, 0);
+                        Global.FadeinoutBtn(Global.mainWindow.blurscreen.Opacity, 0, Global.mainWindow.blurscreen,0.3,0);
+                        Global.FadeinoutBtn(Global.introlScene.Opacity, 1, Global.introlScene, 0.3, 0);
+
+                        Global.introlScene.BG_Grid.Opacity = 0;
+                        Global.introlScene.IntroNameText.Opacity = 0;
+                        Global.introlScene.phoneModel.Opacity = 0;
+                        Global.introlScene.phoneModel.Visibility = Visibility.Collapsed;
+
+                        MobileManager.fliterMobileFromClient();
                         MobileManager.returnAllMobile(currentMobile);
                         //MobileManager.fliterMobileFromClient();
                     };
@@ -421,6 +441,7 @@ namespace Embassy_Project
             Detail_Out.Stop();
 
             RandomBG();
+            this.BG.Source = Global.LoadImage(new Uri("Resources\\background_2.png", UriKind.Relative));
 
             if(screenAppear)
             {

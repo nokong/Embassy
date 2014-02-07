@@ -22,7 +22,7 @@
 
 	<Grid x:Name="LayoutRoot">
 		<Grid x:Name="intro_grid" Margin="0">
-			<Grid x:Name="BG_Grid" Margin="-8,0,0,0" Opacity="0">
+			<Grid x:Name="BG_Grid" Margin="-8,0,0,0" Opacity="0" Background="{x:Null}">
 				<Image Source="Resources/1-130503192137.jpg" Stretch="Fill" HorizontalAlignment="Right" Width="1920"/>
 				<Image Source="Resources/1-130503192137.jpg" Stretch="Fill" Margin="0,0,1920,0" RenderTransformOrigin="0.5,0.5">
 					<Image.RenderTransform>
@@ -45,7 +45,7 @@
 					</TransformGroup>
 				</Image.RenderTransform>
 			</Image>
-			<Grid x:Name="textgrid" Margin="1277.331,288.246,86,186.2" ClipToBounds="True">
+			<Grid x:Name="textgrid" Margin="1277.331,396.246,86,78.2" ClipToBounds="True">
 				<Image x:Name="IntroNameText" Source="Resources/Phone/nametext_white/whitetext_note3.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Opacity="0" Margin="-1739.777,0.277,0,0.277" Width="1501" Height="605" ClipToBounds="True" HorizontalAlignment="Left" d:LayoutOverrides="Width">
 					<Image.RenderTransform>
 						<TransformGroup>
@@ -57,7 +57,7 @@
 					</Image.RenderTransform>
 				</Image>
 			</Grid>
-			<Button Content="reset" Height="108" FontSize="64" Click="Button_Click" Margin="1530,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="376" />
+			<Button Content="reset" Height="108" FontSize="64" Click="Button_Click" Margin="1530,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="376" Visibility="Collapsed" />
 		</Grid>
 	</Grid>
 </UserControl>

@@ -1,0 +1,205 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Embassy_Project.IdleScreen"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="3840" Height="1080">
+	<UserControl.Resources>
+        <Storyboard x:Key="TVC_Openning" x:Name="TVC_Openning">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Video_Grid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-60"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1052"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="784"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="tablet_Grid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-804"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+        <Storyboard x:Key="TVC_Close" x:Name="TVC_Close">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Video_Grid">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-1200"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="tablet_Grid">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1440"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="TVC_Howto" x:Name="TVC_Howto">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0" Value="540"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="12"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="12"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="12">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut" Exponent="4"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="12">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="12">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="12"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6" Value="572"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:12" Value="572"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="118"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="118"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-182">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut" Exponent="4"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-182">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="193">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="193"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6" Value="193"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:12" Value="193"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="11.051"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-5.224">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut" Exponent="4"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-5.224">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="-5.224">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="-5.224"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6" Value="-5.224"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:12" Value="-5.224"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image1">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="-390">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="0.5"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-390">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+
+            <!--<BeginStoryboard Storyboard="{StaticResource TVC_Openning}"/> -->
+			<!--<BeginStoryboard Storyboard="{StaticResource TVC_Close}"/> -->
+			<!--<BeginStoryboard Storyboard="{StaticResource TVC_Howto}"/> -->
+			<!-- <BeginStoryboard Storyboard="{StaticResource vdo_BG_mp41}"/> -->
+		</EventTrigger>
+	</UserControl.Triggers>
+	 
+	
+
+	<Grid x:Name="LayoutRoot">
+		<Grid x:Name="Video_Grid" HorizontalAlignment="Left" Margin="268,-1050,0,0" Width="1508" Height="996" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+			<Image Source="Resources/tvcMONITOR.png" Stretch="Fill"/>
+			<MediaElement x:Name="vdo_BG_mp4" Source="Resources/vdo_BG.mp4" Margin="18,120,20,49.125" Stretch="Fill" LoadedBehavior="Manual" UnloadedBehavior="Manual"/>
+		</Grid>
+		<Grid x:Name="tablet_Grid" HorizontalAlignment="Right" Margin="0,0,-176,-866" Width="1650.5" Height="859.215" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+			<Image x:Name="image2" Margin="205.5,57,285,-57" Source="Resources/intablets.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Grid x:Name="grid2" Margin="388.5,193.215,499,0" ClipToBounds="True" Height="208" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+				<Grid.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Grid.RenderTransform>
+				<Image x:Name="image1" Margin="15,25.215,-856,24.741" Source="Resources/phone_idle.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+					<Image.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</Image.RenderTransform>
+				</Image>
+			</Grid>
+			<Image x:Name="image" HorizontalAlignment="Right" Margin="0,297.215,499,-31" Source="Resources/hand.png" Stretch="Fill" Width="316" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+		</Grid>
+	</Grid>
+</UserControl>

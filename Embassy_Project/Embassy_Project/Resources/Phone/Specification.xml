@@ -36,8 +36,8 @@
 
   <Phone>
 	<ModelPath>Resources\\Phone\\phonemodel\\phonemodel_ipad_retina.png</ModelPath>
-	<LogoPath>Resources\\Phone\\nametext\\blacktext_ipad_retina.png</LogoPath>
-  <WhiteLogoPath>Resources\\Phone\\nametext_white\\whitetext_ipad_retina.png</WhiteLogoPath>
+	<LogoPath>Resources\\Phone\\nametext\\blacktext_iPad_miniretina.png</LogoPath>
+    <WhiteLogoPath>Resources\\Phone\\nametext_white\\whitetext_ipad_retina.png</WhiteLogoPath>
     <name>ipad_retina</name>
     <price>20500</price>
     <pricetext>20,500</pricetext>
@@ -470,8 +470,8 @@
     <name>q10</name>
     <price>22900</price>
     <pricetext>22,900</pricetext>
-    <os>bb</os>
-    <brand>blackberry</brand>
+    <os>allos</os>
+    <brand>allbrand</brand>
     <recommend>15</recommend>
     <bestsale>17</bestsale>
     <datesale>14/12/2012</datesale>
@@ -668,8 +668,8 @@
     <name>z10</name>
     <price>9900</price>
     <pricetext>9,900</pricetext>
-    <os>bb</os>
-    <brand>blackberry</brand>
+    <os>allos</os>
+    <brand>allbrand</brand>
     <recommend>21</recommend>
     <bestsale>11</bestsale>
     <datesale>21/11/2012</datesale>
@@ -734,7 +734,7 @@
     <name>HERO_3G</name>
     <price>1390</price>
     <pricetext>1,390</pricetext>
-    <os>Feature_phone</os>
+    <os>allos</os>
     <brand>samsung</brand>
     <recommend>23</recommend>
     <bestsale>9</bestsale>

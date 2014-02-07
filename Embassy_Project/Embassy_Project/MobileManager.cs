@@ -21,6 +21,8 @@ namespace Embassy_Project
             sortValue = _sortType;
             PerparForFilter = sortMobile(PerparForFilter, _sortType);
             Global.ShowSearchResult(PerparForFilter,Global.listOfMobileFillter);
+
+
         }
         public static void fliterMobileFromClient()
         {
@@ -169,7 +171,7 @@ namespace Embassy_Project
                 MB.blurRect.Effect = glowEffect;
 
                 MB.glow2.Opacity = 0;
-                Global.scaleAnimation(MB.glow2, 1.3, 1.1, 0.1,0);
+                Global.scaleAnimation(MB.glow2, 1.3, 1, 0.1,0);
              
                 //MB.Opacity = 1;
                 //Console.WriteLine("Phone : "+MB.MobileSpecification.NAME +" Margin : "+MB.Margin);

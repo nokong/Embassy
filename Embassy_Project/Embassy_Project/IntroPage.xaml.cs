@@ -21,6 +21,7 @@ namespace Embassy_Project
 	{
         public Storyboard introl_start;
 
+
 		public IntrolPage()
 		{
 			this.InitializeComponent();

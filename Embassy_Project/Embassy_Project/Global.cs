@@ -22,6 +22,7 @@ namespace Embassy_Project
         //public static Boolean inDetail = false;
         public static PhoneDetail detailScene;
         public static IntrolPage  introlScene;
+        public static IdleScreen  idleScreen;
 
         public static int lastMobileSelectedID;
         public static int lastMobileSelectIndex;
@@ -41,6 +42,7 @@ namespace Embassy_Project
             for (int i = 1; i < _brandList.Length; i++)
             {
                 listOfBrandFilter.Add(_brandList[i]);
+                Console.WriteLine(_brandList[i]);
             }
             listOfBrandFilter.RemoveAt(listOfBrandFilter.Count - 1);
         }
@@ -51,7 +53,7 @@ namespace Embassy_Project
             listOfOSFilter.Clear();
             for (int i = 1; i < _osList.Length; i++)
             {
-                //Console.WriteLine(_osList[i]);
+                Console.WriteLine(_osList[i]);
                 listOfOSFilter.Add(_osList[i]);
             }
             listOfOSFilter.RemoveAt(listOfOSFilter.Count - 1);
@@ -64,73 +66,119 @@ namespace Embassy_Project
         public static void ShowSearchResult(Dictionary<int,MobileItem> NewResultList, Dictionary<int,MobileItem> OldResultList)
         {
             //mainWindow.phoneStack.Children.Clear();
+            
+            Dictionary<int, MobileItem> ResultList = new Dictionary<int, MobileItem>();
 
             Thickness OldMobileMargin, NewMobileMargin;
             Boolean FindContent = false;
+            Storyboard sb = new Storyboard();
+            MobileItem stackmobile;
 
-            //Storyboard sb = new Storyboard();
-
-            /*foreach (MobileItem NewMobile in NewResultList.Values) 
-            {
-                foreach (MobileItem OldMobile in OldResultList.Values) 
-                {
-                    if (NewMobile.IDPHONE == OldMobile.IDPHONE)
-                    {
-                        NewMobileMargin = new Thickness(NewMobile.Width * j, 200, 0, 0);
-                        Global.TransitionAnimation(OldMobile.Margin, NewMobileMargin, OldMobile, null, 0);
-                    }
-                   
-                }
-            }*/
+            ResultList = NewResultList;
 
             for (int i = 0; i < OldResultList.Count; i++)
+            {
+                MobileItem OldMobile = OldResultList.ElementAt(i).Value;
+                int indexofList = 1;
+                FindContent = false;
+                for (int j = 0; j < NewResultList.Count; j++)
+                {
+                    MobileItem NewMobile = NewResultList.ElementAt(j).Value;
+                    if (OldMobile.IDPHONE == NewMobile.IDPHONE)
+                    {
+                        FindContent = true;
+                        if(!OldMobile.inScreen)
+                        {
+                            NewMobileMargin = new Thickness(OldMobile.Width * j, -800, 0, 0);
+                            OldMobile.Margin = NewMobileMargin;
+                            OldMobile.inScreen = true;
+                        }
+                    }
+                }
+                if (!FindContent) 
+                {
+                    ResultList.Add(OldMobile.IDPHONE, OldMobile);
+                    OldMobile.inScreen = false;
+                    indexofList++;
+                }
+            }
+
+            /*for (int i = 0; i < OldResultList.Count; i++)
 			{
                  MobileItem OldMobile = OldResultList.ElementAt(i).Value;
+                 
                  FindContent = false;
 			    for (int j = 0; j < NewResultList.Count; j++)
 			    {
                    
 			        MobileItem NewMobile = NewResultList.ElementAt(j).Value;
-
                     if (OldMobile.IDPHONE == NewMobile.IDPHONE)
                     {
-                        NewMobileMargin = new Thickness(NewMobile.Width * j, 200, 0, 0);
-                        Global.TransitionAnimation(OldMobile.Margin, NewMobileMargin, OldMobile, null, 0);
-                        mainWindow.phoneStack.Children[i].Visibility = Visibility.Visible;
+                        stackmobile = OldResultList[i];
+
+                       
+                        //if (!OldMobile.inScreen) NewMobileMargin = new Thickness(NewMobile.Width * j, -800, 0, 0);
+                        //NewMobileMargin = new Thickness(NewMobile.Width * j, 200, 0, 0);
+                        //Global.TransitionAnimation(OldMobile.Margin, NewMobileMargin, OldMobile, sb,0 ,0.5);
+                        //mainWindow.phoneStack.Children[i].Visibility = Visibility.Visible;
                         FindContent = true;
-                        //NewMobile.Margin = new Thickness(NewMobile.Width * j, 200, 0, 0);
+                        OldMobile.inScreen = true;
+
+                        //OldResultList[i] = OldResultList[j];
+                        //OldResultList[j] = stackmobile;
+
                     }
 			    }
-                if (!FindContent) mainWindow.phoneStack.Children[i].Visibility = Visibility.Hidden;
-			}
-
-
-            /*foreach (MobileItem OldMobile in OldResultList.Values) 
-            {
-                foreach (MobileItem NewMobile in NewResultList.Values) 
+                if (!FindContent) 
                 {
-                    if (OldMobile.IDPHONE != NewMobile.IDPHONE) 
-                    {
-                        mainWindow.phoneStack.Children[]
-                    }
+                    //NewMobileMargin = new Thickness(OldMobile.Margin.Left , -800, 0, 0);
+                    
+                    //Global.TransitionAnimation(OldMobile.Margin, NewMobileMargin, OldMobile, sb, 0,0.3);
+                    //Global.FadeinoutBtn(1, 0, OldMobile, 0.5, 0);
+                    //OldMobile.Visibility = Visibility.Collapsed;
+                    OldMobile.inScreen = false;
                 }
-            }*/
+                //sb.Begin();
+			}
+            */
+            int count = 0;
+            foreach (MobileItem resultItem in ResultList.Values) 
+            {
+               // Console.WriteLine(resultItem.MobileSpecification.NAME);
+                //Console.WriteLine("Inscreen : " + resultItem.inScreen + " Margin : " + resultItem.Margin);
+                //NewMobileMargin = new Thickness(resultItem.Width * count, -800, 0, 0);
+                //resultItem.Margin = NewMobileMargin;
+              
+                if (resultItem.inScreen)
+                {
+                   
+                    //Console.WriteLine("New Margin 1 : " + resultItem.Margin);
 
-            /*foreach (MobileItem mobile in _resultList.Values) 
-            {
-               // Console.WriteLine(mobile.MobileSpecification.NAME + "Befor Change Margin " +mobile.Margin);
-                Global.scaleAnimation(mobile, 1, 1, 0.1);
-                mobile.Margin = new Thickness(mobile.Width * count, 200, 0, 0);
-                mainWindow.phoneStack.Children.Add(mobile);
-              //  Console.WriteLine(mobile.MobileSpecification.NAME + "After Change Margin " + mobile.Margin);
-              //  Console.WriteLine("-----------------------------------------------------------------------");
-                count++;
-            }*/
-           /* for (int i = 0; i < _resultList.Count; i++)
-            {
-                MobileItem MBItem = (MobileItem)_resultList[i];
-                mainWindow.phoneStack.Children.Add(MBItem);
-            }*/
+                    NewMobileMargin = new Thickness(resultItem.Width * count, 200, 0, 0);
+                    //resultItem.Margin = NewMobileMargin;
+                    
+                   // Console.WriteLine("------------------------------------------------------");
+                    //Console.WriteLine("New Margin 2 : " + resultItem.Margin);
+                    Global.TransitionAnimation(resultItem.Margin, NewMobileMargin, resultItem, sb, 0, 0.5);
+                    resultItem.Visibility = Visibility.Visible;
+                    count++;
+                }
+                else 
+                {
+                    NewMobileMargin = new Thickness(resultItem.Margin.Left, -800, 0, 0);
+                   // resultItem.Margin = NewMobileMargin;
+                   // Console.WriteLine("New Margin : " + resultItem.Margin);
+                   // Console.WriteLine("----------------------------------------------------");
+                    Global.TransitionAnimation(resultItem.Margin, NewMobileMargin, resultItem, sb, 0, 0.5);
+                    //resultItem.Visibility = Visibility.Collapsed;
+                }
+            
+                
+            }
+            sb.Begin();
+            int count3 = 0;
+
+
             mainWindow.phoneStack.Width = (Constance.phone_Width * maxPhoneItem);
         }
 
@@ -234,7 +282,7 @@ namespace Embassy_Project
                 BeginTime = TimeSpan.FromSeconds(begintime),
                 Duration = TimeSpan.FromSeconds(duration)
             };
-            QuarticEase be = new QuarticEase();
+            CubicEase be = new CubicEase();
             movegrid.EasingFunction = be;
             
             Storyboard.SetTarget(movegrid, MoveItem);
@@ -279,7 +327,7 @@ namespace Embassy_Project
             handler = delegate
             {
                 fadeStoryboard.Completed -= handler;
-
+                fadeStoryboard.Stop();
                 //Console.WriteLine("Complete storyboard");
 
             };

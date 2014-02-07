@@ -29,6 +29,7 @@ namespace Embassy_Project
         public List<PackageItem> ListOfPackage;
         public Storyboard ClickedAnimation;
         public Storyboard aurastart;
+        public Boolean inScreen = false;
         int comparemonth;
 
         public MobileItem() { }

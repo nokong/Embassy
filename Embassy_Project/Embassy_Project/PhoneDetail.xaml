@@ -1248,33 +1248,34 @@
         		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
         		<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
         		<DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Visible}"/>
+        		<DiscreteObjectKeyFrame KeyTime="0:0:1.7" Value="{x:Static Visibility.Visible}"/>
         	</ObjectAnimationUsingKeyFrames>
         	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="note3_Pen">
         		<EasingDoubleKeyFrame KeyTime="0" Value="-134.938"/>
         		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-46.802666666666681"/>
         		<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-2.735"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-83.823"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="-83.823"/>
         	</DoubleAnimationUsingKeyFrames>
         	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="note3_Pen">
         		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
         		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="91"/>
         		<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="136.5"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="321"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="66"/>
         	</DoubleAnimationUsingKeyFrames>
         	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="note3_Pen">
         		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
         		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-314"/>
         		<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-471"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="-540"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="-45"/>
         	</DoubleAnimationUsingKeyFrames>
         </Storyboard>
 	</UserControl.Resources>
-	<UserControl.Triggers>
-		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-			<BeginStoryboard Storyboard="{StaticResource noteanimation2_1}"/>
-		</EventTrigger>
-	</UserControl.Triggers>
-	
-	
 
-	
+
 	<Grid x:Name="MainScene" RenderTransformOrigin="0.5,0.5">
 		<Grid.LayoutTransform>
 			<TransformGroup>

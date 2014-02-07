@@ -57,10 +57,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="IdleScreen.xaml.cs">
+      <DependentUpon>IdleScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SceneManager.cs" />
     <Page Include="CameraItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IdleScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -105,10 +110,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MobileItem.xaml.cs">
@@ -148,6 +149,9 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Resources\note3pad.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\samsung-galaxy-note-3-review-homescreen.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -194,6 +198,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ebook.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\intablets.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\lg-g2-photo-toys-640x480.jpg">
@@ -535,6 +542,7 @@
     <Content Include="Resources\Phone\nametext\blacktext_iPadAir.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Phone\nametext\blacktext_ipadretina.png" />
     <Content Include="Resources\Phone\nametext\blacktext_ipad_mini.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -808,6 +816,7 @@
     <Content Include="Resources\Phone\Specification.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\phone_idle.png" />
     <Content Include="Resources\rectangular_nametext.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -838,6 +847,12 @@
     <Content Include="Resources\tell.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\tvcMONITOR.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\vdo_BG.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\video.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -847,7 +862,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\camera_border.png" />
-    <Resource Include="Resources\Capture.JPG" />
     <Resource Include="Resources\Capture1.JPG" />
     <Resource Include="Resources\correctdraw.png" />
     <Resource Include="Resources\glow.png" />

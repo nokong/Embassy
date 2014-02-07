@@ -32,12 +32,15 @@ namespace Embassy_Project
         public MainWindow()
         {
             InitializeComponent();
-
+           
+           
             System.Diagnostics.Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
+
 
             Global.mainWindow = this;
             Global.detailScene = new PhoneDetail();
             Global.introlScene = new IntrolPage();
+            Global.idleScreen = new IdleScreen();
 
             Canvas.SetZIndex(Scene1, (int)-1);
             Canvas.SetZIndex(Global.detailScene, (int)-1);
@@ -45,6 +48,7 @@ namespace Embassy_Project
 
             mainWindowGrid.Children.Add(Global.detailScene);
             mainWindowGrid.Children.Add(Global.introlScene);
+            mainWindowGrid.Children.Add(Global.idleScreen);
             
 
             HeaderTextUp = (Storyboard)TryFindResource("HeadText_Up");
@@ -65,10 +69,10 @@ namespace Embassy_Project
             
 
 
-            /*CheckIdle = new BackgroundWorker();
-            CheckIdle.DoWork += new DoWorkEventHandler(C);
-            CheckIdle.ProgressChanged += new ProgressChangedEventHandler(UpdateScoroler_ProgressChanged);
-            CheckIdle.WorkerReportsProgress = true;*/
+            CheckIdle = new BackgroundWorker();
+            CheckIdle.DoWork += new DoWorkEventHandler(UpdateIdleTime_DoWork);
+            CheckIdle.ProgressChanged += new ProgressChangedEventHandler(UpdateIdleTime_ProgressChanged);
+            CheckIdle.WorkerReportsProgress = true;
             
 
         }
@@ -102,6 +106,25 @@ namespace Embassy_Project
          
         }
 
+
+        bool TVCPlaying = false;
+        void UpdateIdleTime_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            //Console.WriteLine("Time "+DateTime.Now);
+            TimeSpan CurrentTimes = DateTime.Now - newTouchScreenTime;
+            //Console.WriteLine("New Time" + DateTime.Now + " - Old Time" + newTouchScreenTime + " = " + CurrentTimes);
+            if (CurrentTimes.Seconds > 30 && !TVCPlaying) { Global.idleScreen.TVC_Appear = true; TVCPlaying = true; }
+            else if (CurrentTimes.Seconds < 30 && TVCPlaying) { Global.idleScreen.TVC_Appear = false; TVCPlaying = false; }
+        }
+        void UpdateIdleTime_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                CheckIdle.ReportProgress(0, 0);
+                Thread.Sleep((int)1000);
+            }
+        }
+
         void UpdateScoroler_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
 
@@ -133,6 +156,10 @@ namespace Embassy_Project
 
                
                 //Console.WriteLine("+++      >  Current :" + phoneScroller.CurrentHorizontalOffset + " To " + scrollTo + " diff " + diffSClient);
+            }
+            if (touchScreenDuration.Seconds > (int)10)
+            {
+                Global.idleScreen.Visibility = Visibility.Visible;
             }
         }
         void UpdateScoroler_DoWork(object sender, DoWorkEventArgs e)
@@ -198,6 +225,7 @@ namespace Embassy_Project
                 FunctionList = System.Text.Encoding.UTF8.GetString(content).Split(delimiterChars);
                 processFunction(FunctionList);
             }
+           
         }
         void serverRunner_DoWork(object sender, DoWorkEventArgs doWorke)
         {
@@ -229,7 +257,7 @@ namespace Embassy_Project
                         client_IP = sending_end_point.Address;
                         if (FirstTimeStartProgram)
                         {
-                            //Console.WriteLine(listener.);
+                      
                             
                             IPEndPoint RemoteEndPoint = new IPEndPoint(client_IP, 7777);
                             Socket server = new Socket(AddressFamily.InterNetwork,
@@ -263,7 +291,11 @@ namespace Embassy_Project
             String Function = functionList[0];
             switch (Function)
             {
-                case "Brand": Global.setlistOfBrandFilter(functionList); break;
+                case "Brand": 
+                    
+                                
+                                Global.setlistOfBrandFilter(functionList); 
+                                break; 
                 case "OS": Global.setlistOfOSFilter(functionList); break;
                 case "Price": MobileManager.minPrice = Int32.Parse(functionList[1]);
                     MobileManager.maxPrice = Int32.Parse(functionList[2]);
@@ -280,7 +312,6 @@ namespace Embassy_Project
                             Global.scaleAnimation(Global.lastMobileSelected.frontPhone, 1.87, 1, 0.25, 0.15);
                         }
                         else { mobileReturn = false; }
-                       
                     }
                    
 
@@ -288,7 +319,7 @@ namespace Embassy_Project
 
                    for (int i = 0; i < Global.listOfMobileFillter.Count; i++)
 			       {
-                       if(Global.listOfMobileFillter.ElementAt(i).Key == Global.lastMobileSelectedID)
+                       if(Global.listOfMobileFillter.ElementAt(i).Value.IDPHONE == Global.lastMobileSelectedID)
                        {
                            Global.lastMobileSelected = Global.listOfMobileFillter.ElementAt(i).Value;
                            Global.lastMobileSelectIndex = i;
@@ -379,6 +410,7 @@ namespace Embassy_Project
                        Storyboard sb = new Storyboard();
                        if (i < Global.lastMobileSelectIndex)
                        {
+                           Console.WriteLine("Mobile Margin :"+mobile.Margin);
                            moveOut = new Thickness(-(mobile.Width * moveDistance), 0, 0, 0);  // Thickness for Animation Out of MobileSelected
 
                            sb.FillBehavior = FillBehavior.Stop;
@@ -387,18 +419,27 @@ namespace Embassy_Project
                        }
                        else if (i == Global.lastMobileSelectIndex) 
                        {
-                          HeaderTextUp.Begin();
+                           HeaderTextUp.FillBehavior = FillBehavior.Stop;
+                           HeaderTextUp.Begin();
                            mobile.blurRect.Visibility = Visibility.Visible;
-                          
-                           Global.BlurEffectAnimation(0,100,mobile.blurRect,sb,0.2);
-                           Global.FadeinoutBtn(0, 0, mobile.glow2,sb, 0.5,0);  //fake function for delay
-                            
-                           Global.scaleAnimation(mobile.glow2, 1, 1.3,0.2,0.15);
-                           Global.FadeinoutBtn(0, 1, mobile.glow2,0.2,0.15);
-                           //Global.FadeinoutBtn(0, 1, blurscreen, sb, 0.4, 0.4);
 
-                           Global.scaleAnimation(mobile.frontPhone, 1, 1.87, 0.25, 0.15);
-                          
+                           if (Global.lastMobileSelected.MobileSpecification.NAME == "note3")
+                           {
+                               Global.BlurEffectAnimation(0, 120, mobile.blurRect, sb, 0.2);
+                               Global.FadeinoutBtn(0, 0, mobile.glow2, sb, 0.5, 0);  //fake function for delay
+
+                               Global.scaleAnimation(mobile.glow2, 1, 1.3, 0.2, 0.15);
+                               Global.FadeinoutBtn(0, 1, mobile.glow2, 0.2, 0.15);
+                               Global.FadeinoutBtn(0, 1, blurscreen, sb, 0.4, 0.4);
+
+                               Global.scaleAnimation(mobile.frontPhone, 1, 1.87, 0.25, 0.15);
+                           }
+                           else 
+                           {
+
+                               Global.FadeinoutBtn(0, 0, mobile.glow2, sb, 0, 0);  //fake function for delay
+                               Global.TransitionAnimation(Global.lastMobileSelected.Margin, new Thickness(939, 110, 0, 0), Global.lastMobileSelected,sb,1,0);
+                           }
 
                            EventHandler handler = null;
                            handler = delegate
@@ -423,6 +464,7 @@ namespace Embassy_Project
 
                                if (!Global.detailScene.ScreenAppear)
                                {
+
                                    EventHandler handler2 = null;
                                    handler2 = delegate
                                    {
@@ -443,11 +485,21 @@ namespace Embassy_Project
 
 
                                        Global.FadeinoutBtn(1, 0, Global.introlScene,0.5,1.2);
-                                       MobileManager.returnAllMobile(null);
+                                       //MobileManager.returnAllMobile(null);
                                        //Global.introlScene.Visibility = Visibility.Collapsed;
                                    };
-                                   Global.introlScene.introl_start.Completed += handler2;
-                                   Global.introlScene.introl_start.Begin();
+
+                                   if (Global.lastMobileSelected.MobileSpecification.NAME == "note3")
+                                   {
+                                       Global.introlScene.introl_start.Completed += handler2;
+
+                                       Global.introlScene.introl_start.Begin();
+                                   }
+                                   else 
+                                   {
+                                   
+                                   Global.detailScene.ScreenAppear = true;
+                                   }
 
                                    
                                }
@@ -467,6 +519,7 @@ namespace Embassy_Project
                           // Console.WriteLine("Before minus moveDistance : "+moveDistance);
                           
                           // Console.WriteLine("After minus moveDistance :"+moveDistance);
+                           Console.WriteLine("Mobile Margin :" + mobile.Margin);
                            moveOut = new Thickness(mobile.Margin.Left+(mobile.Width * moveDistance), 0, 0, 0); //Thickness for animation Out Of Mobile
                            //moveOut = new Thickness(mobile.Margin.Left - (mobile.Width * moveDistance),0,0,0);
                            //Global.FadeinoutBtn(1, 0, mobile, 1, 0);
@@ -486,29 +539,29 @@ namespace Embassy_Project
                 case "reccomnd":
                     switch (functionList[1])
                     {
-                        case "NewRelease": MobileManager.sortAndShowMobile(MobileManager.SortBy.NewRelease); break;
-                        case "BestSell": MobileManager.sortAndShowMobile(MobileManager.SortBy.BestSell); break;
-                        case "Recommend": MobileManager.sortAndShowMobile(MobileManager.SortBy.Recommend); break;
+                        case "NewRelease": MobileManager.sortAndShowMobile(MobileManager.SortBy.NewRelease); phoneScroller.ScrollToHome(); ; break;
+                        case "BestSell": MobileManager.sortAndShowMobile(MobileManager.SortBy.BestSell); phoneScroller.ScrollToHome(); break;
+                        case "Recommend": MobileManager.sortAndShowMobile(MobileManager.SortBy.Recommend); phoneScroller.ScrollToHome(); break;
                     }
                     break;
                 case "Time":
-
                     newTouchScreenTime = DateTime.Parse(functionList[1]);
-                    TimeSpan touchTimePeriod = newTouchScreenTime - oldTouchScreenTime;
-                   
-                    Console.WriteLine("New Time" + newTouchScreenTime + " - Old Time" + oldTouchScreenTime + " = " + touchTimePeriod);
 
-                    oldTouchScreenTime = newTouchScreenTime;
+                    //touchScreenDuration = newTouchScreenTime - oldTouchScreenTime;
+
+                    //oldTouchScreenTime = newTouchScreenTime;
+                    //touchScreenDuration = touchTimePeriod;
                     break;
             }
             if (!Function.Equals("SelectPhone")&&!Function.Equals("Time"))
             {
-               /* if (Global.detailScene != null && Global.detailScene.ScreenAppear)
+                if (Global.detailScene != null && Global.detailScene.ScreenAppear)
                 {
                     Global.detailScene.ScreenAppear = false;
                     mobileReturn = true;
                     //Global.inDetail = false;
-                }*/
+                }
+                
                 MobileManager.fliterMobileFromClient();
                 
             }
@@ -519,6 +572,7 @@ namespace Embassy_Project
          
             ServerRunner.RunWorkerAsync();
             UpdateScroller.RunWorkerAsync();
+            CheckIdle.RunWorkerAsync();
         	// TODO: Add event handler implementation here.
         }
 
@@ -584,6 +638,7 @@ namespace Embassy_Project
 
         public DateTime newTouchScreenTime = DateTime.Now;
         public DateTime oldTouchScreenTime = DateTime.Now;
+        public TimeSpan touchScreenDuration;
 
         #endregion
 
