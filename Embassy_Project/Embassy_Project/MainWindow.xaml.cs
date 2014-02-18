@@ -20,22 +20,24 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Diagnostics;
 
-
 namespace Embassy_Project
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
-      
+
+   
+
         public MainWindow()
         {
             InitializeComponent();
            
            
             System.Diagnostics.Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
-
 
             Global.mainWindow = this;
             Global.detailScene = new PhoneDetail();
@@ -113,8 +115,8 @@ namespace Embassy_Project
             //Console.WriteLine("Time "+DateTime.Now);
             TimeSpan CurrentTimes = DateTime.Now - newTouchScreenTime;
             //Console.WriteLine("New Time" + DateTime.Now + " - Old Time" + newTouchScreenTime + " = " + CurrentTimes);
-            if (CurrentTimes.Seconds > 30 && !TVCPlaying) { Global.idleScreen.TVC_Appear = true; TVCPlaying = true; }
-            else if (CurrentTimes.Seconds < 30 && TVCPlaying) { Global.idleScreen.TVC_Appear = false; TVCPlaying = false; }
+            if (CurrentTimes.Seconds > 5 && !TVCPlaying) { Global.idleScreen.TVC_Appear = true; TVCPlaying = true; }
+            else if (CurrentTimes.Seconds < 5 && TVCPlaying) { Global.idleScreen.TVC_Appear = false; TVCPlaying = false; }
         }
         void UpdateIdleTime_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -410,7 +412,7 @@ namespace Embassy_Project
                        Storyboard sb = new Storyboard();
                        if (i < Global.lastMobileSelectIndex)
                        {
-                           Console.WriteLine("Mobile Margin :"+mobile.Margin);
+                           //Console.WriteLine("Mobile Margin :"+mobile.Margin);
                            moveOut = new Thickness(-(mobile.Width * moveDistance), 0, 0, 0);  // Thickness for Animation Out of MobileSelected
 
                            sb.FillBehavior = FillBehavior.Stop;
@@ -489,7 +491,7 @@ namespace Embassy_Project
                                        //Global.introlScene.Visibility = Visibility.Collapsed;
                                    };
 
-                                   if (Global.lastMobileSelected.MobileSpecification.NAME == "note3")
+                                   if (Global.lastMobileSelected.MobileSpecification.NAME == "note3" || Global.lastMobileSelected.MobileSpecification.NAME == "iphone5s")
                                    {
                                        Global.introlScene.introl_start.Completed += handler2;
 

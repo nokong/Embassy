@@ -815,6 +815,7 @@
     </Content>
     <Content Include="Resources\Phone\Specification.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Resource Include="Resources\phone_idle.png" />
     <Content Include="Resources\rectangular_nametext.png">

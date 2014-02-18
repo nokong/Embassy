@@ -36,7 +36,7 @@
 
   <Phone>
 	<ModelPath>Resources\\Phone\\phonemodel\\phonemodel_ipad_retina.png</ModelPath>
-	<LogoPath>Resources\\Phone\\nametext\\blacktext_iPad_miniretina.png</LogoPath>
+	<LogoPath>Resources\\Phone\\nametext\\blacktext_ipadretina.png</LogoPath>
     <WhiteLogoPath>Resources\\Phone\\nametext_white\\whitetext_ipad_retina.png</WhiteLogoPath>
     <name>ipad_retina</name>
     <price>20500</price>

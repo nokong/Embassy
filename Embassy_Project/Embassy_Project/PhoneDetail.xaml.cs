@@ -134,8 +134,6 @@ namespace Embassy_Project
              int countStoryboard = 0;
              int countChild = 0;
 
-          
-
 
             foreach (Storyboard note8Storyboard in listOfAnimationNote8)
             {
@@ -272,10 +270,15 @@ namespace Embassy_Project
                     {
                         note3_Pen.Visibility = Visibility.Visible; 
                         animationNote8_1.Begin(this);
+                        this.phoneModel.Grid_screen.Visibility = Visibility.Visible;
                         this.phoneModel.screen1.Visibility = Visibility.Visible;
                         this.phoneModel.screen2.Visibility = Visibility.Visible;
                     }
-                    else 
+                    else if (Global.lastMobileSelected.MobileSpecification.NAME == "iphone5s") 
+                    {
+                        
+                    }
+                    else
                     {
                         note3_Pen.Visibility = Visibility.Collapsed;
 
@@ -299,14 +302,13 @@ namespace Embassy_Project
                         pic_circle.Opacity = 0;
                         pic_circle.Height = 5;
                         pic_circle_Copy.Width = 5;
-                        
+
                         heartLeft.Visibility = Visibility.Collapsed;
                         heartLeft.Opacity = 0;
                         heartCenter1.Width = 5;
                         heartRight1.Height = 5;
 
-                        this.phoneModel.screen1.Visibility = Visibility.Hidden;
-                        this.phoneModel.screen2.Visibility = Visibility.Hidden;
+
 
 
                     }
@@ -396,6 +398,19 @@ namespace Embassy_Project
         {
             Detail_Out.Stop();
             Detailin.Stop();
+
+            animationNote8_1.Stop();
+            animationNote8_2.Stop();
+            animationNote8_3.Stop();
+            animationNote8_4.Stop();
+            animationNote8_5.Stop();                                                                                                                                                                                
+            animationNote8_6.Stop();
+            animationNote8_7.Stop();
+            this.phoneModel.PageSwip.Stop();
+            this.phoneModel.Grid_screen.Visibility = Visibility.Hidden;
+            this.phoneModel.screen1.Visibility = Visibility.Hidden;
+            this.phoneModel.screen2.Visibility = Visibility.Hidden;
+
 
             setContentOpacity(0);
             CameraiTime.camera_image.Opacity = 1;

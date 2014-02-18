@@ -1696,6 +1696,7 @@
 					<Image x:Name="heartRight" Source="Resources/heartRight.png" Stretch="Fill" Width="183.761" Height="184.59"/>
 				</Canvas>
 			</Canvas>
+			<Image Margin="-90,-375,0,-60.861" Source="Resources/detailscreen.png" Stretch="Fill"/>
 		</Grid>
 	</Grid>
 </UserControl>

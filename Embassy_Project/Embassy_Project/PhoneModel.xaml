@@ -19,7 +19,7 @@
 
 	<Grid x:Name="grid_Phone">
 		<Image x:Name="phoneModel" Source="Resources/Phone/phonemodel/phonemodel_note3.png"/>
-		<Grid Margin="18.5,76.5,22,70" ClipToBounds="True">
+		<Grid x:Name="Grid_screen" Margin="18.5,76.5,22,70" ClipToBounds="True">
 			<Image x:Name="screen2" Source="pack://siteoforigin:,,,/Resources/samsung-galaxy-note-3-review-homescreen.jpg" Stretch="Fill"/>
 			<Image x:Name="screen1" Source="Resources/Capture1.JPG" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
 				<Image.RenderTransform>
